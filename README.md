@@ -4,7 +4,7 @@
 
   - Bootstrap
   - HTML5
-  - CSS3
+  - CSS3 > SASS
   - Flexbox
   - Mobile first & Responsive web Design
   - GITHUB
