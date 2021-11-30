@@ -1,7 +1,0 @@
-AuthUserFile /homepage/txt/protected/.htpasswd 
-AuthGroupFile /dev/null 
-AuthName Portfolio Enrique Saez * Please insert password" 
-AuthType Basic 
-<Limit GET> 
-require user guest 
-</Limit> 
