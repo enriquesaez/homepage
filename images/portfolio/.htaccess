@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Introduzca usuario y contraseña"
+AuthUserFile /homepage/portfolio/.htpasswd
+require valid-user
