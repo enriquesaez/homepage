@@ -6,7 +6,7 @@
         "minimap.background": "#131313",
         "editor.background": "#161616",
         "sideBar.background": "#1b1b1b",
-        "statusBar.background": "#343434",
+        "statusBar.background": "#1d1d1d",
         "statusBar.foreground": "#979797"
     },
 }
