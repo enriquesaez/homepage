@@ -1,8 +1,8 @@
 body {
-  background-color: #434c50;
+  background-color: #e4e4e4;
   min-height: 100vh;
   font: normal 16px sans-serif;
-  padding: 40px 0;
+  padding: 0px;
 }
 
 .container.gallery-container {
@@ -15,8 +15,6 @@ body {
 .gallery-container h1 {
   text-align: center;
   margin-top: 50px;
-  font-family: 'Droid Sans', sans-serif;
-  font-weight: bold;
 }
 
 .gallery-container p.page-description {
@@ -27,12 +25,12 @@ body {
 }
 
 .tz-gallery {
-  padding: 40px;
+  padding: 0px;
 }
 
 /* Override bootstrap column paddings */
 .tz-gallery .row > div {
-  padding: 2px;
+  padding: 4px;
 }
 
 .tz-gallery .lightbox img {
