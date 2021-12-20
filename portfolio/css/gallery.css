@@ -5,6 +5,16 @@ body {
   padding: 0px;
 }
 
+body a {
+  color: #999;
+  transition: 0.3s;
+}
+
+body a:hover {
+  color: #636363;
+  text-decoration: none;
+}
+
 .container.gallery-container {
   background-color: #fff;
   color: #35373a;
