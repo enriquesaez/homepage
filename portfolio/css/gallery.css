@@ -1,22 +1,22 @@
 body {
-  background-color: #e4e4e4;
+  background-color: #323232;
   min-height: 100vh;
   font: normal 16px sans-serif;
   padding: 0px;
 }
 
 body a {
-  color: #999;
+  color: #307095;
   transition: 0.3s;
 }
 
 body a:hover {
-  color: #636363;
+  color: #00273f;
   text-decoration: none;
 }
 
 .container.gallery-container {
-  background-color: #fff;
+  background-color: #ebebeb;
   color: #35373a;
   min-height: 100vh;
   padding: 30px 50px;
@@ -24,14 +24,11 @@ body a:hover {
 
 .gallery-container h1 {
   text-align: center;
-  margin-top: 50px;
-}
-
-.gallery-container p.page-description {
-  text-align: center;
-  margin: 25px auto;
-  font-size: 18px;
-  color: #999;
+  margin: 50px auto;
+  font-family: 'Rosario', sans-serif;
+  font-weight: 800;
+  font-size: 4vh;
+  color: #3232328a;
 }
 
 .tz-gallery {
