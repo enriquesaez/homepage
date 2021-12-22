@@ -3,8 +3,13 @@ body {
   min-height: 100vh;
   font: normal 16px sans-serif;
   padding: 0px;
+  background-attachment: scroll, fixed;
+  background-image: url(../../images/mask.png), url(../../images/bground.jpg);
+  /* url("../../assets/css/images/pexels-photo-129208.jpg");*/
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
 body a {
   color: #307095;
   transition: 0.3s;
@@ -20,6 +25,7 @@ body a:hover {
   color: #35373a;
   min-height: 100vh;
   padding: 30px 50px;
+  margin-top: 3em;
 }
 
 .gallery-container h1 {
@@ -41,8 +47,17 @@ body a:hover {
 }
 
 .tz-gallery .row div .title-work {
+  font-family: 'Rosario', sans-serif;
+  font-size: 1.1em;
+  font-weight: 700;
   padding: 0px;
-  margin: 14px auto;
+  margin:10px auto 20px;
+}
+
+.tz-gallery .row div .title-work span {
+  margin-left: 0.5em;
+  font-weight: 400;
+
 }
 
 /* Override bootstrap column paddings */
@@ -94,8 +109,18 @@ body a:hover {
   background-color: transparent !important;
 }
 
-@media(max-width: 768px) {
+@media(max-width: 768px) and (min-width: 0px) {
   body {
       padding: 0;
+  }
+  .container.gallery-container {
+    margin-top: 0em;
+    padding: 24px 30px;
+  }
+}
+
+@media(max-width: 768px) and (min-width: 768px) {
+  .container {
+    width: 768px;
   }
 }
