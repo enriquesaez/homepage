@@ -26,6 +26,7 @@ body a:hover {
   min-height: 100vh;
   padding: 30px 50px;
   margin-top: 3em;
+  border-radius: 12px;
 }
 
 .gallery-container h1 {
@@ -34,6 +35,7 @@ body a:hover {
   font-family: 'Rosario', sans-serif;
   font-weight: 800;
   font-size: 4vh;
+  letter-spacing: 6px;
   color: #3232328a;
 }
 
@@ -57,7 +59,7 @@ body a:hover {
 .tz-gallery .row div .title-work span {
   margin-left: 0.5em;
   font-weight: 400;
-
+  color: #5c5c5c;
 }
 
 /* Override bootstrap column paddings */
@@ -116,6 +118,7 @@ body a:hover {
   .container.gallery-container {
     margin-top: 0em;
     padding: 24px 30px;
+    border-radius: unset;
   }
 }
 
