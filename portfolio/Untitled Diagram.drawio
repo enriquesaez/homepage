@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-03-29T09:06:01.190Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36" etag="QAFfVvecPk3w19KPWk8J" version="17.2.4" type="github">
+<mxfile host="app.diagrams.net" modified="2022-03-29T09:21:31.758Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36" etag="95DYbfpguk3O10S1npM2" version="17.2.4" type="github">
   <diagram name="Page-1" id="b520641d-4fe3-3701-9064-5fc419738815">
-    <mxGraphModel dx="781" dy="1063" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="1">
+    <mxGraphModel dx="2316" dy="1924" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="1">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -169,9 +169,6 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="n5QsFFlIIkBd-EJtn_40-88" value="Label" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;fontFamily=Verdana;fontSize=11;fontColor=#303030;strokeColor=default;strokeWidth=1;fillColor=#7EA6E0;gradientColor=none;" connectable="0" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-87">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
         <mxCell id="n5QsFFlIIkBd-EJtn_40-89" value="" style="endArrow=classic;html=1;rounded=0;fontFamily=Verdana;fontSize=11;fontColor=#303030;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="tPE-32FipRdGpnMbUiPh-16" target="n5QsFFlIIkBd-EJtn_40-1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="670" y="290" as="sourcePoint" />
@@ -180,18 +177,6 @@
               <mxPoint x="650" y="275" />
             </Array>
           </mxGeometry>
-        </mxCell>
-        <mxCell id="n5QsFFlIIkBd-EJtn_40-90" value="Label" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;fontFamily=Verdana;fontSize=11;fontColor=#303030;strokeColor=default;strokeWidth=1;fillColor=#7EA6E0;gradientColor=none;" connectable="0" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-89">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="n5QsFFlIIkBd-EJtn_40-91" value="" style="endArrow=classic;html=1;rounded=0;fontFamily=Verdana;fontSize=11;fontColor=#303030;" edge="1" parent="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1200" y="370" as="sourcePoint" />
-            <mxPoint x="1300" y="370" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="n5QsFFlIIkBd-EJtn_40-92" value="Label" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;fontFamily=Verdana;fontSize=11;fontColor=#303030;strokeColor=default;strokeWidth=1;fillColor=#7EA6E0;gradientColor=none;" connectable="0" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-91">
-          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="n5QsFFlIIkBd-EJtn_40-93" value="" style="endArrow=classic;html=1;rounded=0;fontFamily=Verdana;fontSize=11;fontColor=#303030;" edge="1" parent="1" source="n5QsFFlIIkBd-EJtn_40-30" target="n5QsFFlIIkBd-EJtn_40-95">
           <mxGeometry relative="1" as="geometry">
@@ -210,11 +195,8 @@
         <mxCell id="n5QsFFlIIkBd-EJtn_40-102" value="" style="swimlane;startSize=0;fontFamily=Verdana;fontSize=11;fontColor=#303030;strokeColor=default;strokeWidth=1;fillColor=#7EA6E0;gradientColor=none;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-95">
           <mxGeometry y="30" width="240" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="n5QsFFlIIkBd-EJtn_40-104" value="&lt;font color=&quot;#ffffff&quot; style=&quot;line-height: 1.5 ; font-size: 14px&quot;&gt;CENTROS: ¿NECESITAMOS QUE TENGA SU PROPIA URL O PODRÍA INTEGRARSE EN UN DESPLEGABLE EN EL MENÚ PRINCIPAL?&lt;/font&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.rectCallout;dx=30;dy=15;boundedLbl=1;fontFamily=Helvetica;fontSize=14;fontColor=#303030;strokeColor=default;strokeWidth=1;fillColor=#7EA6E0;gradientColor=none;" vertex="1" parent="1">
-          <mxGeometry x="420" y="-300" width="320" height="110" as="geometry" />
-        </mxCell>
         <mxCell id="n5QsFFlIIkBd-EJtn_40-106" value="FICHA VEHICULO" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=default;gradientColor=none;swimlaneFillColor=default;strokeWidth=2;perimeterSpacing=0;rounded=1;shadow=1;sketch=0;glass=0;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="530" y="760" width="240" height="180" as="geometry">
+          <mxGeometry x="530" y="800" width="240" height="210" as="geometry">
             <mxRectangle x="530" y="420" width="70" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -224,14 +206,36 @@
         <mxCell id="n5QsFFlIIkBd-EJtn_40-113" value="Slide-show emergente" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;strokeWidth=2;fontStyle=0;fontSize=14;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-106">
           <mxGeometry y="60" width="240" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="n5QsFFlIIkBd-EJtn_40-116" value="Quiero reservarlo" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;strokeWidth=2;fontStyle=0;fontSize=14;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-106">
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-121" value="Informe Carfax" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;strokeWidth=2;fontStyle=0;fontSize=14;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-106">
           <mxGeometry y="90" width="240" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="n5QsFFlIIkBd-EJtn_40-114" value="Equipamiento destacado" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;strokeWidth=2;fontStyle=0;fontSize=14;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-106">
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-116" value="Quiero reservarlo" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;strokeWidth=2;fontStyle=0;fontSize=14;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-106">
           <mxGeometry y="120" width="240" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="n5QsFFlIIkBd-EJtn_40-115" value="Datos técnicos" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;strokeWidth=2;fontStyle=0;fontSize=14;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-106">
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-114" value="Equipamiento destacado" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;strokeWidth=2;fontStyle=0;fontSize=14;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-106">
           <mxGeometry y="150" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-115" value="Datos técnicos" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;strokeWidth=2;fontStyle=0;fontSize=14;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-106">
+          <mxGeometry y="180" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-119" value="" style="endArrow=classic;html=1;rounded=0;fontFamily=Helvetica;fontSize=14;fontColor=#FFFFFF;entryX=-0.008;entryY=0.106;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="n5QsFFlIIkBd-EJtn_40-4" target="n5QsFFlIIkBd-EJtn_40-106">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="720" as="sourcePoint" />
+            <mxPoint x="460" y="780" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="460" y="625" />
+              <mxPoint x="460" y="820" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-123" value="&lt;font color=&quot;#303030&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;Simulador Financiero...&lt;br&gt;¿Ventana Modal? ¿integrado en la pantalla como dropdown?&lt;br&gt;Rediseño UI&lt;br&gt;&lt;/span&gt;&lt;/font&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.rectCallout;dx=30;dy=15;boundedLbl=1;fontFamily=Helvetica;fontSize=14;strokeColor=#36393d;strokeWidth=1;fillColor=#cce5ff;" vertex="1" parent="1">
+          <mxGeometry x="790" y="850" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-124" value="&lt;font style=&quot;line-height: 1.5 ; font-size: 12px&quot; color=&quot;#303030&quot;&gt;Centros: ¿Necesitamos que este contenido tenga su propia URL o podría integrarse en un dropdown como opción desplegagle del elemento Centros del menú principal?&lt;/font&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.rectCallout;dx=30;dy=15;boundedLbl=1;fontFamily=Helvetica;fontSize=14;strokeColor=#36393d;strokeWidth=1;fillColor=#cce5ff;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="-40" width="270" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-125" value="&lt;font color=&quot;#303030&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;Galería de fotos de &quot;extras principales&quot;...&amp;nbsp;&lt;/span&gt;&lt;/font&gt;&lt;span style=&quot;color: rgb(48 , 48 , 48) ; font-size: 12px&quot;&gt;se suprime esta opción y queda&amp;nbsp;&lt;/span&gt;&lt;font color=&quot;#303030&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;integrada dentro del slide-show principal con las fotos del coche.&lt;br&gt;&lt;/span&gt;&lt;/font&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.rectCallout;dx=30;dy=15;boundedLbl=1;fontFamily=Helvetica;fontSize=14;strokeColor=#36393d;strokeWidth=1;fillColor=#cce5ff;" vertex="1" parent="1">
+          <mxGeometry x="790" y="990" width="200" height="130" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
