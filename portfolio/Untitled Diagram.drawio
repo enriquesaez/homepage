@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-03-29T07:58:24.375Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36" etag="y3WG7hkvtKV9F3J9wd38" version="17.2.4" type="github">
+<mxfile host="app.diagrams.net" modified="2022-03-29T08:15:48.539Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36" etag="-voj5Jcc8-ZEw7U-qLMK" version="17.2.4" type="github">
   <diagram name="Page-1" id="b520641d-4fe3-3701-9064-5fc419738815">
-    <mxGraphModel dx="1698" dy="953" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1181" dy="663" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -9,10 +9,27 @@
             <mxRectangle x="50" y="140" width="70" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="tPE-32FipRdGpnMbUiPh-5" value="Menú principal" style="text;strokeColor=none;fillColor=#1ba1e2;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;strokeWidth=2;fontStyle=0;fontSize=14;fontColor=#ffffff;" parent="tPE-32FipRdGpnMbUiPh-1" vertex="1">
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-27" value="Menú Principal" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontFamily=Helvetica;fontSize=14;strokeWidth=1;fillColor=#1ba1e2;strokeColor=#006EAF;swimlaneFillColor=default;fontColor=#ffffff;" vertex="1" collapsed="1" parent="tPE-32FipRdGpnMbUiPh-1">
+          <mxGeometry y="30" width="240" height="30" as="geometry">
+            <mxRectangle y="30" width="240" height="180" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-28" value="Comprar un coche" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontFamily=Helvetica;fontSize=11;fontColor=default;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-27">
           <mxGeometry y="30" width="240" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="tPE-32FipRdGpnMbUiPh-9" value="Banners campañas" style="text;strokeColor=#8C8C8C;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;strokeWidth=1;fontStyle=0;fontSize=14;" parent="tPE-32FipRdGpnMbUiPh-1" vertex="1">
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-29" value="Vendo mi coche" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontFamily=Helvetica;fontSize=11;fontColor=default;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-27">
+          <mxGeometry y="60" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-30" value="Alquiler de vehículos" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontFamily=Helvetica;fontSize=11;fontColor=default;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-27">
+          <mxGeometry y="90" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-31" value="Dropdown -  Centros OcasionPlus" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontFamily=Helvetica;fontSize=11;fontColor=default;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-27">
+          <mxGeometry y="120" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-32" value="Dropdown -  Datos Contacto" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontFamily=Helvetica;fontSize=11;fontColor=default;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-27">
+          <mxGeometry y="150" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-39" value="Banners campañas" style="text;strokeColor=#8C8C8C;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;strokeWidth=1;fontStyle=0;fontSize=14;" vertex="1" parent="tPE-32FipRdGpnMbUiPh-1">
           <mxGeometry y="60" width="240" height="30" as="geometry" />
         </mxCell>
         <mxCell id="tPE-32FipRdGpnMbUiPh-10" value="Busqueda categoría" style="text;strokeColor=#8C8C8C;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;strokeWidth=1;fontStyle=0;fontSize=14;" parent="tPE-32FipRdGpnMbUiPh-1" vertex="1">
@@ -39,11 +56,31 @@
         <mxCell id="tPE-32FipRdGpnMbUiPh-19" value="Bullets de info + URLs" style="text;strokeColor=#8C8C8C;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;strokeWidth=1;fontStyle=0;fontSize=14;" parent="tPE-32FipRdGpnMbUiPh-1" vertex="1">
           <mxGeometry y="300" width="240" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="tPE-32FipRdGpnMbUiPh-20" value="Footer" style="text;strokeColor=none;fillColor=#363636;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;strokeWidth=2;fontStyle=0;fontSize=14;fontColor=#ffffff;" parent="tPE-32FipRdGpnMbUiPh-1" vertex="1">
-          <mxGeometry y="330" width="240" height="30" as="geometry" />
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-43" value="Footer" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontFamily=Verdana;fontSize=14;strokeWidth=1;swimlaneFillColor=default;fillColor=#383838;fontColor=#FFFFFF;" vertex="1" collapsed="1" parent="tPE-32FipRdGpnMbUiPh-1">
+          <mxGeometry y="330" width="240" height="30" as="geometry">
+            <mxRectangle y="330" width="240" height="210" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-44" value="Logo | Legal | etc." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontFamily=Helvetica;fontSize=11;fontColor=default;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-43">
+          <mxGeometry y="30" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-45" value="Zonas pulsables de contacto, telf., email, etc." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontFamily=Helvetica;fontSize=11;fontColor=default;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-43">
+          <mxGeometry y="60" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-46" value="Enlaces por Marca, Tipo, Modelo" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontFamily=Helvetica;fontSize=11;fontColor=default;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-43">
+          <mxGeometry y="90" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-47" value="Centros | Talleres" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontFamily=Helvetica;fontSize=11;fontColor=default;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-43">
+          <mxGeometry y="120" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-48" value="Sobre Ocasion Plus | Blog" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontFamily=Helvetica;fontSize=11;fontColor=default;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-43">
+          <mxGeometry y="150" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-49" value="Redes Sociales" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontFamily=Helvetica;fontSize=11;fontColor=default;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-43">
+          <mxGeometry y="180" width="240" height="30" as="geometry" />
         </mxCell>
         <mxCell id="n5QsFFlIIkBd-EJtn_40-1" value="LISTADO VEHÍCULOS" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=default;gradientColor=none;swimlaneFillColor=default;strokeWidth=2;perimeterSpacing=0;rounded=1;shadow=1;sketch=0;glass=0;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="810" y="500" width="240" height="240" as="geometry">
+          <mxGeometry x="530" y="420" width="240" height="210" as="geometry">
             <mxRectangle x="50" y="140" width="70" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -53,12 +90,9 @@
         <mxCell id="n5QsFFlIIkBd-EJtn_40-4" value="Listado ordenado coches" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;strokeWidth=2;fontStyle=0;fontSize=14;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-1">
           <mxGeometry y="60" width="240" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="n5QsFFlIIkBd-EJtn_40-5" value="Área otros enlaces" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;strokeWidth=2;fontStyle=0;fontSize=14;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-1">
-          <mxGeometry y="90" width="240" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="n5QsFFlIIkBd-EJtn_40-22" value="Listado URLs" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontFamily=Helvetica;fontSize=14;strokeWidth=1;fillColor=#cdeb8b;strokeColor=#36393d;gradientColor=none;swimlaneFillColor=default;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-1">
-          <mxGeometry y="120" width="240" height="120" as="geometry">
-            <mxRectangle y="120" width="240" height="30" as="alternateBounds" />
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-22" value="Área otros enlaces" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontFamily=Helvetica;fontSize=14;strokeWidth=1;fillColor=#EBEBEB;strokeColor=#36393d;gradientColor=none;swimlaneFillColor=default;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-1">
+          <mxGeometry y="90" width="240" height="120" as="geometry">
+            <mxRectangle y="90" width="240" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
         <mxCell id="n5QsFFlIIkBd-EJtn_40-23" value="Mejores marcas" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontFamily=Helvetica;fontSize=11;fontColor=default;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-22">
@@ -70,22 +104,14 @@
         <mxCell id="n5QsFFlIIkBd-EJtn_40-25" value="Tipos de carrocerías: Suv, turismos, etc." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontFamily=Helvetica;fontSize=11;fontColor=default;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-22">
           <mxGeometry y="90" width="240" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="n5QsFFlIIkBd-EJtn_40-27" value="Elementos de menú" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontFamily=Helvetica;fontSize=14;strokeWidth=1;fillColor=#cdeb8b;strokeColor=#36393d;gradientColor=none;swimlaneFillColor=default;" vertex="1" parent="1">
-          <mxGeometry x="1170" y="365" width="240" height="150" as="geometry">
-            <mxRectangle x="1170" y="365" width="240" height="30" as="alternateBounds" />
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-41" value="" style="endArrow=classic;html=1;rounded=0;fontFamily=Helvetica;fontSize=11;fontColor=default;entryX=0.204;entryY=-0.003;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="n5QsFFlIIkBd-EJtn_40-39" target="n5QsFFlIIkBd-EJtn_40-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580" y="130" as="sourcePoint" />
+            <mxPoint x="680" y="310" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="580" y="125" />
+            </Array>
           </mxGeometry>
-        </mxCell>
-        <mxCell id="n5QsFFlIIkBd-EJtn_40-28" value="Comprar un coche" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontFamily=Helvetica;fontSize=11;fontColor=default;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-27">
-          <mxGeometry y="30" width="240" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="n5QsFFlIIkBd-EJtn_40-29" value="Vendo mi coche" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontFamily=Helvetica;fontSize=11;fontColor=default;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-27">
-          <mxGeometry y="60" width="240" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="n5QsFFlIIkBd-EJtn_40-30" value="Alquiler de vehículos" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontFamily=Helvetica;fontSize=11;fontColor=default;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-27">
-          <mxGeometry y="90" width="240" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="n5QsFFlIIkBd-EJtn_40-31" value="Centros OcasionPlus" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontFamily=Helvetica;fontSize=11;fontColor=default;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-27">
-          <mxGeometry y="120" width="240" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
