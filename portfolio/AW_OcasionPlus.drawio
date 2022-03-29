@@ -1,9 +1,14 @@
-<mxfile host="app.diagrams.net" modified="2022-03-29T14:48:23.222Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36" etag="VNehMyE_zuBwAqpfQ0sw" version="17.2.4" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2022-03-29T14:50:03.529Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36" etag="FC26fj6-yJPKIL1u5Zvk" version="17.2.4" type="github" pages="2">
   <diagram id="7TJwS3-S8lummZFNCx_6" name="Esquema simple">
     <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="hH7S2N7DsJzPN4FuOSND-26" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;dashed=1;fontFamily=Verdana;fontSize=11;fontColor=#404040;strokeColor=#ADADAD;" edge="1" parent="1" source="hH7S2N7DsJzPN4FuOSND-1" target="hH7S2N7DsJzPN4FuOSND-23">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="880" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="hH7S2N7DsJzPN4FuOSND-1" value="HOME" style="rounded=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="980" y="410" width="175.41" height="40" as="geometry" />
         </mxCell>
@@ -63,6 +68,17 @@
         </mxCell>
         <mxCell id="hH7S2N7DsJzPN4FuOSND-21" value="&lt;font color=&quot;#404040&quot;&gt;NIVEL 2&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;shadow=0;fontFamily=Verdana;fontSize=11;fontColor=#696969;" vertex="1" parent="1">
           <mxGeometry x="480" y="630" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="hH7S2N7DsJzPN4FuOSND-23" value="RENTALPLUS.ES" style="rounded=1;strokeColor=#A6A6A6;fontColor=#8C8C8C;" vertex="1" parent="1">
+          <mxGeometry x="809.99875" y="360" width="142.97" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="hH7S2N7DsJzPN4FuOSND-24" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;dashed=1;fontFamily=Verdana;fontSize=11;fontColor=#383838;strokeColor=#ADADAD;" edge="1" parent="1" target="hH7S2N7DsJzPN4FuOSND-25">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1160" y="430" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hH7S2N7DsJzPN4FuOSND-25" value="CONCESIONARIOS" style="rounded=1;fontColor=#8C8C8C;strokeColor=#A6A6A6;" vertex="1" parent="1">
+          <mxGeometry x="1169.99875" y="360" width="142.97" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
