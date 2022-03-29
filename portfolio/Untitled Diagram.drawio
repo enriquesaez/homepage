@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-03-29T08:16:52.815Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36" etag="b6Kk75pyDto_PFtuI7Em" version="17.2.4" type="github">
+<mxfile host="app.diagrams.net" modified="2022-03-29T08:26:06.339Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36" etag="cG8xoUyY5kezd7SvxtaO" version="17.2.4" type="github">
   <diagram name="Page-1" id="b520641d-4fe3-3701-9064-5fc419738815">
-    <mxGraphModel dx="2469" dy="1385" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1698" dy="953" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -80,8 +80,8 @@
           <mxGeometry y="180" width="240" height="30" as="geometry" />
         </mxCell>
         <mxCell id="n5QsFFlIIkBd-EJtn_40-1" value="LISTADO VEHÍCULOS" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=default;gradientColor=none;swimlaneFillColor=default;strokeWidth=2;perimeterSpacing=0;rounded=1;shadow=1;sketch=0;glass=0;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="280" y="425" width="240" height="210" as="geometry">
-            <mxRectangle x="50" y="140" width="70" height="30" as="alternateBounds" />
+          <mxGeometry x="530" y="420" width="240" height="210" as="geometry">
+            <mxRectangle x="530" y="420" width="70" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
         <mxCell id="n5QsFFlIIkBd-EJtn_40-3" value="Sidebar - Filtros avanzados" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;strokeWidth=2;fontStyle=0;fontSize=14;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-1">
@@ -112,6 +112,55 @@
               <mxPoint x="580" y="125" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-58" value="" style="endArrow=classic;html=1;rounded=0;fontFamily=Verdana;fontSize=11;fontColor=#FFFFFF;entryX=0.292;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="tPE-32FipRdGpnMbUiPh-10" target="n5QsFFlIIkBd-EJtn_40-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="720" y="340" as="sourcePoint" />
+            <mxPoint x="820" y="340" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="600" y="155" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-60" value="" style="endArrow=classic;html=1;rounded=0;fontFamily=Verdana;fontSize=11;fontColor=#FFFFFF;entryX=0.372;entryY=-0.012;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="tPE-32FipRdGpnMbUiPh-11" target="n5QsFFlIIkBd-EJtn_40-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="720" y="340" as="sourcePoint" />
+            <mxPoint x="820" y="340" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="620" y="185" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-62" value="" style="endArrow=classic;html=1;rounded=0;fontFamily=Verdana;fontSize=11;fontColor=#FFFFFF;entryX=0.436;entryY=0.002;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="tPE-32FipRdGpnMbUiPh-12" target="n5QsFFlIIkBd-EJtn_40-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="720" y="340" as="sourcePoint" />
+            <mxPoint x="820" y="340" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="635" y="215" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-64" value="TASADOR VEHÍCULOS" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=default;gradientColor=none;swimlaneFillColor=default;strokeWidth=2;perimeterSpacing=0;rounded=1;shadow=1;sketch=0;glass=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="425" width="240" height="180" as="geometry">
+            <mxRectangle x="1080" y="425" width="70" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-66" value="Componente Tasador" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;strokeWidth=2;fontStyle=0;fontSize=14;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-64">
+          <mxGeometry y="30" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-67" value="Área otros enlaces" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontFamily=Helvetica;fontSize=14;strokeWidth=1;fillColor=#EBEBEB;strokeColor=#36393d;gradientColor=none;swimlaneFillColor=default;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-64">
+          <mxGeometry y="60" width="240" height="120" as="geometry">
+            <mxRectangle y="90" width="240" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-68" value="Mejores marcas" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontFamily=Helvetica;fontSize=11;fontColor=default;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-67">
+          <mxGeometry y="30" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-69" value="Links a coches en Madrid, Barcelona, etc." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontFamily=Helvetica;fontSize=11;fontColor=default;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-67">
+          <mxGeometry y="60" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n5QsFFlIIkBd-EJtn_40-70" value="Tipos de carrocerías: Suv, turismos, etc." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontFamily=Helvetica;fontSize=11;fontColor=default;" vertex="1" parent="n5QsFFlIIkBd-EJtn_40-67">
+          <mxGeometry y="90" width="240" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
