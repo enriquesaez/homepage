@@ -24,19 +24,22 @@ body a:hover {
   background-color: #ebebeb;
   color: #35373a;
   min-height: 100vh;
-  padding: 30px 50px;
-  margin-top: 3em;
-  border-radius: 12px;
+  padding: 1.8em 3.7em;
 }
 
 .gallery-container h1 {
   text-align: center;
-  margin: 50px auto;
+  margin: 2rem auto;
   font-family: 'Rosario', sans-serif;
-  font-weight: 800;
-  font-size: 4vh;
-  letter-spacing: 6px;
-  color: #3232328a;
+  font-weight: 300;
+  font-size: 5vh;
+  letter-spacing: 0.3em;
+  padding-bottom: 0.6em;
+  color: #323232bf;
+}
+
+.gallery-container hr {
+  border-top: 1px solid #c8c8c8;
 }
 
 .tz-gallery {
@@ -64,7 +67,7 @@ body a:hover {
 
 /* Override bootstrap column paddings */
 .tz-gallery .row > div {
-  padding: 4px;
+  padding: 0.7em;
 }
 
 .tz-gallery .lightbox img {
