@@ -2658,10 +2658,11 @@ input[type="button"]:disabled,
 	background-color: #000000;
 	background-attachment: scroll, fixed;	
 	/* background-image: url("images/overlay.png"), url("images/pexels-lee-campbell-115655.jpg"); */
-	background-image: url("images/overlay.png"), url("images/bg.jpg");
+	background-image: url("images/overlay.png"), url("images/unsplash.jpg");
 	background-position: top left, top left;
 	background-repeat: repeat, no-repeat;
 	background-size: auto, auto 100%;
+	/* background-size: auto, auto 100%; */
 	color: rgba(255, 255, 255, 0.5);
 	height: 100%;
 	left: 0;
@@ -2686,7 +2687,7 @@ input[type="button"]:disabled,
 }
 
 #header h1 {
-	color: rgba(255, 255, 255, 0.5);
+	color: rgba(0, 255, 239 , 0.9);
 	font-size: 1.35em;
 	line-height: 1.75em;
 	margin: 0;
@@ -2714,11 +2715,11 @@ input[type="button"]:disabled,
 }
 
 #footer .icons a {
-	color: rgba(255, 255, 255, 0.4);
+	color: rgba(255, 255, 255, 0.7);
 }
 
 #footer .copyright {
-	color: rgba(255, 255, 255, 0.4);
+	color: rgba(255, 255, 255, 0.7);
 	font-size: 0.8em;
 	list-style: none;
 	margin: 1em 0 0 0;
