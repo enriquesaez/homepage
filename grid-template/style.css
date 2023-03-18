@@ -103,16 +103,27 @@ aside.grid-item2 { /* aside styles */
   background-color: #f9f9f9;
 }
 
-nav .a-main-menu {
+/* Responsive menu mobile */
+#mobileNav {
+  display:none;
+}
+header .btn-burguer {
+  display: none;
+  font-size: 30px;
+  cursor:pointer;
+  color: azure;
+}
+/* End Responsive menu mobile */
+
+/* Desktop menu */
+nav .a-main-menu, .overlay a {
   font-family: 'Noto Sans Lepcha', sans-serif;
   font-size: large;
   color: azure;
   text-decoration: none;
   margin: 0 10px;
 }
-
-/* Underline styles */
-.a-main-menu {
+.a-main-menu {/* Underline styles */
 	position: relative;
 	padding: 0.2em 0;
 }
@@ -142,8 +153,8 @@ nav .a-main-menu::after { /* Scale from center */
 nav .a-main-menu:hover::after,
 nav .a-main-menu:focus::after{
 	transform: scale(1);
-}
-/* End Underline styles */
+}/* End Underline styles */
+/* End Desktop menu */
 
 footer {
   background-color: #181818;
@@ -206,8 +217,58 @@ footer {
 
   nav .a-main-menu {
     display: none;
-  }  
+  }
+  
+  /* Responsive menu mobile */
+  #mobileNav {
+    display:block;
+  }
+  header .btn-burguer {
+    display: block;
+  }
+  .overlay {
+    display: block;
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #1c1c1c;
+    opacity: 0.95;
+    overflow-y: hidden;
+    transition: 0.5s;
+  }
+  
+  .overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .overlay a {
+    padding: 0.5rem;
+    display: block;
+    transition: 0.2s;
+  }
+  .overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    font-size: 60px;
+  }
+  .overlay {overflow-y: auto;}
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 3rem;
+    top: 0rem;
+    right: 1rem;
+  }
+  /* End Responsive menu mobile */
+
   header.grid-item1 .logo {
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
