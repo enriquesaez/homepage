@@ -1,0 +1,223 @@
+html * {
+  box-sizing: border-box; 
+}
+body {
+  margin: 0; /* Just to reset native browser margin, can be removed */
+}
+
+h1, h2, h3, h4, h5, h6, p, span {
+  font-family: 'Noto Sans Lepcha', sans-serif;
+  color: #555555;                                      
+}
+
+h1 {
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.grid-container {
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto auto auto; /* define the number of columns you need*/
+  grid-template-columns: 20% 60% 20%; /* define width of columns */
+  grid-gap: 10px 0 10px 0;
+}
+
+.grid-item1,
+.grid-item2 {
+/* margin: 1px; Use just to see spacing within blocks */
+  padding: 0 2rem;
+}
+
+header.grid-item1 { /* This is the main menu */
+/* Fix the menu */
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+/* End Fix the menu */
+  min-height: 5.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1c1c1c;
+  text-align: center;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+header.grid-item1 .logo {
+  display: flex;
+  min-width: 12rem;
+}
+header.grid-item1 .logo img {
+  margin-right: 1rem;
+}
+header.grid-item1 .logo .company {
+  color: azure;
+}
+
+div.grid-item2 { /* sidebar styles */
+  background-color: #e0e0e0;
+}
+
+section.grid-item2 { /* section styles */
+  min-height: 30rem;
+  background-color: #f0f0f0;
+}
+
+section article {
+  border-bottom: 1px solid #dadada;
+  padding-bottom: 1.4rem;
+}
+
+section article .article-title {
+  color:#4f6493;
+  font-weight: lighter;
+}
+section article .article-contents {
+  display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+section article .article-img {
+  border: 1px solid #c0c0c0;
+  width: 180px;
+  height: auto;
+  margin-right: 1.2rem;
+}
+section article .article-contents .article-text {
+  margin: 0;
+}
+
+aside.grid-item2 { /* aside styles */
+  background-color: #f9f9f9;
+}
+
+nav .a-main-menu {
+  font-family: 'Noto Sans Lepcha', sans-serif;
+  font-size: large;
+  color: azure;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+/* Underline styles */
+.a-main-menu {
+	position: relative;
+	padding: 0.2em 0;
+}
+
+.a-main-menu::after { /* Fade in */
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 0.1em;
+	background-color: azure;
+	opacity: 0;
+	transition: opacity 300ms, transform 300ms;
+}
+
+.a-main-menu:hover::after,
+.a-main-menu:focus::after {
+	opacity: 1;
+	transform: translate3d(0, 0.2em, 0);
+}
+
+nav .a-main-menu::after { /* Scale from center */
+	transform: scale(0);
+	transform-origin: center;
+}
+nav .a-main-menu:hover::after,
+nav .a-main-menu:focus::after{
+	transform: scale(1);
+}
+/* End Underline styles */
+
+footer {
+  background-color: #181818;
+}
+.footer-wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 4rem;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-wrapper .footer-txt {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color:#c0c0c0;
+  user-select: none;
+}
+.footer-wrapper .social-media {
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.footer-wrapper .social-media:hover {
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.footer-wrapper .social-media img {
+  margin-right: 1rem;
+  width: 32px;
+  height: auto;
+}
+
+@media only screen and (max-width: 768px) {
+  .grid-item2 {
+    grid-column-start: 1;
+    grid-column-end:5;
+  }
+  section.grid-item2 {
+    min-height: unset;
+  }
+
+  section article .article-contents {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  section article .article-contents .article-img {
+    margin-right: unset;
+    width: 100%;
+  }  
+
+  section article .article-contents .article-text {
+    margin: 1.4rem 0 0 0;
+  }
+
+  nav .a-main-menu {
+    display: none;
+  }  
+  header.grid-item1 .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-width: unset;
+  }
+  header.grid-item1 .logo img {
+    margin-right: unset;
+  }
+  header.grid-item1 p {
+    margin: 0;
+  }  
+}
