@@ -39,15 +39,10 @@ p {
 }
 
 header.grid-item1 { /* This is the main menu */
-/* Fix the menu */
-  position: -webkit-sticky;
+  display: grid;
   position: sticky;
   top: 0;
-/* End Fix the menu */
-  min-height: 5.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  min-height: 5rem;
   background-color: #1c1c1c;
   text-align: center;
   grid-column-start: 1;
@@ -55,14 +50,22 @@ header.grid-item1 { /* This is the main menu */
   grid-row-start: 1;
   grid-row-end: 2;
 }
-header.grid-item1 .logo {
+
+header.grid-item1 .header-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header.grid-item1 .header-wrapper .logo {
   display: flex;
   min-width: 12rem;
 }
-header.grid-item1 .logo img {
+header.grid-item1 .header-wrapper .logo img {
   margin-right: 1rem;
+  opacity: 0.5;
 }
-header.grid-item1 .logo .logo-title {
+header.grid-item1 .header-wrapper .logo .logo-title {
   color: #78ffff;
 }
 
@@ -192,6 +195,15 @@ footer {
   height: auto;
 }
 
+/* Fixed width 1440px of header container is maintained ONLY within high resolutions up to 1440px */
+@media only screen and (min-width: 1440px) and (max-width: 2560px) {
+  header.grid-item1 .header-wrapper {
+    width: 1440px;
+    margin: 0 auto;
+  }
+}
+/* End Fixed container width 1440px */
+
 @media only screen and (max-width: 768px) {
   .grid-item2 {
     grid-column-start: 1;
@@ -236,7 +248,6 @@ footer {
     top: 0;
     left: 0;
     background-color: #1c1c1c;
-    opacity: 0.95;
     overflow-y: hidden;
     transition: 0.5s;
   }
