@@ -62,8 +62,8 @@ header.grid-item1 .logo {
 header.grid-item1 .logo img {
   margin-right: 1rem;
 }
-header.grid-item1 .logo .company {
-  color: azure;
+header.grid-item1 .logo .logo-title {
+  color: #78ffff;
 }
 
 div.grid-item2 { /* sidebar styles */
@@ -91,6 +91,7 @@ section article .article-contents {
 }
 section article .article-img {
   border: 1px solid #c0c0c0;
+  border-radius: 2%;
   width: 180px;
   height: auto;
   margin-right: 1.2rem;
@@ -277,6 +278,7 @@ footer {
   }
   header.grid-item1 .logo img {
     margin-right: unset;
+    margin-bottom: 0.3rem;
   }
   header.grid-item1 p {
     margin: 0;
