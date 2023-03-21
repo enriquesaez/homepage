@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Grid Responsive Layout</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
+	<link href="https://fonts.cdnfonts.com/css/noto-sans-lepcha" rel="stylesheet" />
+</head>
+
+<body>
+	<div class="grid-container">
+		<header class="grid-main">
+			<div class="grid-wrapper">
+				<div class="logo">
+					<img src="https://enriquesaez.github.io/homepage/images/logo.svg" alt="" />
+					<p class="logo-title">Title for the logo</p>
+				</div>
+				<nav>
+					<a class="a-main-menu" href="index.html">Grid</a>
+					<a class="a-main-menu active" href="masonry.html">Masonry</a>
+					<a class="a-main-menu" href="#">My Work</a>
+					<a class="a-main-menu" href="#">Contact</a>
+				</nav>
+				<div id="mobileNav" class="overlay">
+					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+					<div class="overlay-content">
+						<a href="index.html">Grid</a>
+						<a href="masonry.html">Masonry</a>
+						<a href="#">My Work</a>
+						<a href="#">Contact</a>
+					</div>
+				</div>
+				<span class="btn-burguer" onclick="openNav()">&#9776;</span>
+			</div>
+		</header>
+		<main class="grid-main">
+			<div class="grid-wrapper">
+				<section class="grid-item">
+					<h1>Masonry</h1>
+					<div class="gallery">
+						<img src="https://picsum.photos/800/700" alt="Imagen 1">
+						<img src="https://picsum.photos/500/400" alt="Imagen 2">
+						<img src="https://picsum.photos/600/300" alt="Imagen 3">
+						<img src="https://picsum.photos/400/700" alt="Imagen 4">
+						<img src="https://picsum.photos/800/600" alt="Imagen 5">
+						<img src="https://picsum.photos/900/500" alt="Imagen 6">
+						<img src="https://picsum.photos/360/600" alt="Imagen 7">
+						<img src="https://picsum.photos/400/600" alt="Imagen 8">
+						<img src="https://picsum.photos/800/650" alt="Imagen 9">
+						<img src="https://picsum.photos/500/700" alt="Imagen 10">
+					</div>
+				</section>
+			</div>
+		</main>
+	</div>
+	<footer>
+		<div class="footer-wrapper">
+			<div>
+				<p class="footer-txt">© Enrique Sáez 2023</p>
+			</div>
+			<div>
+				<a class="social-media" href="https://twitter.com/esaez" target="_blank">
+					<img src="https://enriquesaez.github.io/homepage/images/brand-twitter-filled.svg" alt="Twitter"
+						title="" />
+				</a>
+				<a class="social-media" href="https://www.linkedin.com/in/enriquesaez/" target="_blank">
+					<img src="https://enriquesaez.github.io/homepage/images/brand-linkedin.svg" alt="Linkedin"
+						title="" />
+				</a>
+			</div>
+		</div>
+	</footer>
+</body>
+<script>
+	function openNav() {
+		document.getElementById("mobileNav").style.height = "100%";
+	}
+
+	function closeNav() {
+		document.getElementById("mobileNav").style.height = "0%";
+	}
+</script>
+
+</html>
