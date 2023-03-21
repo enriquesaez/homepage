@@ -42,6 +42,7 @@ p {
 .grid-container.three-cols {
   grid-template-rows: auto auto auto; /* define the number of columns you need*/
   grid-template-columns: 12.5% 75% 12.5%; /* define columns width*/
+  /* grid-template-columns: 1fr 3fr 1fr; define columns width with fractions */
   grid-gap: 10px 0 10px 0;
 }
 
