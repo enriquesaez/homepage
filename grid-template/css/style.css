@@ -102,6 +102,7 @@ section.grid-item {
   /* section styles */
   min-height: 30rem;
   background-color: #f0f0f0;
+  width: 100%;
 }
 
 section article {
@@ -228,7 +229,7 @@ footer {
 }
 
 /* Masonry */
-main.grid-main, section.grid-item.masonry {
+main.grid-main.masonry, section.grid-item.masonry {
   background-color: #000;
 }
 .grid-item.masonry h1 {
@@ -284,6 +285,12 @@ main.grid-main, section.grid-item.masonry {
 }
 
 /* End Masonry */
+
+/* GPT */
+section.grid-item {
+  background-color: unset;
+}
+/* End GPT*/
 
 /* Fixed width 1440px is maintained ONLY within high resolutions up to 1440px */
 @media only screen and (min-width: 1440px) and (max-width: 2560px) {
