@@ -8,6 +8,7 @@
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
 	<link href="https://fonts.cdnfonts.com/css/noto-sans-lepcha" rel="stylesheet" />
 	<script src="js/default.js"></script>
+	<script type="module" src="js/script.js"></script>
 </head>
 
 <body>
@@ -39,10 +40,36 @@
 		<main class="grid-main">
 			<div class="grid-wrapper">
 				<section class="grid-item">
-					<h1>GPT</h1>
-                    <h2>Web components with GPT Assistance</h2>
-					<div class="gpt-gallery">
-                        <span>Here GPT web components.</span>
+					<h1>OpenAI - GPT</h1>
+					<h2>Web components made with chatGPT Assistance</h2>
+					<div class="gallery-gpt-components">
+						<div class="gpt-component-item">
+							<p>Dropdown</p>
+							<div class="dropdown">
+								<div class="dropdown-header">
+									<span>Click Me to expand</span>
+									<i class="arrow"></i>
+								</div>
+								<div class="dropdown-content">
+									<a href="#">Opción 1</a>
+									<a href="#">Opción 2</a>
+									<a href="#">Opción 3</a>
+								</div>
+							</div>
+						</div>
+						<div class="gpt-component-item">
+							<p>Button</p>
+							<button>Button</button>
+						</div>
+						<div class="gpt-component-item">
+							<p>Select</p>
+							<select name="mySelect" id="gptSelect"><option value="">Select an option</option></select>
+						</div>
+						<div class="gpt-component-item">
+							<p>Radio-button</p>
+							<input type="radio" name="myRaido" id="radioButton">
+							<label for="">Radio button</label>
+						</div>						
 					</div>
 				</section>
 			</div>
@@ -55,15 +82,14 @@
 			</div>
 			<div>
 				<a class="social-media" href="https://twitter.com/esaez" target="_blank">
-					<img src="https://enriquesaez.github.io/homepage/images/brand-twitter-filled.svg" alt="Twitter"
-						title="" />
+					<img src="https://enriquesaez.github.io/homepage/images/brand-twitter-filled.svg" alt="Twitter" title="" />
 				</a>
 				<a class="social-media" href="https://www.linkedin.com/in/enriquesaez/" target="_blank">
-					<img src="https://enriquesaez.github.io/homepage/images/brand-linkedin.svg" alt="Linkedin"
-						title="" />
+					<img src="https://enriquesaez.github.io/homepage/images/brand-linkedin.svg" alt="Linkedin" title="" />
 				</a>
 			</div>
 		</div>
 	</footer>
 </body>
+
 </html>

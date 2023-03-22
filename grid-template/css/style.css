@@ -27,11 +27,16 @@ h1 {
 
 h2 {
   font-size: 1.25rem;
+  font-weight: lighter;
 }
 
 p {
   font-size: 1rem;
   line-height: 1.5rem;
+}
+
+.row {
+  display: flex;
 }
 
 .grid-container {
@@ -228,7 +233,8 @@ footer {
   height: auto;
 }
 
-/* Masonry */
+/***** Masonry *****/
+/*****         *****/
 main.grid-main.masonry, section.grid-item.masonry {
   background-color: #000;
 }
@@ -283,14 +289,86 @@ main.grid-main.masonry, section.grid-item.masonry {
     overflow: hidden;
   }
 }
+/***** End Masonry *****/
+/*****             *****/
 
-/* End Masonry */
+/***** GPT *****/
+/*****     *****/
 
-/* GPT */
+/* Dropdown*/
+.gallery-gpt-components {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 section.grid-item {
   background-color: unset;
 }
-/* End GPT*/
+.gpt-component-item {
+  padding: 0.4rem;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.dropdown-header {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ccc;
+  -webkit-user-select: none;
+  user-select: none;
+  max-width: 15rem; /* just for layout*/
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-left: auto;
+  transform: rotate(45deg);
+  transition: transform 0.1s ease-in-out;
+}
+
+.arrow.up {
+  transform: rotate(225deg);
+}
+
+.dropdown-content {
+  position: absolute;
+  z-index: 1;
+  display: none;
+  top: 50px;
+  left: 0;
+  background-color: #f9f9f9;
+  width: 100%;
+  max-width: 15rem; /* just for layout*/
+  border: 1px solid #ccc;
+  box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown.show .dropdown-content {
+  display: block;
+}
+
+/* End Dropdown*/
+
+/***** End GPT *****/
+/*****         *****/
 
 /* Fixed width 1440px is maintained ONLY within high resolutions up to 1440px */
 @media only screen and (min-width: 1440px) and (max-width: 2560px) {

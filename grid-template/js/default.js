@@ -6,4 +6,3 @@
 	function closeNav() {
 		document.getElementById("mobileNav").style.height = "0%";
 	}
-// End Mobile menu //
