@@ -383,10 +383,10 @@ section.grid-item {
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1rem;
   padding: 0.7rem 0.7rem;
   width: 100%;
-  max-width: 200px; /* just for demo*/
+  max-width: 15rem; /* just for demo*/
 }
 
 .gpt-button.success {
@@ -422,6 +422,44 @@ section.grid-item {
 
 /* End Button */
 
+/* Select */
+select {
+  width: 100%;
+  max-width: 15rem; /* just for demo*/
+  padding: 0.7rem 1.1rem;
+  background-color: #66a3ff;
+  border: 1px solid #5086d6;
+  border-radius: 1rem;
+  font-family: "Noto Sans Lepcha", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  -webkit-appearance: none; /* Navegadores WebKit, Chrome, Safari */
+  -moz-appearance: none; /* Navegadores Gecko, Firefox */
+  appearance: none; /* Navegadores modernos */
+  background-image: url('/grid-template/assets/svg/flecha.svg');
+  background-size: 0.7rem;
+  background-repeat: no-repeat;
+  background-position: right 0.8rem center;
+  cursor: pointer;
+}
+
+select:hover {
+  background-color: #3385ff;
+}
+
+select:focus {
+  outline: none;
+  background-color: #2b589a;
+}
+
+select option {
+  color: #172336; /* Establece el color de texto de las opciones */
+  background-color: #f4f4f4;
+}
+
+/* Select */
+
 @media (max-width: 768px) {
   .gallery-gpt-components {
     grid-template-columns: 1fr 1fr;
@@ -436,10 +474,13 @@ section.grid-item {
     max-width: unset; /* Reset demo styles*/
   }
   .dropdown-content {
-    max-width: unset; //* Reset demo styles*/
+    max-width: unset; /* Reset demo styles*/
   }
   .gpt-button {
-    max-width: unset; //* Reset demo styles*/
+    max-width: unset; /* Reset demo styles*/
+  }
+  select {
+    max-width: unset; /* Reset demo styles*/
   }
 }
 
@@ -466,7 +507,7 @@ section.grid-item {
   header.grid-main {
     position: unset;
   }
-  
+
   .grid-main .grid-wrapper {
     padding: 0 1rem;
   }
