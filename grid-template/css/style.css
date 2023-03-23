@@ -313,6 +313,11 @@ section.grid-item {
 .gpt-component-item {
   padding: 0.4rem;
 }
+
+.gpt-component-item p {
+  font-weight: 600;
+}
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -508,6 +513,72 @@ select option {
 }
 
 /* End Radio*/
+
+/* Card */
+
+.card {
+  width: 100%;
+  max-width: 20rem; /* Just for demo */
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.240);
+  border-radius: 8px;
+  padding-bottom: 0.6rem;
+  overflow: hidden;
+}
+
+.card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.card-text {
+  padding: 16px;
+}
+
+.card-text h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #c58002;
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+}
+
+.card-text p {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #2d2d2d;
+  line-height: 1.4;
+}
+
+a.card-link {
+  display: inline-block;
+  margin-top: 16px;
+  background-color: #66a3ff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.card-link:hover {
+  background-color: #005ea6;
+}
+
+a.card-link span {
+  font-family: sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: azure;
+}
+
+@media (max-width: 520px) {
+  .card {
+    max-width: unset; /* reset demo styles*/
+  }
+}
+
+/* End Card */
 
 @media (max-width: 768px) {
   .gallery-gpt-components {
