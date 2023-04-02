@@ -112,7 +112,7 @@ button.btn-share {
 
 button.btn-share:hover {
   background-color: var(--secondary-light-a-70);
-  transition: all 250ms ease;
+  transition: var(--basic-transition);
 }
 
 button.btn-search {
@@ -122,7 +122,7 @@ button.btn-search {
 
 button.btn-search:hover {
   background-color: var(--secondary-light-b-70);
-  transition: all 250ms ease;
+  transition: var(--basic-transition);
 }
 
 @media only screen and (min-width: 521px) and (max-width: 768px) {
@@ -264,7 +264,7 @@ section .grid-cars {
 
 .grid-cars .card .card-footer button:hover {
   background-color: #4d81ff;
-  transition: all 250ms ease;
+  transition: var(--basic-transition);
 }
 
 @media only screen and (min-width: 769px) and (max-width: 1160px) {
@@ -305,7 +305,7 @@ section .grid-cars {
 
 .show-more-area button.show-more:hover {
   opacity: 0.5;
-  transition: all 250ms ease;
+  transition: var(--basic-transition);
 }
 
 .show-more-area button.show-more img {
@@ -414,6 +414,7 @@ section .grid-cars {
   display: flex;
   justify-content: space-between;
   margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
   width: 100%;
 }
 
@@ -483,7 +484,7 @@ section .grid-cars {
 
 .new-ctg:hover {
   background-color: var(--secondary-dark-color-70);
-  transition: all 250ms ease;
+  transition: var(--basic-transition);
 }
 
 .category-picker {
@@ -558,7 +559,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .btn-filter-search:hover {
   opacity: 0.7;
-  transition: all 250ms ease;
+  transition: var(--basic-transition);
 }
 
 .btn-filter-search span {
@@ -567,12 +568,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .publish {
-  border: 1px dashed #0000ff88;
   width: 100%;
-}
-
-.publish_title {
-  border: 1px solid red;
 }
 
 .publish_title p {
@@ -593,26 +589,41 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .publish_history label,
 .publish_textarea label {
   display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 1rem;
 }
 
-.publish_person {
-  border: 1px solid blue;
+.publish_person,
+.publish_history_title {
+  margin-right: 0.8rem;
 }
-.publish_person {
-  border: 1px solid green;
+
+.input-person,
+.input-history-title,
+.input-history-category,
+.publish_textarea_box {
+  height: 2.5rem;
+  border: 1px solid #d2d2d2;
+  padding: 0.4rem;
+  border-radius: 6px;
+  background-color: #f6f6f6;
+  margin-bottom: 0.8rem;
 }
+
+.publish_textarea_box {
+  height: unset;
+}
+
 .publish_history {
-  border: 1px solid violet;
   display: flex;
 }
 
 .publish_history_title {
-  border: 1px solid gray;
   width: 100%;
 }
 
 .publish_history_category {
-  border: 1px solid grey;
   width: 100%;
 }
 
@@ -626,8 +637,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .publish_textarea {
-  border: 1px solid lime;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
 .publish_textarea .publish_textarea_box {
@@ -636,9 +646,74 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .publish_actions {
-  border: 1px solid blueviolet;
   display: flex;
   justify-content: space-between;
+}
+
+.publish_create {
+  display: flex;
+}
+
+.btn-discard,
+.btn-publish,
+.btn-create {
+  width: 10.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.4rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border: 0;
+  background-color: var(--secondary-dark-color);
+  color: var(--primary-light-color);
+  height: 2.5rem;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.btn-discard {
+  background-color: #db0000;
+}
+
+.btn-discard:hover {
+  opacity: 0.6;
+  transition: var(--basic-transition);
+}
+
+.btn-publish {
+  background-color: var(--secondary-dark-color-70);
+}
+
+.btn-publish:hover {
+  opacity: 0.8;
+  transition: var(--basic-transition);
+}
+
+.btn-create {
+  background-color: var(--primary-dark-color);
+}
+
+.btn-create:hover {
+  opacity: 0.8;
+  transition: var(--basic-transition);
+}
+
+.btn-publish,
+.btn-create {
+  width: 13.75rem;
+}
+
+.btn-publish {
+  margin-right: 1rem;
+}
+
+.btn-discard span,
+.btn-publish span,
+.btn-create span {
+  text-align: center;
+  width: 100%;
 }
 
 /*** End Form ***/
@@ -650,19 +725,54 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     flex-direction: column;
     justify-content: unset;
   }
+
   .side-bar,
   .publish {
     width: 100%;
   }
+
+  .publish_title {
+    margin-top: 1.5rem;
+  }
+
+  .publish_title p {
+    font-size: 1.65rem;
+  }
+
   .side-bar_footer .btn-filter-search {
     width: 100%;
   }
+
   .publish .publish_history {
     flex-direction: column;
   }
+
   .input-person {
     width: 100%;
+  }
+
+  .publish_person,
+  .publish_history_title {
+    margin-right: 0;
+  }
+
+  .publish_actions {
+    justify-content: unset;
+    flex-direction: column;
 }
+
+  .publish_create {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-discard,
+  .btn-publish,
+  .btn-create {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
 }
 
 @media (max-width: 520px) {
