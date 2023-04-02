@@ -414,15 +414,18 @@ section .grid-cars {
   display: flex;
   justify-content: space-between;
   margin-top: 1.5rem;
+  width: 100%;
 }
 
 .side-bar {
   display: flex;
   flex-direction: column;
   width: 19rem;
+  height: fit-content;
   background-color: var(--secondary-light-b-70);
   border-radius: 6px;
   margin-right: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .side-bar_header,
@@ -515,7 +518,7 @@ section .grid-cars {
 }
 
 .date-picker span {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #121212;
   margin-right: 0.3rem;
   margin-top: 0.3rem;
@@ -568,6 +571,76 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   width: 100%;
 }
 
+.publish_title {
+  border: 1px solid red;
+}
+
+.publish_title p {
+  font-weight: 800;
+  font-size: 2.25rem;
+  color: var(--primary-dark-color);
+  margin: 0;
+}
+
+.publish_title,
+.publish_person,
+.publish_history,
+.publish_textarea {
+  margin-bottom: 1.5rem;
+}
+
+.publish_person label,
+.publish_history label,
+.publish_textarea label {
+  display: block;
+}
+
+.publish_person {
+  border: 1px solid blue;
+}
+.publish_person {
+  border: 1px solid green;
+}
+.publish_history {
+  border: 1px solid violet;
+  display: flex;
+}
+
+.publish_history_title {
+  border: 1px solid gray;
+  width: 100%;
+}
+
+.publish_history_category {
+  border: 1px solid grey;
+  width: 100%;
+}
+
+.input-person {
+  width: 50%;
+}
+
+.input-history-title,
+.input-history-category {
+  width: 100%;
+}
+
+.publish_textarea {
+  border: 1px solid lime;
+  margin-bottom: 1rem;
+}
+
+.publish_textarea .publish_textarea_box {
+  width: 100%;
+  text-align: left;
+}
+
+.publish_actions {
+  border: 1px solid blueviolet;
+  display: flex;
+  justify-content: space-between;
+}
+
 /*** End Form ***/
 
 /*** Form responsive ***/
@@ -583,6 +656,28 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
   .side-bar_footer .btn-filter-search {
     width: 100%;
+  }
+  .publish .publish_history {
+    flex-direction: column;
+  }
+  .input-person {
+    width: 100%;
+}
+}
+
+@media (max-width: 520px) {
+  .publish_actions {
+    flex-direction: column;
+    justify-content: unset;
+  }
+
+  .publish_actions button {
+    width: 100%;
+  }
+
+  .publish_actions .publish_create {
+    display: flex;
+    flex-direction: column;
   }
 }
 
