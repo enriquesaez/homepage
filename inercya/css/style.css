@@ -237,7 +237,9 @@ section .grid-cars {
   margin-bottom: 0.4rem;
 }
 
-.card-footer .employee-profile .input-employee, .input-people {
+.card-footer .employee-profile .input-employee,
+.input-people,
+.input-date {
   height: 2.5rem;
   border: 1px solid #d2d2d2;
   padding: 0.4rem;
@@ -451,7 +453,8 @@ section .grid-cars {
   flex-direction: column;
 }
 
-.side-bar_body label, .title-dates {
+.side-bar_body label,
+.title-dates {
   font-weight: 800;
   font-size: 1rem;
   color: #121212;
@@ -495,12 +498,69 @@ section .grid-cars {
 }
 
 .side-bar_footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   background-color: var(--secondary-light-b-10);
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
 }
 .title-dates {
   margin: 0.5rem 0 1rem;
+}
+
+.date-picker {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.date-picker span {
+  font-size: 0.9rem;
+  color: #121212;
+  margin-right: 0.3rem;
+  margin-top: 0.3rem;
+}
+
+.date-picker img {
+  margin-bottom: 0.75rem;
+}
+
+.date-picker .input-date {
+  width: 6rem;
+  height: 1.8rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.8rem;
+  color: var(--primary-grey-color);
+  margin-right: 0.4rem;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+.btn-filter-search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 0;
+  width: 16.875rem;
+  height: 2.5rem;
+  border-radius: 6px;
+  background-color: var(--secondary-light-b-70);
+  color: var(--primary-light-color);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0 0.8rem;
+  cursor: pointer;
+}
+
+.btn-filter-search:hover {
+  opacity: 0.7;
+  transition: all 250ms ease;
+}
+
+.btn-filter-search span {
+  text-align: center;
+  width: 100%;
 }
 
 .publish {
@@ -519,6 +579,9 @@ section .grid-cars {
   }
   .side-bar,
   .publish {
+    width: 100%;
+  }
+  .side-bar_footer .btn-filter-search {
     width: 100%;
   }
 }
