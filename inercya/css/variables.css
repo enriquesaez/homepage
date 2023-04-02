@@ -1,5 +1,7 @@
 :root {
     --primary-dark-color: #071d49;
+    --secondary-dark-color: #004bff;
+    --secondary-dark-color-70: #4d81ff;
     --primary-dark-color-10: #e6e8ed;
     --primary-light-color: #ffffff;
     --primary-grey-color: #444444;
@@ -7,4 +9,6 @@
     --secondary-light-a-70: #ffa851;
     --secondary-light-b: #9200e6;
     --secondary-light-b-70: #b24ced;
+    --secondary-light-b-40: #d399f5;
+    --secondary-light-b-10: #f4e5fc;
   }

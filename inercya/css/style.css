@@ -237,7 +237,7 @@ section .grid-cars {
   margin-bottom: 0.4rem;
 }
 
-.card-footer .employee-profile .input-employee {
+.card-footer .employee-profile .input-employee, .input-people {
   height: 2.5rem;
   border: 1px solid #d2d2d2;
   padding: 0.4rem;
@@ -406,3 +406,121 @@ section .grid-cars {
     font-size: 1.8rem;
   }
 }
+
+/***   Form   ***/
+.publisher {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.side-bar {
+  display: flex;
+  flex-direction: column;
+  width: 19rem;
+  background-color: var(--secondary-light-b-70);
+  border-radius: 6px;
+  margin-right: 1rem;
+}
+
+.side-bar_header,
+.side-bar_body,
+.side-bar_footer {
+  padding: 1rem;
+}
+
+.side-bar_header p,
+.side-bar_header span {
+  color: var(--primary-light-color);
+}
+
+.side-bar_header p {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 1rem 0;
+}
+
+.side-bar_header span {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.side-bar_body {
+  background-color: var(--secondary-light-b-40);
+  display: flex;
+  flex-direction: column;
+}
+
+.side-bar_body label, .title-dates {
+  font-weight: 800;
+  font-size: 1rem;
+  color: #121212;
+}
+
+.new-ctg {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.8rem;
+  margin: 0.7rem 0 1.7rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border: 0;
+  background-color: var(--secondary-dark-color);
+  color: var(--primary-light-color);
+  height: 2.5rem;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.new-ctg:hover {
+  background-color: var(--secondary-dark-color-70);
+  transition: all 250ms ease;
+}
+
+.category-picker {
+  border: 1px solid #797979;
+  height: 2.5rem;
+  margin: 0.5rem 0 1.6rem;
+  background-color: var(--primary-light-color);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  color: var(--primary-grey-color);
+}
+
+.input-people {
+  margin: 0.5rem 0 1.5rem;
+}
+
+.side-bar_footer {
+  background-color: var(--secondary-light-b-10);
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+.title-dates {
+  margin: 0.5rem 0 1rem;
+}
+
+.publish {
+  border: 1px dashed #0000ff88;
+  width: 100%;
+}
+
+/*** End Form ***/
+
+/*** Form responsive ***/
+
+@media (max-width: 768px) {
+  .publisher {
+    flex-direction: column;
+    justify-content: unset;
+  }
+  .side-bar,
+  .publish {
+    width: 100%;
+  }
+}
+
+/*** End Form responsive ***/
