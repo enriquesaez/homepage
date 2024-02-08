@@ -354,6 +354,7 @@ footer .email-address a:hover {
         margin-left: 0;
     }
     section {
+        padding: 0 0.7rem 0 0.7rem !important;
         margin-bottom: 2rem;
     }
     .col, .col-1, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12  {
@@ -382,9 +383,7 @@ footer .email-address a:hover {
         font-size: 1rem;
         padding-left: initial;
     }
-    section {
-        padding: 0 0.7rem 0 0.7rem !important;
-    }
+
     .box-points {
         margin-bottom: 1rem;
     }
@@ -414,5 +413,12 @@ footer .email-address a:hover {
     }
     .title {
         height: 7rem;
+    }
+}
+
+@media only screen and (max-width: 549px) and (min-width: 360px) {
+    section {
+        padding: 0 0.7rem 0 0.7rem !important;
+        margin-bottom: 2rem;        
     }
 }
