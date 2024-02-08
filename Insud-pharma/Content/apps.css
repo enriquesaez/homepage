@@ -77,6 +77,10 @@ nav h1 span {
     padding-left: 3.2rem;
 }
 
+.android, .box-points {
+    padding: initial;
+}
+
 .box-points {
     display: flex;
     align-items: center;
@@ -124,6 +128,12 @@ section .col-img img {
     display: flex;
     flex-direction: column;
     margin-left: initial;
+}
+
+.get-it {
+    display: initial;
+    flex-direction: initial;
+    align-items: initial;
 }
 
 .android .google-play .get-it p,
@@ -240,7 +250,10 @@ footer .email-address a:hover {
 @media only screen and (max-width: 1024px) {
     .body {
         margin-left: 4rem;
-    }    
+    }
+    section {
+        margin-bottom: 2rem;
+    }
     section .col-img img {
         margin-left: 1rem;
     }
@@ -254,20 +267,36 @@ footer .email-address a:hover {
     .ios .apple-store .get-it .ios-message {
         width: 100%;
         margin-bottom: 1rem !important;
+        text-align: center;
     }
     .ios .apple-store .get-it .contact-cau {
-        width: 100%;
+        text-align: center;
+        width: 90% !important;
+    }
+    .get-it {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    footer {
+        position: initial;
     }
 }
 
-@media only screen and (max-width: 1023px) {
+@media only screen and (max-width: 1023px) and (max-width: 930px){
     header img {
         width: 4rem;
         margin-right: 1.4rem;
     }
     .body {
-        margin-left: 0.4rem;
-    }  
+        margin-left: 0;
+    }
+    section {
+        margin-bottom: 2rem;
+    }
+    .col, .col-1, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12  {
+        padding: 0 !important;
+    }
     .col-img {
         display: none;
     }
@@ -284,6 +313,12 @@ footer .email-address a:hover {
         font-size: 1rem;
         padding-left: initial;
     }
+    section {
+        padding: 0 0.7rem 0 0.7rem !important;
+    }
+    .box-points {
+        margin-bottom: 1.5rem;
+    }
     .box-points p {
         font-size: 1.2rem;
     }
@@ -296,8 +331,9 @@ footer .email-address a:hover {
         margin-bottom: 2rem;
     }
     .ios {
-        margin-left: 0.3rem;
+        margin-left: 0;
     }
+
     footer {
         position: initial;
     }
