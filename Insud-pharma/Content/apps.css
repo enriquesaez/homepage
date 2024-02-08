@@ -328,7 +328,7 @@ footer .email-address a:hover {
     }
     .ios .apple-store .get-it .contact-cau {
         text-align: center;
-        width: 90% !important;
+        width: 100% !important;
     }
     .get-it {
         display: flex;
@@ -354,7 +354,7 @@ footer .email-address a:hover {
         margin-left: 0;
     }
     section {
-        padding: 0 0.7rem 0 0.7rem !important;
+        padding: 0 2.4rem 0 2.4rem !important;
         margin-bottom: 2rem;
     }
     .col, .col-1, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12  {
@@ -414,11 +414,29 @@ footer .email-address a:hover {
     .title {
         height: 7rem;
     }
+    .get-it {
+        align-items: center;
+    }
 }
 
 @media only screen and (max-width: 549px) and (min-width: 360px) {
     section {
-        padding: 0 0.7rem 0 0.7rem !important;
+        padding: 0 1rem 0 1rem !important;
         margin-bottom: 2rem;        
+    }
+    .col-3.col-img {
+        display: none;
+    }
+    .box-points {
+        margin-bottom: 0.6rem;
+    }
+    .box-points svg {
+        margin-right: 0.7rem;
+    }
+    .get-it {
+        align-items: unset;
+    }
+    .android .google-play .get-it a img {
+        margin-right: 1rem;
     }
 }
