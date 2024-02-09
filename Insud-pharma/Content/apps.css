@@ -104,7 +104,7 @@ nav h1 .h1-eng .highlight-eng {
 
 .box-points {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     margin-bottom: 0.6rem;
 }
 
@@ -117,6 +117,16 @@ nav h1 .h1-eng .highlight-eng {
     font-weight: 300;
     line-height: normal;
     color: #606060;
+}
+
+.box-points .link-url {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: normal;
+    color: #007EDA;
+    text-decoration-line: underline;    
+    display: block;
+    margin: 10px 0 14px 0;
 }
 
 .box-points p.eng {
@@ -134,17 +144,6 @@ nav h1 .h1-eng .highlight-eng {
     transition: border 200ms ease;
 }
 
-.box-points p span a:hover {    
-    border-bottom-color: rgba(0, 127, 218, 0.5);
-}
-
-.box-points p.eng span a {
-    color: #09cade;
-}
-.box-points p.eng span a:hover {    
-    border-bottom-color: rgba(9, 201, 222, 0.5);
-}
-
 .box-points p svg {
     position: relative;
     top: 3px;
@@ -160,6 +159,7 @@ section .col-img img {
     display: flex;
     flex-direction: column;
     margin-left: initial;
+    padding-top: 0;
 }
 
 .get-it {
@@ -220,9 +220,9 @@ section .col-img img {
 }
 
 .ios .logo-ios {
-    width: 30px;
-    height: 30px;
-    margin-bottom: 0.45rem;
+    width: 168px;
+    height: 23px;
+    margin-bottom: 0.95rem;
 }
 
 .android p,
@@ -333,6 +333,11 @@ footer .email-address a:hover {
         text-align: center;
         width: 100% !important;
     }
+
+    .box-points .link-url {
+        font-size: 1.2rem;
+    }
+
     .get-it {
         display: flex;
         flex-direction: column;
@@ -399,7 +404,7 @@ footer .email-address a:hover {
         border-bottom-color: #007eda;
     }
     .android {
-        margin-bottom: 2rem;
+        margin-bottom: 4rem;
     }
     .ios {
         margin-left: 0;
@@ -436,6 +441,11 @@ footer .email-address a:hover {
     .box-points svg {
         margin-right: 0.7rem;
     }
+
+    .box-points .link-url {
+        font-size: 0.8rem;
+    }
+
     .get-it {
         align-items: unset;
     }
