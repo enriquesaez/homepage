@@ -73,7 +73,7 @@ nav h1 .h1-eng .highlight-eng {
 
 .title {
     height: 6rem;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
 }
 
 .title, footer {
@@ -232,18 +232,17 @@ section .col-img img {
     line-height: normal;
     letter-spacing: -1.2px;
     color: #7C7C7C;
-    margin-bottom: 30px;
+    margin-bottom: 1.875rem;
 }
 
 .ios .p-ios {
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
 }
 
 footer {
     width: 100%;
     min-height: 7.5rem;
-    padding: 1.875rem 0 0 0;
-    position: fixed;
+    padding: 1.875rem 0 0 0;    
     bottom: 0;
     text-align: center;
 }
@@ -271,6 +270,10 @@ footer .email-address a:hover {
 }
 
 /* Media queries*/
+@media only screen and (min-width: 2000px){
+    footer {position: fixed;}
+}
+
 @media only screen and (max-width: 1570px) {
     section .col-img img {
         margin-left: 3rem;
