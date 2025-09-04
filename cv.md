@@ -16,13 +16,14 @@ Soy especialista en desarrollo de maquetado HTML y diseño de interfaces de usua
 
 ## Experiencia Profesional
 
-### Inercya Intelligent Software  
+### Inercya Intelligent Software
 **Senior UI Engineer**  
 *Abril 2023 – Actualidad*  
 Responsable de diseño web y desarrollo para diversos clientes nacionales e internacionales.
 
 **Tecnologías:** SASS, HTML5, CSS3, AngularJS, Figma, Adobe CC, Jira, Mindata
 
+### Mindata
 **Coordinador de equipo Layout**  
 *Diciembre 2022 – Febrero 2023*  
 Coordinación del equipo de maquetación web en el departamento de UI para proyectos de Resorts & Hoteles.
@@ -118,3 +119,4 @@ Cursos sobre desarrollo e integración de contenidos multimedia. Edición y trat
 - Presentación de conceptos a clientes
 - Desempeño laboral con mínima supervisión
 - Trabajo en equipos multidisciplinares
+
