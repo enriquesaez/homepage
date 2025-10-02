@@ -1,7 +1,7 @@
 # Proyecto de Novela – Ficha Técnica - Título provisional: Demonios al amanecer
 
 ## 1. Sinopsis
-En una remota península noruega, aislada entre fiordos y montañas, cuatro personas entrelazan sus destinos en una red de secretos, lealtades y traiciones. Lowell Whitman, un estadounidense que ha dejado atrás su vida corporativa en busca de un refugio, oculta un pasado profesional que se entrelaza con el de su vecino Eirik Lund, un enigmático “facilitador” con métodos turbios que prefiere dejar enterrados. Sus esposas, Liv y Hanne, tratan de construir una vida tranquila en medio del aislamiento, sin conocer la profundidad de lo que las rodea.  
+En una remota península noruega, aislada entre fiordos y montañas, cuatro personas entrelazan sus destinos en una red de secretos, lealtades y traiciones. Lowell Whitman, un estadounidense que ha dejado atrás su vida para trasladarse a Noruega en una importante empresa petrolera, oculta un pasado profesional que se entrelaza con el de su vecino Eirik Lund, un enigmático “facilitador” con métodos turbios que prefiere dejar enterrados. Sus esposas, Liv y Hanne, tratan de construir una vida tranquila en medio del aislamiento, sin conocer la profundidad de lo que las rodea.  
 La desaparición de Liv, narrada en un presente inmediato, abre una historia que se despliega a través de saltos temporales: el pasado corporativo, el asentamiento en el fiordo, y las tensiones crecientes entre los cuatro personajes. La verdad se revela lentamente, hasta que las líneas temporales convergen en el presente de Liv, oculta y planeando su propio desenlace.
 
 ---
@@ -75,3 +75,4 @@ La acción transcurre en una remota península noruega, aislada, azotada por el 
 - El ritmo de revelación está pensado para sostener tanto la intriga como la psicología de los personajes, evitando giros bruscos pero sembrando dudas constantes.  
 
 ---
+
