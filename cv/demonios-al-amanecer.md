@@ -9,7 +9,7 @@ La desaparición de Liv, narrada en un presente inmediato, abre una historia que
 ## 2. Ficha de Personajes Principales
 
 - **Lowell Whitman**  
-  Norteamericano, vicepresidente de Nordhaven Energy. Llegó a Noruega junto a su esposa Liv buscando una vida más serena, lejos de la presión corporativa. Su contacto previo con Eirik Lund —una reunión clandestina en la que se resolvió un problema empresarial mediante métodos oscuros— marcó un punto de quiebre en su moralidad. Atrapado entre la nostalgia de su ética perdida y la necesidad de sobrevivir, es un personaje dividido.
+  Norteamericano, vicepresidente de Nordhaven Energy. Llegó a Noruega y allí conoció y se casó con su esposa Liv. Su contacto previo con Eirik Lund —una reunión clandestina en la que se resolvió un problema empresarial mediante métodos oscuros— marcó un punto de quiebre en su moralidad. Atrapado entre la nostalgia de su ética perdida y la necesidad de sobrevivir, es un personaje dividido.
 
 - **Liv Whitman**  
   Noruega, sin familia cercana, casada con Lowell. Representa el hilo conductor emocional de la historia: su desaparición es el motor inicial y, en paralelo, su voz en segunda persona sitúa al lector en un presente-futuro de ocultamiento y resistencia. Su aparente fragilidad encierra una determinación que se irá revelando conforme avance la trama.
@@ -52,7 +52,7 @@ La desaparición de Liv, narrada en un presente inmediato, abre una historia que
 ---
 
 ## 4. Explicación sobre la línea de tiempo
-La estructura narrativa no es simétrica. La historia comienza en un presente-futuro inmediato tras la desaparición de Liv, con un POV en segunda persona (Liv, narrada desde su propia interioridad). Posteriormente, la narración retrocede a un presente menos inmediato, cambiando el POV a tercera persona y repartiendo capítulos entre Lowell, Eirik y Hanne.  
+La estructura narrativa no es simétrica. La historia comienza en un presente-futuro inmediato tras la desaparición de Liv, con un POV en segunda persona (Liv, narrada desde su propia interioridad). Posteriormente, la narración retrocede a un presente menos inmediato, cambiando el POV a tercera persona y repartiendo capítulos entre Lowell, Liv, Eirik y Hanne.  
 
 A lo largo de estos capítulos aparecen retrocesos más profundos —como la reunión clandestina de Nordhaven Energy en 2025— que funcionan como piezas explicativas para comprender las decisiones en el presente. Estos saltos temporales siempre estarán al servicio de la claridad narrativa y nunca deben confundir al lector.
 
@@ -75,5 +75,6 @@ La acción transcurre en una remota península noruega, aislada, azotada por el 
 - El ritmo de revelación está pensado para sostener tanto la intriga como la psicología de los personajes, evitando giros bruscos pero sembrando dudas constantes.  
 
 ---
+
 
 
