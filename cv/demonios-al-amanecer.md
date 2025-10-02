@@ -9,7 +9,7 @@ La desaparición de Liv, narrada en un presente inmediato, abre una historia que
 ## 2. Ficha de Personajes Principales
 
 - **Lowell Whitman**  
-  Norteamericano, ex vicepresidente de Nordhaven Energy. Llegó a Noruega junto a su esposa Liv buscando una vida más serena, lejos de la presión corporativa. Su contacto previo con Eirik Lund —una reunión clandestina en la que se resolvió un problema empresarial mediante métodos oscuros— marcó un punto de quiebre en su moralidad. Atrapado entre la nostalgia de su ética perdida y la necesidad de sobrevivir, es un personaje dividido.
+  Norteamericano, vicepresidente de Nordhaven Energy. Llegó a Noruega junto a su esposa Liv buscando una vida más serena, lejos de la presión corporativa. Su contacto previo con Eirik Lund —una reunión clandestina en la que se resolvió un problema empresarial mediante métodos oscuros— marcó un punto de quiebre en su moralidad. Atrapado entre la nostalgia de su ética perdida y la necesidad de sobrevivir, es un personaje dividido.
 
 - **Liv Whitman**  
   Noruega, sin familia cercana, casada con Lowell. Representa el hilo conductor emocional de la historia: su desaparición es el motor inicial y, en paralelo, su voz en segunda persona sitúa al lector en un presente-futuro de ocultamiento y resistencia. Su aparente fragilidad encierra una determinación que se irá revelando conforme avance la trama.
@@ -75,4 +75,5 @@ La acción transcurre en una remota península noruega, aislada, azotada por el 
 - El ritmo de revelación está pensado para sostener tanto la intriga como la psicología de los personajes, evitando giros bruscos pero sembrando dudas constantes.  
 
 ---
+
 
