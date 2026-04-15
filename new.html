@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Enrique Saez | Product Designer &amp; Engineer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#2d3338",
+                    "surface-container-highest": "#dde3e9",
+                    "on-background": "#2d3338",
+                    "inverse-primary": "#ffffff",
+                    "surface-tint": "#5f5e60",
+                    "on-tertiary-fixed": "#3a344e",
+                    "surface-variant": "#dde3e9",
+                    "outline-variant": "#acb3b8",
+                    "inverse-surface": "#0c0e10",
+                    "tertiary-fixed": "#dcd2f4",
+                    "tertiary": "#625b77",
+                    "primary-fixed": "#e4e2e4",
+                    "on-tertiary-container": "#4d4762",
+                    "on-surface-variant": "#596065",
+                    "on-tertiary-fixed-variant": "#57506c",
+                    "on-primary": "#faf7f9",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#d3dbe2",
+                    "error-container": "#fe8983",
+                    "on-secondary": "#faf8fe",
+                    "surface-bright": "#f9f9fb",
+                    "on-primary-fixed-variant": "#5c5b5d",
+                    "on-error": "#fff7f6",
+                    "primary-dim": "#535254",
+                    "background": "#f9f9fb",
+                    "on-primary-fixed": "#3f3f41",
+                    "secondary": "#5e5f63",
+                    "surface-container": "#ebeef2",
+                    "inverse-on-surface": "#9c9d9f",
+                    "surface-container-low": "#f2f4f6",
+                    "on-secondary-fixed-variant": "#5b5b60",
+                    "secondary-container": "#e3e2e7",
+                    "outline": "#757c81",
+                    "secondary-dim": "#525357",
+                    "tertiary-dim": "#564f6b",
+                    "secondary-fixed-dim": "#d5d4d9",
+                    "on-error-container": "#752121",
+                    "error": "#9f403d",
+                    "primary": "#5f5e60",
+                    "primary-fixed-dim": "#d6d3d6",
+                    "on-secondary-container": "#515156",
+                    "tertiary-fixed-dim": "#cec5e5",
+                    "secondary-fixed": "#e3e2e7",
+                    "error-dim": "#4e0309",
+                    "primary-container": "#e4e2e4",
+                    "surface": "#f9f9fb",
+                    "tertiary-container": "#dcd2f4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter", "sans-serif"],
+                    "body": ["Inter", "sans-serif"],
+                    "label": ["Inter", "sans-serif"]
+            }
+          },
+        },
+      }
+    
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            background-color: #ffffff;
+            color: #1D1D1F;
+            scroll-behavior: smooth;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(45, 51, 56, 0.08);
+        }
+        .lightbox-backdrop {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s;
+        }
+        .lightbox-backdrop.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .lightbox-content {
+            transform: scale(0.95);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .lightbox-backdrop.active .lightbox-content {
+            transform: scale(1);
+        }
+        body.modal-open {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="selection:bg-primary-container selection:text-on-primary-container">
+<!-- Lightbox Gallery Modal -->
+<div class="lightbox-backdrop fixed inset-0 z-[100] flex items-center justify-center bg-black/40 backdrop-blur-2xl px-6" id="lightbox">
+<button class="absolute top-8 right-8 text-white/70 hover:text-white transition-colors duration-200" id="close-lightbox">
+<span class="material-symbols-outlined text-4xl">close</span>
+</button>
+<button class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-all duration-200 hover:scale-110" id="prev-project">
+<span class="material-symbols-outlined text-5xl">chevron_left</span>
+</button>
+<button class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-all duration-200 hover:scale-110" id="next-project">
+<span class="material-symbols-outlined text-5xl">chevron_right</span>
+</button>
+<div class="lightbox-content max-w-6xl w-full flex flex-col items-center">
+<div class="relative w-full aspect-[16/10] bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl">
+<img alt="Project Image" class="w-full h-full object-cover opacity-0 transition-opacity duration-300" id="lightbox-img" src=""/>
+</div>
+<div class="mt-8 text-center text-white">
+<span class="text-[10px] uppercase tracking-[0.2em] font-bold text-white/60 mb-2 block" id="lightbox-category"></span>
+<h3 class="text-2xl font-semibold tracking-tight" id="lightbox-title"></h3>
+</div>
+</div>
+</div>
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 left-0 right-0 z-50 flex justify-center w-full px-4">
+<nav class="bg-white/70 backdrop-blur-xl rounded-full mt-6 mx-auto w-fit px-8 py-2.5 shadow-[0_20px_40px_rgba(45,51,56,0.06)] flex items-center gap-10 border border-outline-variant/10">
+<a class="text-xl font-semibold tracking-tighter text-zinc-900" href="#">Enrique Sáez</a>
+<div class="flex items-center gap-8">
+<a class="text-zinc-900 font-medium font-['Inter'] tracking-tight transition-colors duration-300" href="#selected-work">Selected Work</a>
+<a class="text-zinc-500 hover:text-zinc-900 font-['Inter'] tracking-tight transition-colors duration-300" href="#toolkit-expertise">Toolkit &amp; Expertise</a>
+</div>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="pt-48 pb-32 px-6">
+<div class="max-w-5xl mx-auto text-center">
+<span class="inline-block px-4 py-1 rounded-full bg-surface-container-low text-on-surface-variant text-xs font-medium mb-6 uppercase tracking-widest">Enrique Sáez | UI Developer</span>
+<h1 class="text-6xl md:text-[5rem] font-semibold leading-[1.05] tracking-tight text-on-surface mb-8">I'm a UI Developer from Spain, Europe</h1>
+<p class="text-xl md:text-2xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed mb-12 font-light"><span style='color: rgb(162, 162, 162); font-family: "Source Sans Pro", Helvetica, sans-serif; font-size: 21.3333px; text-align: start;'>with a holistic approach towards brand identity and digital design. I'm passionate about designs, web development and user interfaces.</span></p>
+<div class="flex flex-wrap justify-center gap-4">
+<a class="px-8 py-4 bg-primary text-white rounded-full font-medium hover:bg-primary-dim transition-all duration-300 shadow-lg shadow-primary/10" href="#selected-work">View Projects</a>
+<a class="px-8 py-4 bg-surface-container text-on-surface rounded-full font-medium hover:bg-surface-container-high transition-all duration-300" href="https://enriquesaez.github.io/homepage/cv/EnriqueSaez_CV_2026.pdf" target="_blank">Download Resume [pdf]</a>
+</div>
+</div>
+</section>
+<!-- The Unicorn Section -->
+<section class="py-24 px-6 bg-surface-container-low">
+<div class="max-w-6xl mx-auto">
+<div class="bg-surface-container-lowest p-12 md:p-20 rounded-xl shadow-[0_20px_40px_rgba(45,51,56,0.04)]">
+<div class="grid md:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="text-3xl md:text-4xl font-semibold mb-6 tracking-tight">The Unicorn Factor</h2>
+<p class="text-lg text-on-surface-variant leading-relaxed mb-8">
+                                I specialize in the intersection of disciplines. By understanding both the brushstrokes and the code behind them, I deliver solutions that are inclusive, scalable, and blazingly fast.
+                            </p>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">accessibility_new</span>
+</div>
+<div>
+<h3 class="font-semibold text-lg">A11y (Accessibility)</h3>
+<p class="text-sm text-on-surface-variant">WCAG compliant designs that ensure everyone can experience the web beautifully.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">architecture</span>
+</div>
+<div>
+<h3 class="font-semibold text-lg">Design Systems</h3>
+<p class="text-sm text-on-surface-variant">Component-driven architecture that bridges Figma and Production code.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">bolt</span>
+</div>
+<div>
+<h3 class="font-semibold text-lg">Performance</h3>
+<p class="text-sm text-on-surface-variant">Optimized engineering for Core Web Vitals and seamless user interaction.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative h-[400px] md:h-[500px] rounded-lg overflow-hidden bg-surface-container">
+<img alt="Conceptual design work" class="w-full h-full object-cover" data-alt="abstract minimalist 3D render of floating glass geometric shapes in soft natural light with a white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_wJlW_x5az84r-GhnbKelb9GSDbiExsNK_Vw5leZwd7nn2MgZ4ckRkF0Ja76hvX09VQCSIfZ0q2rZc285Ga0bgeSAtdYDvaZyRu85O9jHiRFrvdMGIHSNwgh-9HUF1TygbT3fZK-RyjkDAdd2qZFsJYC_iFUNCB3wY5aVPQkFd7semrLK9xdfyXXNZQrXFgSo3CrCgHSX03dl2GKbYIrS_XGDTOCLMnApICh14a5Zi4ZDzp8MTEhuqzuKtN4TXuR1MiXo9uAJzvek"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Grid -->
+<section class="py-32 px-6" id="selected-work">
+<div class="max-w-7xl mx-auto">
+<div class="flex justify-between items-end mb-16">
+<div>
+<h2 class="text-4xl font-semibold tracking-tight mb-4">Selected Work</h2>
+<p class="text-on-surface-variant text-lg">A curated selection of design and engineering projects.</p>
+</div>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-container">
+<!-- Project 1 -->
+<div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="0">
+<div class="aspect-[4/3] overflow-hidden bg-surface-container">
+<img alt="Contratación Simplificada" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Fintech • Product Design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGFC-kyLMm_xip_vV-xVgycuqbmof603Rnh0m9KVBGoGbuzQ0VgUa0KuQdatIEOHcd9th2EZ91cEBSmsBrqidXqASpDr-lZhorEE5Y9cFvfPusLzpBEdmgj-lndTBW2lIogkFStWWsFjija-WBY2cJDaVAZph3d0uYPGkT2jpYkTPFMNJ8VLJ6Fb_0bGclqjApRJ2iMdI1S3vYeoBzh-QgAkKQnWT-fL0hjMYathfx7wkOU9CvVDNVXdFXzqGhcJw-awVg5WiPaO_C"/>
+</div>
+<div class="p-8">
+<span class="text-[10px] uppercase tracking-widest font-bold text-outline mb-2 block">Fintech • Product Design</span>
+<h3 class="text-xl font-semibold mb-2">Contratación Simplificada</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">Streamlining banking contracts for faster processing.</p>
+<span class="text-primary text-sm font-medium flex items-center gap-2">View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="1">
+<div class="aspect-[4/3] overflow-hidden bg-surface-container">
+<img alt="UI Design Prototype" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Prototype • UX Research" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGVX4ZVXlbSDktA3k2YHjZa7xZb5wkHZilET-GwcIVi9EebX3gDgf-CfKgamm1IMajqf4yRdyOWU5YqnCWL750lwf6WBhGLnFcgmYbNaYBfArKP-4uI8-WHBb0klXjJGfWfSZWhSKnnJsPzlP0IDruUIOkoo9F9A_-ULwLkPJKZAKBMg77X7xpENp4To52k2TDnsEwBcCtiS2fr4CBeCeKzHgujtk6WGQ4kzUqA8s9iF77lONLlZJzINIyuNgauMym7GEwwt15ht9W"/>
+</div>
+<div class="p-8">
+<span class="text-[10px] uppercase tracking-widest font-bold text-outline mb-2 block">Prototype • UX Research</span>
+<h3 class="text-xl font-semibold mb-2">UI Design Prototype</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">A sandbox for high-fidelity interactive motion studies.</p>
+<span class="text-primary text-sm font-medium flex items-center gap-2">View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="2">
+<div class="aspect-[4/3] overflow-hidden bg-surface-container">
+<img alt="BBVA Global Net Cash" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Enterprise • Development" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa6-v89wDJV2A4SF2w_u4QZRi8CtdSks9JTdI_ufOnU0jmZfeFxwKjVFP2fkN7BvA3L48AQfe4TRoAWKIll4LaBWq7uZeXJy6kgoc7HVMvVLYvwugPBfORjH1FXyKWkdd5Ki_2sDwrd1iYklVyNKUdK9PnX8aBjSBfn5cmQeDHHq23oWACHgECR_xmK9y91DzSrpbUEA93rgERSuQqM2Z1exjeZI6aL6g-VdjssXuK10HdcxGqNUjZZEkjRK2GaolBBIfYKU_rtpng"/>
+</div>
+<div class="p-8">
+<span class="text-[10px] uppercase tracking-widest font-bold text-outline mb-2 block">Enterprise • Development</span>
+<h3 class="text-xl font-semibold mb-2">BBVA Global Net Cash</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">Optimizing enterprise treasury management tools.</p>
+<span class="text-primary text-sm font-medium flex items-center gap-2">View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+</div>
+</div>
+<!-- Project 4 -->
+<div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="3">
+<div class="aspect-[4/3] overflow-hidden bg-surface-container">
+<img alt="RTVE Web Development" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Media • Frontend Engineering" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG30pewhw6UqQLbyHNTOqNRgQ0jb1NvtlSEugE39TA9uZutIwHyIAZ0piq-PgaW8K8eFW3JEf6UOMg_xpSlU4MExgiMTqbzFK6Dco5VeIyDlZEjZl4Y8szI_c9557HQIS1kN1KtiFK4KiSl1tpFV5mImqReCIAkRCrPtfbpzWpEGAjxMXOwnP7uleFlbY8OjJSUwjVNzSYMulN6sBN6TCtH6SOHjBOyvIzWYAXQ7CMHdCIQvnFFDroOLij6T0q6U-BUTn9kTsTGJdo"/>
+</div>
+<div class="p-8">
+<span class="text-[10px] uppercase tracking-widest font-bold text-outline mb-2 block">Media • Frontend Engineering</span>
+<h3 class="text-xl font-semibold mb-2">RTVE Web Development</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">Scalable frontend architecture for national broadcasting.</p>
+<span class="text-primary text-sm font-medium flex items-center gap-2">View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+</div>
+</div>
+<!-- Project 5 -->
+<div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="4">
+<div class="aspect-[4/3] overflow-hidden bg-surface-container">
+<img alt="Future Kids Website" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Education • Design &amp; Code" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtfIdLJ7SUfAeO89l0M2u_mM5toYhcR47CY1lV_w5YZEcxFw5wSZnjLidB3uHB3G0DbloWyMAJIr_V7Bz1x2Nyu4HZwF_7HXU3hRoN1jgFdWqmntj-MjWtcRN9I5VJ7EltZ4nhsUTzZ_BNC8UBwc3Eu46buPYnEPrhbBPeb3GfPpWuFczBL2J9qz-9ST0tXDps0PNWOK1-btQrkw5WXY8FVwbpCAs9AU2FhQys6rv_IXMleppxpSAv4TM_FuCZqazufohvQd4FPDJM"/>
+</div>
+<div class="p-8">
+<span class="text-[10px] uppercase tracking-widest font-bold text-outline mb-2 block">Education • Design &amp; Code</span>
+<h3 class="text-xl font-semibold mb-2">Future Kids Website</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">Playful and accessible educational landing experiences.</p>
+<span class="text-primary text-sm font-medium flex items-center gap-2">View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+</div>
+</div>
+<!-- Project 6 -->
+<div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="5">
+<div class="aspect-[4/3] overflow-hidden bg-surface-container">
+<img alt="API Village" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Infrastructure • Platform Design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg94C54o2BfMnP0rdvj9ImfepfxwoKeulVHWlX-zijxx2sjybw75roNUs-NkAcXiGbp7AVwmpzeroZ4kXd5pw4CeYcX2B7MFl0TaMRZ15Wg467GNIY3xhAOgwnCxEd0XcEDnGNwPdyy9cFCoVXA7-ZPUKZJBcAscJ7jJif3ZBVjUWCpo4SwC60aza8wSrrWytmTe5J0yi94-shbdx3XRvwi6nI6YbM6nLTlAUFq_YYxs2P2KNyu5Rvz0GUh2AeYLD9kFqNXqQg9TUR"/>
+</div>
+<div class="p-8">
+<span class="text-[10px] uppercase tracking-widest font-bold text-outline mb-2 block">Infrastructure • Platform Design</span>
+<h3 class="text-xl font-semibold mb-2">API Village</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">A developer-centric portal for managing ecosystem APIs.</p>
+<span class="text-primary text-sm font-medium flex items-center gap-2">View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+</div>
+</div>
+</div>
+<!-- Secondary Projects List -->
+</div>
+</section>
+<!-- Skills/Tools -->
+<section class="py-24 px-6 bg-surface" id="toolkit-expertise">
+<div class="max-w-5xl mx-auto text-center">
+<h2 class="text-3xl font-semibold mb-12 tracking-tight">Toolkit &amp; Expertise</h2>
+<div class="flex flex-wrap justify-center gap-3"><span class="px-6 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-full text-sm font-medium text-on-surface-variant">HTML</span>
+<span class="px-6 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-full text-sm font-medium text-on-surface-variant">SCSS / CSS</span>
+<span class="px-6 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-full text-sm font-medium text-on-surface-variant">Tailwind CSS</span>
+<span class="px-6 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-full text-sm font-medium text-on-surface-variant">AngularJs</span>
+<span class="px-6 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-full text-sm font-medium text-on-surface-variant">PrimeNG</span>
+<span class="px-6 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-full text-sm font-medium text-on-surface-variant">PUG-JADE</span>
+<span class="px-6 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-full text-sm font-medium text-on-surface-variant">Git</span>
+<span class="px-6 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-full text-sm font-medium text-on-surface-variant">Figma expert</span>
+<span class="px-6 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-full text-sm font-medium text-on-surface-variant">Sketch</span>
+<span class="px-6 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-full text-sm font-medium text-on-surface-variant">Adobe</span>
+<span class="px-6 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-full text-sm font-medium text-on-surface-variant">Design System</span>
+<span class="px-6 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-full text-sm font-medium text-on-surface-variant">UI / UX</span>
+<span class="px-6 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-full text-sm font-medium text-on-surface-variant">Agile / Scrum</span></div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="py-20 px-8 w-full flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto rounded-t-xl">
+<div class="mb-8 md:mb-0">
+<span class="font-bold text-zinc-900 block mb-2">Enrique Sáez</span>
+<p class="font-['Inter'] text-sm leading-relaxed text-zinc-600">© 2026 Enrique Sáez. UI / UX &amp; Markup HTML Developer.</p>
+</div>
+<div class="flex gap-8"><a class="text-zinc-500 hover:text-zinc-900 underline-offset-4 hover:underline transition-opacity text-sm" href="https://www.linkedin.com/in/enriquesaez/">LinkedIn</a>
+<a class="text-zinc-500 hover:text-zinc-900 underline-offset-4 hover:underline transition-opacity text-sm" href="https://dribbble.com/saez240">Dribbble</a>
+<a class="text-zinc-500 hover:text-zinc-900 underline-offset-4 hover:underline transition-opacity text-sm" href="https://www.domestika.org/es/enrique_saez/portfolio">Domestika</a>
+<a class="text-zinc-500 hover:text-zinc-900 underline-offset-4 hover:underline transition-opacity text-sm" href="https://x.com/esaez">X (Twitter)</a></div>
+</footer>
+</main>
+<script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxCategory = document.getElementById('lightbox-category');
+        const closeBtn = document.getElementById('close-lightbox');
+        const prevBtn = document.getElementById('prev-project');
+        const nextBtn = document.getElementById('next-project');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        let currentIndex = 0;
+        const projects = Array.from(projectCards).map(card => {
+            const img = card.querySelector('img');
+            return {
+                src: img.src,
+                title: card.querySelector('h3').innerText,
+                category: img.getAttribute('data-category')
+            };
+        });
+
+        function openLightbox(index) {
+            currentIndex = index;
+            updateLightboxContent();
+            lightbox.classList.add('active');
+            document.body.classList.add('modal-open');
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.classList.remove('modal-open');
+            setTimeout(() => {
+                lightboxImg.style.opacity = '0';
+            }, 400);
+        }
+
+        function updateLightboxContent() {
+            const project = projects[currentIndex];
+            lightboxImg.style.opacity = '0';
+            
+            setTimeout(() => {
+                lightboxImg.src = project.src;
+                lightboxTitle.innerText = project.title;
+                lightboxCategory.innerText = project.category;
+                lightboxImg.onload = () => {
+                    lightboxImg.style.opacity = '1';
+                };
+            }, 150);
+        }
+
+        function nextProject() {
+            currentIndex = (currentIndex + 1) % projects.length;
+            updateLightboxContent();
+        }
+
+        function prevProject() {
+            currentIndex = (currentIndex - 1 + projects.length) % projects.length;
+            updateLightboxContent();
+        }
+
+        projectCards.forEach((card, index) => {
+            card.addEventListener('click', () => openLightbox(index));
+        });
+
+        closeBtn.addEventListener('click', closeLightbox);
+        nextBtn.addEventListener('click', nextProject);
+        prevBtn.addEventListener('click', prevProject);
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextProject();
+            if (e.key === 'ArrowLeft') prevProject();
+        });
+    
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body></html>
