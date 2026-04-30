@@ -1,345 +1,627 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+
+<html class="light" lang="en">
 
 <head>
-  <title>Enrique Sáez |  UI Developer | UX Designer</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-  <link rel="stylesheet" href="assets/css/main.css" />
-  <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4Q0J4PCTM5"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-4Q0J4PCTM5');
-  </script>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Enrique Saez | Product Designer &amp; Engineer</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+              extend: {
+                "colors": {
+                        "on-surface": "#2d3338",
+                        "surface-container-highest": "#dde3e9",
+                        "on-background": "#2d3338",
+                        "inverse-primary": "#ffffff",
+                        "surface-tint": "#5f5e60",
+                        "on-tertiary-fixed": "#3a344e",
+                        "surface-variant": "#dde3e9",
+                        "outline-variant": "#acb3b8",
+                        "inverse-surface": "#0c0e10",
+                        "tertiary-fixed": "#dcd2f4",
+                        "tertiary": "#625b77",
+                        "primary-fixed": "#e4e2e4",
+                        "on-tertiary-container": "#4d4762",
+                        "on-surface-variant": "#596065",
+                        "on-tertiary-fixed-variant": "#57506c",
+                        "on-primary": "#faf7f9",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#d3dbe2",
+                        "error-container": "#fe8983",
+                        "on-secondary": "#faf8fe",
+                        "surface-bright": "#f9f9fb",
+                        "on-primary-fixed-variant": "#5c5b5d",
+                        "on-error": "#fff7f6",
+                        "primary-dim": "#535254",
+                        "background": "#f9f9fb",
+                        "on-primary-fixed": "#3f3f41",
+                        "secondary": "#5e5f63",
+                        "surface-container": "#ebeef2",
+                        "inverse-on-surface": "#9c9d9f",
+                        "surface-container-low": "#f2f4f6",
+                        "on-secondary-fixed-variant": "#5b5b60",
+                        "secondary-container": "#e3e2e7",
+                        "outline": "#757c81",
+                        "secondary-dim": "#525357",
+                        "tertiary-dim": "#564f6b",
+                        "secondary-fixed-dim": "#d5d4d9",
+                        "on-error-container": "#752121",
+                        "error": "#9f403d",
+                        "primary": "#5f5e60",
+                        "primary-fixed-dim": "#d6d3d6",
+                        "on-secondary-container": "#515156",
+                        "tertiary-fixed-dim": "#cec5e5",
+                        "secondary-fixed": "#e3e2e7",
+                        "error-dim": "#4e0309",
+                        "primary-container": "#e4e2e4",
+                        "surface": "#f9f9fb",
+                        "tertiary-container": "#dcd2f4"
+                },
+                "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                },
+                "fontFamily": {
+                        "headline": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                }
+              },
+            },
+          }
+        
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    e.preventDefault();
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            background-color: #ffffff;
+            color: #1D1D1F;
+            scroll-behavior: smooth;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(45, 51, 56, 0.08);
+        }
+        .lightbox-backdrop {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s;
+        }
+        .lightbox-backdrop.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .lightbox-content {
+            transform: scale(0.95);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .lightbox-backdrop.active .lightbox-content {
+            transform: scale(1);
+        }
+        body.modal-open {
+            overflow: hidden;
+        }
+    </style>
 </head>
 
-<body id="top">
-  <div id="cookiesBox"
-    style="display: none; z-index: 5; position: fixed; bottom: 0; background-color: #cddc39;color: #000000; line-height: 22px; padding: 16px; width: 100%; box-shadow: -1px 1px 10px 0px #2f2f2f;">
-    <div style="display: flex; flex-direction: column; align-items: center; width: 100%; text-align: center;">
-      <p style="margin: 0px; line-height: 32px;">We use our own and third-party cookies to obtain statistical data on the navigation of our users and improve our services.</p>
-      <p style="line-height: 32px; margin-bottom: 30px;">If you press the OK button or continue browsing, we consider that you accept their use.</p>
-      <button onclick="acceptCookies()" 
-      style="
-        height: 2.8em;
-        font-size: 0.8em;
-        border-radius: 1em;
-        min-width: 11em;
-        cursor: pointer;
-        margin-bottom: 20px;
-        background-color: #3d4300;
-        color: #cddc39;
-        border-width: 0;
-        border-style: none;
-        max-width: 11em;
-        max-height: 2.8em;
-        ">
-        ACCEPT COOKIES</button>
-    </div>
-  </div>
-  <!-- Header -->
-  <header id="header">
-    <a class="image avatar"><img src="https://avatars.githubusercontent.com/u/5149926" alt="Enrique" /></a>
-    <h1><strong>Enrique Sáez</strong> | UI Developer</h1>
-  </header>
-
-  <!-- Main -->
-  <div id="main">
-    <!-- One -->
-    <section id="one">
-      <header class="major">
-        <h2>Biography</h2>
-      </header>
-      <p>I'm a UI Developer from Spain, Europe; with a holistic approach towards brand identity and digital design. I'm passionate about designs, web development and user interfaces.</p>
-    </section>
-
-    <!-- Two -->
-    <section id="two">
-      <h2>Resume & Portfolio</h2>
-      <ul class="actions">
-        <li>
-          <a href="cv/EnriqueSaez_CV_2026.pdf" class="button"
-            target="_blank">CV <span style="font-size: 0.8em;">(PDF)</span></a>
-        </li>
-        <li>
-          <a href="http://www.domestika.org/es/enrique_saez/portfolio" class="button" target="_blank">
-            Portfolio Domestika</a>
-        </li>
-        <li>
-          <a href="https://dribbble.com/saez240" class="button icon fa-dribbble" target="_blank">Portfolio Dribbble</a>
-        </li>
-      </ul>
-      <h2>Recent Work</h2>
-      <!-- PORTFOLIO -->
-
-     <div class="row">
-      <article class="6u 12u$(xsmall) work-item">
-        <a href="assets/css/images/coretalent.png"
-          class="image fit thumb"><img
-            src="assets/css/images/coretalent-thumb.png"
-            alt="Proyect" /></a>
-            <h3>User interface Design
-          <a href="https://www.figma.com/proto/vO8sDyBOIEuenJqakd6KJR/Core-Talent?node-id=3847-14517&p=f&t=jSVIH2Hh1ee9ZxGs-1&scaling=min-zoom&content-scaling=fixed&page-id=3847%3A2477" target="_blank" style="margin-left:0.8rem; font-weight: 700; font-size: 1.2rem;">View online Prototype ↪</a>
-        </h3>
-        <p>FIGMA</p>
-      </article>      
-      <article class="6u 12u$(xsmall) work-item">
-        <a href="assets/css/images/InsudPharma.png"
-          class="image fit thumb"><img
-            src="assets/css/images/InsudPharma.png"
-            alt="Proyect" /></a>
-        <h3>AngularJs - Web Development 
-          <!-- <a href="https://enriquesaez.github.io/chameleon/src/compiled/index.html" target="_blank" style="margin-left:0.8rem; font-weight: 700; font-size: 1.2rem;">View online ↪</a> -->
-        </h3>
-        <p>HTML5 & Angular</p>
-      </article>
-
-      <article class="6u 12u$(xsmall) work-item">
-        <a href="images/verificartve.jpg"
-          class="image fit thumb"><img
-            src="images/verificartve_thumb.jpg"
-            alt="Proyect" /></a>
-        <h3>RTVE <a href="https://www.rtve.es/noticias/verificartve/herramientas-de-verificacion/avanzadas/" target="_blank" style="margin-left:0.8rem; font-weight: 700; font-size: 1.2rem;">View online ↪</a></h3>
-        <p>Web development & UX design</p>
-      </article>
-
-      <article class="6u 12u$(xsmall) work-item">
-        <a href="https://imgproxy.domestika.org/unsafe/w:820/dpr:1/plain/src://content-items/009/432/989/image_processing20210914-8202-5br4r7-original.png"
-          class="image fit thumb"><img
-            src="https://imgproxy.domestika.org/unsafe/w:820/dpr:1/plain/src://content-items/009/432/989/image_processing20210914-8202-5br4r7-original.png"
-            alt="Proyect" /></a>
-        <h3>Web Development <a href="https://enriquesaez.github.io/chameleon/src/compiled/index.html" target="_blank" style="margin-left:0.8rem; font-weight: 700; font-size: 1.2rem;">View online ↪</a></h3>
-        <p>HTML5 & SASS & Assets</p>
-      </article>  
-      
-      <article class="6u 12u$(xsmall) work-item">        
-        <a href="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/004/902/095/home-original.jpg"
-          class="image fit thumb"><img
-            src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/004/902/267/responsive-original.png"
-            alt="Proyect" /></a>
-        <h3>BBVA Global Net Cash<a href="https://www.bbvapivot.com/es/" target="_blank" style="margin-left:0.8rem; font-weight: 700; font-size: 1.2rem;">View online ↪</a></h3>
-        <p>HTML5, CSS3, JS, Git, Adobe CC</p>
-      </article>
-      
-      <article class="6u 12u$(xsmall) work-item">
-        <a href="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/002/128/418/capture_futurekids-original.png"
-          class="image fit thumb"><img
-            src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/002/128/418/capture_futurekids-original.png"
-            alt="Proyect" /></a>
-        <h3>Future Kids website<a href="https://futurekids.es/quienes-somos/" target="_blank" style="margin-left:0.8rem; font-weight: 700; font-size: 1.2rem;">View online ↪</a></h3>
-        <p>WordPress HTML, CSS3</p>
-      </article>
-      
-      <article class="6u 12u$(xsmall) work-item">
-        <a href="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/009/516/500/triptico_v3-original.png"
-          class="image fit thumb"><img
-            src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/009/516/500/triptico_v3-original.png"
-            alt="Proyect" /></a>
-        <h3>UX Visual Design<a href="https://www.figma.com/file/yXkST34IZqvrAkuPPf5DlZ/INDITEX?node-id=97-2&t=jGWobJGG9BRSFP8H-0" target="_blank" style="margin-left:0.8rem; font-weight: 700; font-size: 1.2rem;">View online ↪</a></h3>
-        <p>Infographic designed with <strong>FIGMA</strong></p>
-      </article>
-      
-        <article class="6u 12u$(xsmall) work-item">
-          <a href="assets/css/images/esg-ui-ux.png" class="image fit thumb"><img
-              src="assets/css/images/esg-ui-ux_thumb.png" alt="Image project" /></a>
-          <h3>BBVA Dashboard<a href="https://enriquesaez.github.io/homepage/bbva-oneBank/" target="_blank" style="margin-left:0.8rem; font-weight: 700; font-size: 1.2rem;">View online ↪</a></h3>
-          <p>PUG, SASS, HTML5, CSS3, JS, Git, Adobe CC</p>
-        </article>      
-
-      <article class="6u 12u$(xsmall) work-item">
-        <a href="images/badge_bground-white.png"
-          class="image fit thumb"><img
-            src="images/badge_bground-white_thumb.png"
-            alt="Proyect" /></a>
-        <h3>Badge - Visual Corporate Design</h3>
-        <p>Design width Figma</p>
-      </article>      
-
-        <article class="6u 12u$(xsmall) work-item">
-          <a href="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/009/432/865/email_template_api-village_V4-original.png"
-            class="image fit thumb"><img
-              src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/009/432/865/email_template_api-village_V4-original.png"
-              alt="Proyect" /></a>
-          <h3>Visual UX/UI Design</h3>
-          <p>Made with FIGMA</p>
-        </article>
-
-        <article class="6u 12u$(xsmall) work-item">
-          <a href="images/figma-recipe.jpg" class="image fit thumb"><img src="images/figma-recipe-thumb.png"
-              alt="Proyect" /></a>
-          <h3>Visual Design</h3>
-          <p>Made with FIGMA</p>
-        </article>
-
-        <!-- <article class="6u 12u$(xsmall) work-item">
-          <a href="https://cdn.domestika.org/c_fit,dpr_1.0,f_auto,t_base_params,w_820/v1634841050/content-items/009/432/865/email_template_api-village_V4-original.png?1634841050"
-            class="image fit thumb"><img
-              src="https://cdn.domestika.org/c_fill,dpr_2.0,f_auto,h_236,pg_1,t_base_params,w_236/v1634841727/project-covers/001/314/031/1314031-original.?1634841727"
-              alt="Proyect" /></a>
-          <h3>UX Design</h3>
-          <p>Infographic designed with <strong>Adobe Photoshop & Illustrator</strong></p>
-        </article> -->
-
-        <!-- <article class="6u 12u$(xsmall) work-item">
-          <a href="https://cdn.domestika.org/c_fit,dpr_1.0,f_auto,t_base_params,w_820/v1616176602/content-items/007/423/736/localhost_4200_filter-original.png"
-            class="image fit thumb"><img
-              src="https://cdn.domestika.org/c_fit,dpr_1.0,f_auto,t_base_params,w_820/v1616176602/content-items/007/423/736/localhost_4200_filter-original.png"
-              alt="Proyect" /></a>
-          <h3>Bank product - Fintech project</h3>
-          <p>HTML5, CSS3, JS, Git, Adobe CC</p>
-        </article> -->
-
-        <article class="6u 12u$(xsmall) work-item">
-          <a href="images/bankia-dashboard.png"
-            class="image fit thumb"><img style="height: fit-content;"
-              src="images/bankia-dashboard_thumb.png"
-              alt="Dashboard" /></a>
-          <h3>Dashboard - Fintech project</h3>
-          <p>PUG, SCSS, Javascript, Invision</p>
-        </article>
-
-        <article class="6u 12u$(xsmall) work-item">
-          <a href="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/000/517/897/Untitled-1-original.jpg"
-            class="image fit thumb"><img src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/000/517/897/Untitled-1-original.jpg"
-              alt="" /></a>
-          <h3>Spanish in Nature</h3>
-          <p>Complete design and development based in WordPress</p>
-        </article>        
-
-        <article class="6u 12u$(xsmall) work-item">
-          <a href="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/002/177/705/guiat-original.png" class="image fit thumb"><img
-              src="assets/css/images/guiaturistico.png" alt="Proyect" /></a>
-          <h3>Bootstrap Template</h3>
-          <p>Markup HTML, CSS3, Boostrap</p>
-        </article>
-
-        <article class="6u 12u$(xsmall) work-item">
-          <a href="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/001/263/938/cc-original.png" class="image fit thumb"><img
-              src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/001/263/938/cc-original.png" alt="Image project" /></a>
-          <h3>UX Design, Canal +</h3>
-          <p>Markup HTML, Sass &amp; Jade and other web services</p>
-        </article>
-
-        <article class="6u 12u$(xsmall) work-item">          
-          <a href="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/000/409/223/responsive_design-original.jpg"
-            class="image fit thumb"><img
-              src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/000/409/223/responsive_design-original.jpg" alt="Image project" /></a>
-          <h3>Tourist Guide Córdoba</h3>
-          <p>Complete design and development based in WordPress</p>
-        </article>
-
-        <article class="6u 12u$(xsmall) work-item">
-          <a href="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/001/155/969/Cursogram-original.png"
-            class="image fit thumb"><img
-              src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/001/155/973/Captacion_leads-original.png" alt="Image project" /></a>
-          <h3>Cursogram</h3>
-          <p>Web design and integration with LifeRay</p>
-        </article>
-
-        <article class="6u 12u$(xsmall) work-item">
-          <a href="images/bbva-dashboard.png" class="image fit thumb"><img src="images/bbva-dashboard.png"
-              alt="Dashboard" /></a>
-          <h3>Web development</h3>
-          <p>Made with HTML5 & CSS3</p>
-        </article>
-
-        <article class="6u 12u$(xsmall) work-item">
-          <a href="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/001/273/495/dentro-original.jpg" class="image fit thumb"><img
-              src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/001/273/495/dentro-original.jpg" alt="Image project" /></a>
-          <h3>Advertising campaigns design, Canal +</h3>
-          <p>Markup HTML &amp; CSS</p>
-        </article>
-
-        <article class="6u$ 12u$(xsmall) work-item">
-          <a href="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/001/263/929/03-Layout_Garrigues_Quien-es-Quien-original.png"
-            class="image fit thumb"><img
-              src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/001/263/929/03-Layout_Garrigues_Quien-es-Quien-original.png"
-              alt="" /></a>
-          <h3>Centro de Estudios Garrigues</h3>
-          <p>Full web design of corporate Intranet</p>
-        </article>
-      </div>
-      <!-- END OF PORTFOLIO -->
-
-      <ul class="actions">
-        <li>
-          <a href="cv/EnriqueSaez_CV_UI_Lead.pdf" class="button"
-            target="_blank">CV <span style="font-size: 0.8em;">(PDF)</span></a>
-        </li>
-        <li>
-          <a href="http://www.domestika.org/es/enrique_saez/portfolio" class="button" target="_blank">
-            Portfolio Domestika</a>
-        </li>
-        <li>
-          <a href="https://dribbble.com/saez240" class="button icon fa-dribbble" target="_blank">Portfolio Dribbble</a>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Three -->
-    <section id="three">
-      <h2>Get In Touch</h2>
-      <div class="row">
-        <div class="12u$ 12u$(small)">
-          <ul class="labeled-icons">
-            <li>
-              <h3 class="icon fa-skype"><span class="label">Skype</span></h3>
-              enriquesaezm
-            </li>
-            <li>
-              <h3 class="icon fa-envelope-o"><span class="label">Email</span></h3>
-              <a href="#">saez240@gmail.com</a>
-            </li>
-          </ul>
+<body class="selection:bg-primary-container selection:text-on-primary-container">
+    <!-- Lightbox Gallery Modal -->
+    <div class="lightbox-backdrop fixed inset-0 z-[100] flex items-center justify-center bg-black/40 backdrop-blur-2xl px-6" id="lightbox">
+        <button class="absolute top-8 right-8 text-white/70 hover:text-white transition-colors duration-200" id="close-lightbox">
+            <span class="material-symbols-outlined text-4xl">close</span>
+        </button>
+        <button class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-all duration-200 hover:scale-110" id="prev-project">
+            <span class="material-symbols-outlined text-5xl">chevron_left</span>
+        </button>
+        <button class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-all duration-200 hover:scale-110" id="next-project">
+            <span class="material-symbols-outlined text-5xl">chevron_right</span>
+        </button>
+        <div class="lightbox-content max-w-6xl w-full flex flex-col items-center">
+            <div class="relative w-full aspect-[16/10] bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl">
+                <img alt="Project Image" class="w-full h-full object-cover opacity-0 transition-opacity duration-300" id="lightbox-img" src="" />
+            </div>
+            <div class="mt-8 text-center text-white">
+                <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-white/60 mb-2 block" id="lightbox-category"></span>
+                <h3 class="text-2xl font-semibold tracking-tight" id="lightbox-title"></h3>
+            </div>
         </div>
-    </section>
-  </div>
+    </div>
+    <!-- Top Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 flex justify-center w-full px-4">
+        <nav class="bg-white/70 backdrop-blur-xl rounded-full mt-6 mx-auto w-fit px-8 py-2.5 shadow-[0_20px_40px_rgba(45,51,56,0.06)] flex items-center gap-10 border border-outline-variant/10">
+            <a class="text-xl font-semibold tracking-tighter text-zinc-900" href="#">Enrique Sáez</a>
+            <div class="flex items-center gap-8">
+                <a class="text-zinc-900 font-medium font-['Inter'] tracking-tight transition-colors duration-300" href="#selected-work">Selected Work</a>
+                <a class="text-zinc-500 hover:text-zinc-900 font-['Inter'] tracking-tight transition-colors duration-300" href="#toolkit-expertise">Toolkit &amp; Expertise</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <!-- Hero Section -->
+        <section class="pt-48 pb-32 px-6">
+            <div class="max-w-5xl mx-auto text-center">
+                <span class="inline-block px-4 py-1 rounded-full bg-surface-container-low text-on-surface-variant text-xs font-medium mb-6 uppercase tracking-widest">Enrique Sáez | UI Developer</span>
+                <h1 class="text-6xl md:text-[5rem] font-semibold leading-[1.05] tracking-tight text-on-surface mb-8">Hi, I'm a UI Developer from Spain, Europe</h1>
+                <p class="text-xl md:text-2xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed mb-12 font-light"><span style='color: rgb(162, 162, 162); font-family: "Source Sans Pro", Helvetica, sans-serif; font-size: 21.3333px; text-align: start;'>with a holistic approach towards brand identity and digital design. I'm passionate about designs, web development and user interfaces.</span></p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a class="px-8 py-4 bg-primary text-white rounded-full font-medium hover:bg-primary-dim transition-all duration-300 shadow-lg shadow-primary/10" href="#selected-work">View Projects</a>
+                    <a class="px-8 py-4 bg-surface-container text-on-surface rounded-full font-medium hover:bg-surface-container-high transition-all duration-300" href="https://enriquesaez.github.io/homepage/cv/cv_enrique_eng.pdf" target="_blank">Download Resume [pdf]</a>
+                </div>
+            </div>
+        </section>
+        <!-- The Unicorn Section -->
+        <section class="py-24 px-6 bg-surface-container-low">
+            <div class="max-w-6xl mx-auto">
+                <div class="bg-surface-container-lowest p-12 md:p-20 rounded-xl shadow-[0_20px_40px_rgba(45,51,56,0.04)]">
+                    <div class="grid md:grid-cols-2 gap-16 items-center">
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-semibold mb-6 tracking-tight">Design Systems & Frontend Engineering</h2>
+                            <p class="text-lg text-on-surface-variant leading-relaxed mb-8">
+                                I close the gap between design and production. With years of experience building digital interfaces for brands like BBVA, RTVE and Inditex, I combine a designer's eye with a developer's rigour — from Figma components to maintainable, scalable code.
+                            </p>
+                            <div class="space-y-6">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-primary">
+                                        <span class="material-symbols-outlined">architecture</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-lg">Design Systems</h3>
+                                        <p class="text-sm text-on-surface-variant">Component libraries and design token architecture connecting Figma to production HTML, SCSS and Angular.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-primary">
+                                        <span class="material-symbols-outlined">integration_instructions</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-lg">Frontend Stack</h3>
+                                        <p class="text-sm text-on-surface-variant">HTML5, SCSS, Tailwind CSS, AngularJS, PUG/JADE and Git — pixel-perfect interfaces built for performance and accessibility.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-primary">
+                                        <span class="material-symbols-outlined">design_services</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-lg">UI/UX Design</h3>
+                                        <p class="text-sm text-on-surface-variant">User-centred design with Figma, Sketch and Adobe CC — from wireframes and prototypes to visual brand identity.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative h-[400px] md:h-[500px] rounded-lg overflow-hidden bg-surface-container">
+                            <img alt="CoreTalent UI Design project" class="w-full h-full object-cover" src="assets/css/images/coretalent.png" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Projects Grid -->
+        <section class="py-32 px-6" id="selected-work">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex justify-between items-end mb-16">
+                    <div>
+                        <h2 class="text-4xl font-semibold tracking-tight mb-4">Selected Work</h2>
+                        <p class="text-on-surface-variant text-lg">A curated selection of design and engineering projects.</p>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-container">
+                    <!-- Project 1: CoreTalent -->
+                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="0">
+                        <div class="aspect-[4/3] overflow-hidden bg-surface-container">
+                            <img alt="CoreTalent UI Design" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="UI/UX Design • Figma" src="assets/css/images/coretalent.png" />
+                        </div>
+                        <div class="p-8">
+                            <span class="text-[10px] uppercase tracking-widest font-bold text-outline mb-2 block">UI/UX Design • Figma</span>
+                            <h3 class="text-xl font-semibold mb-2">CoreTalent — User Interface Design</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed mb-4">High-fidelity interface design with interactive prototype.</p>
+                            <a class="text-primary text-sm font-medium flex items-center gap-2" href="https://www.figma.com/proto/vO8sDyBOIEuenJqakd6KJR/Core-Talent?node-id=3847-14517&p=f&t=jSVIH2Hh1ee9ZxGs-1&scaling=min-zoom&content-scaling=fixed&page-id=3847%3A2477" onclick="event.stopPropagation()"
+                            target="_blank">View Prototype <span class="material-symbols-outlined text-sm">arrow_outward</span></a>
+                        </div>
+                    </div>
+                    <!-- Project 2: InsudPharma -->
+                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="1">
+                        <div class="aspect-[4/3] overflow-hidden bg-surface-container">
+                            <img alt="InsudPharma Angular Development" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Web Development • Angular" src="assets/css/images/InsudPharma.png" />
+                        </div>
+                        <div class="p-8">
+                            <span class="text-[10px] uppercase tracking-widest font-bold text-outline mb-2 block">Web Development • Angular</span>
+                            <h3 class="text-xl font-semibold mb-2">InsudPharma</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed mb-4">Corporate web development built with HTML5 &amp; AngularJS.</p>
+                            <span class="text-primary text-sm font-medium flex items-center gap-2">View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+                        </div>
+                    </div>
+                    <!-- Project 3: RTVE -->
+                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="2">
+                        <div class="aspect-[4/3] overflow-hidden bg-surface-container">
+                            <img alt="RTVE VerificarTVE" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Media • UX Design" src="images/verificartve.jpg" />
+                        </div>
+                        <div class="p-8">
+                            <span class="text-[10px] uppercase tracking-widest font-bold text-outline mb-2 block">Media • UX Design</span>
+                            <h3 class="text-xl font-semibold mb-2">RTVE — VerificarTVE</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed mb-4">Web development &amp; UX design for the national broadcaster.</p>
+                            <a class="text-primary text-sm font-medium flex items-center gap-2" href="https://www.rtve.es/noticias/verificartve/herramientas-de-verificacion/avanzadas/" onclick="event.stopPropagation()" target="_blank">View Online <span class="material-symbols-outlined text-sm">arrow_outward</span></a>
+                        </div>
+                    </div>
+                    <!-- Project 4: Chameleon -->
+                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="3">
+                        <div class="aspect-[4/3] overflow-hidden bg-surface-container">
+                            <img alt="Web Development HTML5 SASS" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Frontend • HTML5 &amp; SASS" src="https://imgproxy.domestika.org/unsafe/w:820/dpr:1/plain/src://content-items/009/432/989/image_processing20210914-8202-5br4r7-original.png"
+                            />
+                        </div>
+                        <div class="p-8">
+                            <span class="text-[10px] uppercase tracking-widest font-bold text-outline mb-2 block">Frontend • HTML5 &amp; SASS</span>
+                            <h3 class="text-xl font-semibold mb-2">Web Development</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed mb-4">Responsive web project built with HTML5, SASS and assets pipeline.</p>
+                            <a class="text-primary text-sm font-medium flex items-center gap-2" href="https://enriquesaez.github.io/chameleon/src/compiled/index.html" onclick="event.stopPropagation()" target="_blank">View Online <span class="material-symbols-outlined text-sm">arrow_outward</span></a>
+                        </div>
+                    </div>
+                    <!-- Project 5: BBVA Global Net Cash -->
+                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="4">
+                        <div class="aspect-[4/3] overflow-hidden bg-surface-container">
+                            <img alt="BBVA Global Net Cash" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Enterprise • Development" src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/004/902/095/home-original.jpg"
+                            />
+                        </div>
+                        <div class="p-8">
+                            <span class="text-[10px] uppercase tracking-widest font-bold text-outline mb-2 block">Enterprise • Development</span>
+                            <h3 class="text-xl font-semibold mb-2">BBVA Global Net Cash</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed mb-4">Enterprise treasury management platform — HTML5, CSS3, JS, Git, Adobe CC.</p>
+                            <a class="text-primary text-sm font-medium flex items-center gap-2" href="https://www.bbvapivot.com/es/" onclick="event.stopPropagation()" target="_blank">View Online <span class="material-symbols-outlined text-sm">arrow_outward</span></a>
+                        </div>
+                    </div>
+                    <!-- Project 6: Future Kids -->
+                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="5">
+                        <div class="aspect-[4/3] overflow-hidden bg-surface-container">
+                            <img alt="Future Kids Website" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Education • Design &amp; Code" src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/002/128/418/capture_futurekids-original.png"
+                            />
+                        </div>
+                        <div class="p-8">
+                            <span class="text-[10px] uppercase tracking-widest font-bold text-outline mb-2 block">Education • Design &amp; Code</span>
+                            <h3 class="text-xl font-semibold mb-2">Future Kids Website</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed mb-4">Playful and accessible educational website built with WordPress.</p>
+                            <a class="text-primary text-sm font-medium flex items-center gap-2" href="https://futurekids.es/quienes-somos/" onclick="event.stopPropagation()" target="_blank">View Online <span class="material-symbols-outlined text-sm">arrow_outward</span></a>
+                        </div>
+                    </div>
+                    <!-- Project 7: Inditex UX Visual Design -->
+                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="6">
+                        <div class="aspect-[4/3] overflow-hidden bg-surface-container">
+                            <img alt="Inditex UX Visual Design" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="UX Design • Figma" src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/009/516/500/triptico_v3-original.png"
+                            />
+                        </div>
+                        <div class="p-8">
+                            <span class="text-[10px] uppercase tracking-widest font-bold text-outline mb-2 block">UX Design • Figma</span>
+                            <h3 class="text-xl font-semibold mb-2">UX Visual Design — Inditex</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed mb-4">Infographic and visual design system created with Figma.</p>
+                            <a class="text-primary text-sm font-medium flex items-center gap-2" href="https://www.figma.com/file/yXkST34IZqvrAkuPPf5DlZ/INDITEX?node-id=97-2&t=jGWobJGG9BRSFP8H-0" onclick="event.stopPropagation()" target="_blank">View in Figma <span class="material-symbols-outlined text-sm">arrow_outward</span></a>
+                        </div>
+                    </div>
+                    <!-- Project 8: BBVA ESG Dashboard -->
+                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="7">
+                        <div class="aspect-[4/3] overflow-hidden bg-surface-container">
+                            <img alt="BBVA ESG Dashboard" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Fintech • Dashboard Design" src="assets/css/images/esg-ui-ux.png" />
+                        </div>
+                        <div class="p-8">
+                            <span class="text-[10px] uppercase tracking-widest font-bold text-outline mb-2 block">Fintech • Dashboard Design</span>
+                            <h3 class="text-xl font-semibold mb-2">BBVA Dashboard</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed mb-4">UI/UX design and development for BBVA's ESG dashboard — PUG, SASS, JS.</p>
+                            <a class="text-primary text-sm font-medium flex items-center gap-2" href="https://enriquesaez.github.io/homepage/bbva-oneBank/" onclick="event.stopPropagation()" target="_blank">View Online <span class="material-symbols-outlined text-sm">arrow_outward</span></a>
+                        </div>
+                    </div>
+                    <!-- Project 9: Badge Corporate Design -->
+                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="8">
+                        <div class="aspect-[4/3] overflow-hidden bg-surface-container">
+                            <img alt="Badge Corporate Design" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Visual Design • Figma" src="images/badge_bground-white.png" />
+                        </div>
+                        <div class="p-8">
+                            <span class="text-[10px] uppercase tracking-widest font-bold text-outline mb-2 block">Visual Design • Figma</span>
+                            <h3 class="text-xl font-semibold mb-2">Badge — Visual Corporate Design</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed mb-4">Corporate identity badge designed with Figma.</p>
+                            <span class="text-primary text-sm font-medium flex items-center gap-2">View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+                        </div>
+                    </div>
+                    <!-- Project 10: API Village Email -->
+                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="9">
+                        <div class="aspect-[4/3] overflow-hidden bg-surface-container">
+                            <img alt="API Village Visual UX/UI Design" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="UI/UX Design • Figma" src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/009/432/865/email_template_api-village_V4-original.png"
+                            />
+                        </div>
+                        <div class="p-8">
+                            <span class="text-[10px] uppercase tracking-widest font-bold text-outline mb-2 block">UI/UX Design • Figma</span>
+                            <h3 class="text-xl font-semibold mb-2">API Village — Visual UX/UI Design</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed mb-4">Email template and visual interface design made with Figma.</p>
+                            <span class="text-primary text-sm font-medium flex items-center gap-2">View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+                        </div>
+                    </div>
+                    <!-- Project 11: Figma Recipe -->
+                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="10">
+                        <div class="aspect-[4/3] overflow-hidden bg-surface-container">
+                            <img alt="Visual Design Recipe" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Visual Design • Figma" src="images/figma-recipe.jpg" />
+                        </div>
+                        <div class="p-8">
+                            <span class="text-[10px] uppercase tracking-widest font-bold text-outline mb-2 block">Visual Design • Figma</span>
+                            <h3 class="text-xl font-semibold mb-2">Visual Design</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed mb-4">Visual design exercise created with Figma.</p>
+                            <span class="text-primary text-sm font-medium flex items-center gap-2">View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+                        </div>
+                    </div>
+                    <!-- Project 12: Bankia Dashboard -->
+                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="11">
+                        <div class="aspect-[4/3] overflow-hidden bg-surface-container">
+                            <img alt="Bankia Dashboard Fintech" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Fintech • Product Design" src="images/bankia-dashboard.png" />
+                        </div>
+                        <div class="p-8">
+                            <span class="text-[10px] uppercase tracking-widest font-bold text-outline mb-2 block">Fintech • Product Design</span>
+                            <h3 class="text-xl font-semibold mb-2">Dashboard — Fintech Project</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed mb-4">Banking dashboard developed with PUG, SCSS, Javascript and Invision.</p>
+                            <span class="text-primary text-sm font-medium flex items-center gap-2">View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+                        </div>
+                    </div>
+                    <!-- Project 13: Spanish in Nature -->
+                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="12">
+                        <div class="aspect-[4/3] overflow-hidden bg-surface-container">
+                            <img alt="Spanish in Nature" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="WordPress • Full Design" src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/000/517/897/Untitled-1-original.jpg"
+                            />
+                        </div>
+                        <div class="p-8">
+                            <span class="text-[10px] uppercase tracking-widest font-bold text-outline mb-2 block">WordPress • Full Design</span>
+                            <h3 class="text-xl font-semibold mb-2">Spanish in Nature</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed mb-4">Complete design and development based in WordPress.</p>
+                            <span class="text-primary text-sm font-medium flex items-center gap-2">View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+                        </div>
+                    </div>
+                    <!-- Project 14: Bootstrap Template -->
+                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="13">
+                        <div class="aspect-[4/3] overflow-hidden bg-surface-container">
+                            <img alt="Bootstrap Template Tourist Guide" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Frontend • Bootstrap" src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/002/177/705/guiat-original.png"
+                            />
+                        </div>
+                        <div class="p-8">
+                            <span class="text-[10px] uppercase tracking-widest font-bold text-outline mb-2 block">Frontend • Bootstrap</span>
+                            <h3 class="text-xl font-semibold mb-2">Bootstrap Template</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed mb-4">Responsive markup built with HTML, CSS3 and Bootstrap.</p>
+                            <span class="text-primary text-sm font-medium flex items-center gap-2">View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+                        </div>
+                    </div>
+                    <!-- Project 15: Canal+ UX Design -->
+                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="14">
+                        <div class="aspect-[4/3] overflow-hidden bg-surface-container">
+                            <img alt="Canal+ UX Design" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="UX Design • Canal+" src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/001/263/938/cc-original.png"
+                            />
+                        </div>
+                        <div class="p-8">
+                            <span class="text-[10px] uppercase tracking-widest font-bold text-outline mb-2 block">UX Design • Canal+</span>
+                            <h3 class="text-xl font-semibold mb-2">UX Design — Canal+</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed mb-4">HTML, Sass &amp; Jade markup and web services integration.</p>
+                            <span class="text-primary text-sm font-medium flex items-center gap-2">View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+                        </div>
+                    </div>
+                    <!-- Project 16: Tourist Guide Córdoba -->
+                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="15">
+                        <div class="aspect-[4/3] overflow-hidden bg-surface-container">
+                            <img alt="Tourist Guide Córdoba" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="WordPress • Web Design" src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/000/409/223/responsive_design-original.jpg"
+                            />
+                        </div>
+                        <div class="p-8">
+                            <span class="text-[10px] uppercase tracking-widest font-bold text-outline mb-2 block">WordPress • Web Design</span>
+                            <h3 class="text-xl font-semibold mb-2">Tourist Guide Córdoba</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed mb-4">Complete design and development based in WordPress.</p>
+                            <span class="text-primary text-sm font-medium flex items-center gap-2">View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+                        </div>
+                    </div>
+                    <!-- Project 17: Cursogram -->
+                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="16">
+                        <div class="aspect-[4/3] overflow-hidden bg-surface-container">
+                            <img alt="Cursogram LifeRay" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Web Design • LifeRay" src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/001/155/969/Cursogram-original.png"
+                            />
+                        </div>
+                        <div class="p-8">
+                            <span class="text-[10px] uppercase tracking-widest font-bold text-outline mb-2 block">Web Design • LifeRay</span>
+                            <h3 class="text-xl font-semibold mb-2">Cursogram</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed mb-4">Web design and integration with LifeRay platform.</p>
+                            <span class="text-primary text-sm font-medium flex items-center gap-2">View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+                        </div>
+                    </div>
+                    <!-- Project 18: BBVA Web Dev -->
+                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="17">
+                        <div class="aspect-[4/3] overflow-hidden bg-surface-container">
+                            <img alt="BBVA Web Development" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Web Development • HTML5" src="images/bbva-dashboard.png" />
+                        </div>
+                        <div class="p-8">
+                            <span class="text-[10px] uppercase tracking-widest font-bold text-outline mb-2 block">Web Development • HTML5</span>
+                            <h3 class="text-xl font-semibold mb-2">Web Development</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed mb-4">Frontend development made with HTML5 &amp; CSS3.</p>
+                            <span class="text-primary text-sm font-medium flex items-center gap-2">View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+                        </div>
+                    </div>
+                    <!-- Project 19: Canal+ Advertising -->
+                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="18">
+                        <div class="aspect-[4/3] overflow-hidden bg-surface-container">
+                            <img alt="Canal+ Advertising Campaigns" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Advertising • Design" src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/001/273/495/dentro-original.jpg"
+                            />
+                        </div>
+                        <div class="p-8">
+                            <span class="text-[10px] uppercase tracking-widest font-bold text-outline mb-2 block">Advertising • Design</span>
+                            <h3 class="text-xl font-semibold mb-2">Advertising Campaigns — Canal+</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed mb-4">Advertising campaign design and HTML &amp; CSS markup.</p>
+                            <span class="text-primary text-sm font-medium flex items-center gap-2">View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+                        </div>
+                    </div>
+                    <!-- Project 20: Garrigues Intranet -->
+                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="19">
+                        <div class="aspect-[4/3] overflow-hidden bg-surface-container">
+                            <img alt="Centro de Estudios Garrigues" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Corporate • Intranet Design" src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/001/263/929/03-Layout_Garrigues_Quien-es-Quien-original.png"
+                            />
+                        </div>
+                        <div class="p-8">
+                            <span class="text-[10px] uppercase tracking-widest font-bold text-outline mb-2 block">Corporate • Intranet Design</span>
+                            <h3 class="text-xl font-semibold mb-2">Centro de Estudios Garrigues</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed mb-4">Full web design of corporate Intranet.</p>
+                            <span class="text-primary text-sm font-medium flex items-center gap-2">View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Secondary Projects List -->
+            </div>
+        </section>
+        <!-- Skills/Tools -->
+        <section class="py-24 px-6 bg-surface" id="toolkit-expertise">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="text-3xl font-semibold mb-12 tracking-tight">Toolkit &amp; Expertise</h2>
+                <div class="flex flex-wrap justify-center gap-3"><span class="px-6 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-full text-sm font-medium text-on-surface-variant">HTML</span>
+                    <span class="px-6 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-full text-sm font-medium text-on-surface-variant">SCSS / CSS</span>
+                    <span class="px-6 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-full text-sm font-medium text-on-surface-variant">Tailwind CSS</span>
+                    <span class="px-6 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-full text-sm font-medium text-on-surface-variant">AngularJs</span>
+                    <span class="px-6 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-full text-sm font-medium text-on-surface-variant">PrimeNG</span>
+                    <span class="px-6 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-full text-sm font-medium text-on-surface-variant">PUG-JADE</span>
+                    <span class="px-6 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-full text-sm font-medium text-on-surface-variant">Git</span>
+                    <span class="px-6 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-full text-sm font-medium text-on-surface-variant">Figma expert</span>
+                    <span class="px-6 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-full text-sm font-medium text-on-surface-variant">Sketch</span>
+                    <span class="px-6 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-full text-sm font-medium text-on-surface-variant">Adobe</span>
+                    <span class="px-6 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-full text-sm font-medium text-on-surface-variant">Design System</span>
+                    <span class="px-6 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-full text-sm font-medium text-on-surface-variant">UI / UX</span>
+                    <span class="px-6 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-full text-sm font-medium text-on-surface-variant">Agile / Scrum</span></div>
+            </div>
+        </section>
+        <!-- Footer -->
+        <footer class="py-20 px-8 w-full flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto rounded-t-xl">
+            <div class="mb-8 md:mb-0">
+                <span class="font-bold text-zinc-900 block mb-2">Enrique Sáez</span>
+                <p class="font-['Inter'] text-sm leading-relaxed text-zinc-600">© 2026 Enrique Sáez. UI / UX &amp; Markup HTML Developer.</p>
+            </div>
+            <div class="flex gap-8"><a class="text-zinc-500 hover:text-zinc-900 underline-offset-4 hover:underline transition-opacity text-sm" href="https://www.linkedin.com/in/enriquesaez/">LinkedIn</a>
+                <a class="text-zinc-500 hover:text-zinc-900 underline-offset-4 hover:underline transition-opacity text-sm" href="https://dribbble.com/saez240">Dribbble</a>
+                <a class="text-zinc-500 hover:text-zinc-900 underline-offset-4 hover:underline transition-opacity text-sm" href="https://www.domestika.org/es/enrique_saez/portfolio">Domestika</a>
+                <a class="text-zinc-500 hover:text-zinc-900 underline-offset-4 hover:underline transition-opacity text-sm" href="https://x.com/esaez">X (Twitter)</a></div>
+        </footer>
+    </main>
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxCategory = document.getElementById('lightbox-category');
+        const closeBtn = document.getElementById('close-lightbox');
+        const prevBtn = document.getElementById('prev-project');
+        const nextBtn = document.getElementById('next-project');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        let currentIndex = 0;
+        const projects = Array.from(projectCards).map(card => {
+            const img = card.querySelector('img');
+            return {
+                src: img.src,
+                title: card.querySelector('h3').innerText,
+                category: img.getAttribute('data-category')
+            };
+        });
 
-  <!-- Footer -->
-  <footer id="footer">
-    <ul class="icons">
-      <li><a href="https://twitter.com/esaez" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-      <li><a href="https://github.com/enriquesaez" class="icon fa-github"><span class="label">Github</span></a></li>
-      <li><a href="https://dribbble.com/saez240" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-      <li><a href="https://www.linkedin.com/in/enriquesaez/" class="icon fa-linkedin"><span
-            class="label">Linkedin</span></a></li>
-    </ul>
-    <ul class="copyright">
-      <li>Copyright &copy; Enrique S&aacute;ez 
-        <script>document.write(new Date().getFullYear())</script>
-      </li>
-    </ul>
-  </footer>
+        function openLightbox(index) {
+            currentIndex = index;
+            updateLightboxContent();
+            lightbox.classList.add('active');
+            document.body.classList.add('modal-open');
+        }
 
-  <!-- Scripts -->
-  <script>
-    function checkAcceptCookies() {
-      if (localStorage.okCookies !== 'true') {
-        cookiesBox.style.display = 'flex';
-      }
-    }
-    function acceptCookies() {
-      localStorage.okCookies = 'true';
-      cookiesBox.style.display = 'none';
-    }
-    window.onload = function () {
-      checkAcceptCookies();
-    };
-  </script>
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.classList.remove('modal-open');
+            setTimeout(() => {
+                lightboxImg.style.opacity = '0';
+            }, 400);
+        }
 
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/jquery.poptrox.min.js"></script>
-  <script src="assets/js/skel.min.js"></script>
-  <script src="assets/js/util.js"></script>
-  <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-  <script src="assets/js/main.js"></script>
+        function updateLightboxContent() {
+            const project = projects[currentIndex];
+            lightboxImg.style.opacity = '0';
+            
+            setTimeout(() => {
+                lightboxImg.src = project.src;
+                lightboxTitle.innerText = project.title;
+                lightboxCategory.innerText = project.category;
+                lightboxImg.onload = () => {
+                    lightboxImg.style.opacity = '1';
+                };
+            }, 150);
+        }
 
+        function nextProject() {
+            currentIndex = (currentIndex + 1) % projects.length;
+            updateLightboxContent();
+        }
+
+        function prevProject() {
+            currentIndex = (currentIndex - 1 + projects.length) % projects.length;
+            updateLightboxContent();
+        }
+
+        projectCards.forEach((card, index) => {
+            card.addEventListener('click', () => openLightbox(index));
+        });
+
+        closeBtn.addEventListener('click', closeLightbox);
+        nextBtn.addEventListener('click', nextProject);
+        prevBtn.addEventListener('click', prevProject);
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextProject();
+            if (e.key === 'ArrowLeft') prevProject();
+        });
+    
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
