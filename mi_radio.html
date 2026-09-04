@@ -178,7 +178,11 @@
     object-fit:cover;
     background:var(--bg);
     border:1px solid var(--line);
+    opacity:.40;
+    transition:opacity .2s ease;
   }
+
+  .preset.active .preset__logo{ opacity:1; }
 
   .preset__body{
     min-width:0;
