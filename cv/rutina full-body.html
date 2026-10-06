@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rutina Full Body · Fuerza y Longevidad</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #111318;
+      --surface: #1a1d24;
+      --surface-2: #222630;
+      --border: #303541;
+      --text: #f1f3f5;
+      --text-muted: #9da3ae;
+      --accent: #7c8cff;
+      --accent-dark: #626fd6;
+      --success: #4ade80;
+      --warning: #fbbf24;
+      --danger: #f87171;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+
+    .header {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 30px;
+      border-radius: 16px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .header h1 {
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-size: 2em;
+    }
+
+    .header p {
+      color: var(--text-muted);
+      font-size: 1.05em;
+    }
+
+    /* STATS */
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 16px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .stat-card h3 {
+      color: var(--accent);
+      font-size: 1.7em;
+      margin-bottom: 4px;
+    }
+
+    .stat-card p {
+      color: var(--text-muted);
+      font-size: 0.85em;
+    }
+
+    /* EXERCISES */
+
+    .exercises {
+      display: grid;
+      gap: 14px;
+    }
+
+    .exercise-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+    }
+
+    .exercise-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .exercise-title {
+      font-size: 1.3em;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .pattern {
+      background: var(--accent-dark);
+      color: white;
+      padding: 4px 11px;
+      border-radius: 20px;
+      font-size: 0.78em;
+      white-space: nowrap;
+    }
+
+    .exercise-details {
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 15px;
+    }
+
+    .exercise-specs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    .spec {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 7px 11px;
+      border-radius: 8px;
+      font-size: 0.85em;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* SET TRACKER */
+
+    .sets-tracker {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .set-checkbox input {
+      display: none;
+    }
+
+    .set-checkbox label {
+      width: 48px;
+      height: 42px;
+      background: var(--surface-2);
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .set-checkbox label:hover {
+      border-color: var(--accent);
+    }
+
+    .set-checkbox input:checked + label {
+      background: var(--accent-dark);
+      border-color: var(--accent);
+      color: white;
+    }
+
+    /* TIPS */
+
+    .tips {
+      background: #25231b;
+      border-left: 3px solid var(--warning);
+      padding: 12px 14px;
+      border-radius: 7px;
+      margin-top: 15px;
+      color: #d8d2bd;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+
+    .tips strong {
+      color: var(--warning);
+    }
+
+    /* GENERAL NOTES */
+
+    .notes {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 22px;
+      border-radius: 14px;
+      margin-top: 20px;
+    }
+
+    .notes h2 {
+      color: var(--accent);
+      font-size: 1.3em;
+      margin-bottom: 15px;
+    }
+
+    .notes ul {
+      list-style: none;
+    }
+
+    .notes li {
+      color: var(--text-muted);
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.5;
+    }
+
+    .notes li:last-child {
+      border-bottom: none;
+    }
+
+    .notes strong {
+      color: var(--text);
+    }
+
+    /* RESET */
+
+    .reset-btn {
+      background: transparent;
+      color: var(--danger);
+      border: 1px solid var(--danger);
+      padding: 10px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9em;
+      margin-top: 18px;
+      transition: all 0.2s;
+    }
+
+    .reset-btn:hover {
+      background: var(--danger);
+      color: #111318;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 600px) {
+      body {
+        padding: 12px;
+      }
+
+      .header {
+        padding: 22px 16px;
+      }
+
+      .header h1 {
+        font-size: 1.6em;
+      }
+
+      .stats {
+        gap: 8px;
+      }
+
+      .stat-card {
+        padding: 12px 6px;
+      }
+
+      .stat-card h3 {
+        font-size: 1.4em;
+      }
+
+      .exercise-card {
+        padding: 17px;
+      }
+
+      .exercise-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- HEADER -->
+
+    <div class="header">
+      <h1>💪 Rutina Full Body</h1>
+      <p>Fuerza · Salud · Longevidad</p>
+    </div>
+
+    <!-- STATS -->
+
+    <div class="stats">
+      <div class="stat-card">
+        <h3 id="completedSets">0</h3>
+        <p>Series completadas</p>
+      </div>
+
+      <div class="stat-card">
+        <h3 id="totalSets">0</h3>
+        <p>Series totales</p>
+      </div>
+
+      <div class="stat-card">
+        <h3 id="progress">0%</h3>
+        <p>Progreso</p>
+      </div>
+    </div>
+
+    <!-- ROUTINE -->
+
+    <div class="exercises">
+
+      <!-- 1. PRENSA -->
+
+      <div class="exercise-card">
+
+        <div class="exercise-header">
+          <span class="exercise-title">1. Prensa de piernas</span>
+          <span class="pattern">Dominante de rodilla</span>
+        </div>
+
+        <div class="exercise-specs">
+          <span class="spec">3 series</span>
+          <span class="spec">8–10 reps</span>
+          <span class="spec">Descanso: 2 min</span>
+        </div>
+
+        <div class="exercise-details">
+          Empuja la plataforma manteniendo una posición estable y controlando
+          tanto la bajada como la subida. Prioridad absoluta a la técnica y
+          a un rango de movimiento cómodo.
+        </div>
+
+        <div class="sets-tracker">
+          <div class="set-checkbox">
+            <input type="checkbox" id="e1s1" onchange="updateStats()">
+            <label for="e1s1">S1</label>
+          </div>
+
+          <div class="set-checkbox">
+            <input type="checkbox" id="e1s2" onchange="updateStats()">
+            <label for="e1s2">S2</label>
+          </div>
+
+          <div class="set-checkbox">
+            <input type="checkbox" id="e1s3" onchange="updateStats()">
+            <label for="e1s3">S3</label>
+          </div>
+        </div>
+
+        <div class="tips">
+          <strong>💡 Intensidad:</strong>
+          Termina cada serie dejando aproximadamente 2–3 repeticiones
+          posibles con buena técnica. No busques el fallo.
+        </div>
+
+      </div>
+
+
+      <!-- 2. PRESS DE PECHO -->
+
+      <div class="exercise-card">
+
+        <div class="exercise-header">
+          <span class="exercise-title">2. Press de pecho</span>
+          <span class="pattern">Empuje horizontal</span>
+        </div>
+
+        <div class="exercise-specs">
+          <span class="spec">3 series</span>
+          <span class="spec">8–10 reps</span>
+          <span class="spec">Descanso: 2 min</span>
+        </div>
+
+        <div class="exercise-details">
+          Press en máquina o con mancuernas. Baja el peso de forma
+          controlada y empuja manteniendo las muñecas y los antebrazos
+          estables.
+        </div>
+
+        <div class="sets-tracker">
+          <div class="set-checkbox">
+            <input type="checkbox" id="e2s1" onchange="updateStats()">
+            <label for="e2s1">S1</label>
+          </div>
+
+          <div class="set-checkbox">
+            <input type="checkbox" id="e2s2" onchange="updateStats()">
+            <label for="e2s2">S2</label>
+          </div>
+
+          <div class="set-checkbox">
+            <input type="checkbox" id="e2s3" onchange="updateStats()">
+            <label for="e2s3">S3</label>
+          </div>
+        </div>
+
+        <div class="tips">
+          <strong>💡 Técnica:</strong>
+          La ejecución manda. Si para conseguir otra repetición tienes que
+          modificar la trayectoria o perder estabilidad, la serie ha terminado.
+        </div>
+
+      </div>
+
+
+      <!-- 3. JALÓN DORSAL -->
+
+      <div class="exercise-card">
+
+        <div class="exercise-header">
+          <span class="exercise-title">3. Jalón dorsal</span>
+          <span class="pattern">Tirón</span>
+        </div>
+
+        <div class="exercise-specs">
+          <span class="spec">3 series</span>
+          <span class="spec">8–10 reps</span>
+          <span class="spec">Descanso: 2 min</span>
+        </div>
+
+        <div class="exercise-details">
+          Tira de la barra hacia la parte superior del pecho manteniendo
+          el torso estable. Piensa en llevar los codos hacia abajo,
+          no simplemente en mover las manos.
+        </div>
+
+        <div class="sets-tracker">
+          <div class="set-checkbox">
+            <input type="checkbox" id="e3s1" onchange="updateStats()">
+            <label for="e3s1">S1</label>
+          </div>
+
+          <div class="set-checkbox">
+            <input type="checkbox" id="e3s2" onchange="updateStats()">
+            <label for="e3s2">S2</label>
+          </div>
+
+          <div class="set-checkbox">
+            <input type="checkbox" id="e3s3" onchange="updateStats()">
+            <label for="e3s3">S3</label>
+          </div>
+        </div>
+
+        <div class="tips">
+          <strong>💡 Técnica:</strong>
+          Evita impulsarte con el cuerpo. Controla especialmente el retorno
+          de la carga.
+        </div>
+
+      </div>
+
+
+      <!-- 4. CURL FEMORAL -->
+
+      <div class="exercise-card">
+
+        <div class="exercise-header">
+          <span class="exercise-title">4. Curl femoral</span>
+          <span class="pattern">Cadena posterior</span>
+        </div>
+
+        <div class="exercise-specs">
+          <span class="spec">2 series</span>
+          <span class="spec">10–12 reps</span>
+          <span class="spec">Descanso: 90 s</span>
+        </div>
+
+        <div class="exercise-details">
+          Flexiona las rodillas de forma controlada, concentrándote en
+          trabajar la parte posterior del muslo. Movimiento completo y
+          sin tirones.
+        </div>
+
+        <div class="sets-tracker">
+          <div class="set-checkbox">
+            <input type="checkbox" id="e4s1" onchange="updateStats()">
+            <label for="e4s1">S1</label>
+          </div>
+
+          <div class="set-checkbox">
+            <input type="checkbox" id="e4s2" onchange="updateStats()">
+            <label for="e4s2">S2</label>
+          </div>
+        </div>
+
+        <div class="tips">
+          <strong>💡 Nota:</strong>
+          Este ejercicio es provisional. Más adelante podremos incorporar
+          una verdadera bisagra de cadera, como el peso muerto rumano,
+          cuando hayas recuperado adaptación y confianza.
+        </div>
+
+      </div>
+
+
+      <!-- 5. PRESS MILITAR -->
+
+      <div class="exercise-card">
+
+        <div class="exercise-header">
+          <span class="exercise-title">5. Press militar en máquina</span>
+          <span class="pattern">Empuje vertical</span>
+        </div>
+
+        <div class="exercise-specs">
+          <span class="spec">2 series</span>
+          <span class="spec">8–10 reps</span>
+          <span class="spec">Descanso: 90–120 s</span>
+        </div>
+
+        <div class="exercise-details">
+          Empuja los brazos hacia arriba desde una posición estable.
+          Mantén el tronco firme y evita compensar arqueando la zona lumbar.
+        </div>
+
+        <div class="sets-tracker">
+          <div class="set-checkbox">
+            <input type="checkbox" id="e5s1" onchange="updateStats()">
+            <label for="e5s1">S1</label>
+          </div>
+
+          <div class="set-checkbox">
+            <input type="checkbox" id="e5s2" onchange="updateStats()">
+            <label for="e5s2">S2</label>
+          </div>
+        </div>
+
+        <div class="tips">
+          <strong>💡 Técnica:</strong>
+          No conviertas la última repetición en una lucha. El objetivo es
+          desarrollar fuerza manteniendo control y estabilidad.
+        </div>
+
+      </div>
+
+
+      <!-- 6. CORE -->
+
+      <div class="exercise-card">
+
+        <div class="exercise-header">
+          <span class="exercise-title">6. Pallof press / plancha</span>
+          <span class="pattern">Core · Estabilidad</span>
+        </div>
+
+        <div class="exercise-specs">
+          <span class="spec">2 series</span>
+          <span class="spec">8–12 reps / 20–30 s</span>
+          <span class="spec">Descanso: 60 s</span>
+        </div>
+
+        <div class="exercise-details">
+          Prioriza ejercicios que enseñen al tronco a resistir movimiento:
+          Pallof press, plancha u otra variante equivalente disponible
+          en el gimnasio.
+        </div>
+
+        <div class="sets-tracker">
+          <div class="set-checkbox">
+            <input type="checkbox" id="e6s1" onchange="updateStats()">
+            <label for="e6s1">S1</label>
+          </div>
+
+          <div class="set-checkbox">
+            <input type="checkbox" id="e6s2" onchange="updateStats()">
+            <label for="e6s2">S2</label>
+          </div>
+        </div>
+
+        <div class="tips">
+          <strong>💡 Objetivo:</strong>
+          No buscamos agotamiento abdominal. Buscamos estabilidad,
+          control corporal y capacidad de transmitir fuerza.
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- NOTES -->
+
+    <div class="notes">
+
+      <h2>📋 Principios de la rutina</h2>
+
+      <ul>
+        <li>
+          <strong>Frecuencia:</strong>
+          3 días por semana, dejando aproximadamente un día de recuperación
+          entre sesiones.
+        </li>
+
+        <li>
+          <strong>Intensidad:</strong>
+          Mantén aproximadamente 2–3 repeticiones en reserva (RIR).
+          No entrenes al fallo durante esta fase inicial.
+        </li>
+
+        <li>
+          <strong>Progresión:</strong>
+          Cuando completes el máximo de repeticiones en todas las series
+          con buena técnica y margen suficiente, aumenta ligeramente el peso.
+        </li>
+
+        <li>
+          <strong>Descanso:</strong>
+          Los ejercicios grandes necesitan recuperación. No tengas prisa
+          por reducir los descansos.
+        </li>
+
+        <li>
+          <strong>Objetivo:</strong>
+          Construir y conservar fuerza, masa muscular, estabilidad y
+          autonomía a largo plazo.
+        </li>
+
+        <li>
+          <strong>Calentamiento:</strong>
+          5–10 minutos de actividad suave y algunas series de aproximación
+          antes de los ejercicios principales.
+        </li>
+
+        <li>
+          <strong>Señales de alerta:</strong>
+          Dolor agudo o articular no habitual = detener el ejercicio y
+          revisar la ejecución/carga. Fatiga muscular controlada = normal.
+        </li>
+      </ul>
+
+      <button class="reset-btn" onclick="resetProgress()">
+        🔄 Reiniciar progreso
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    function updateStats() {
+
+      const allCheckboxes =
+        document.querySelectorAll('input[type="checkbox"]');
+
+      const checkedCheckboxes =
+        document.querySelectorAll('input[type="checkbox"]:checked');
+
+      const total = allCheckboxes.length;
+      const completed = checkedCheckboxes.length;
+
+      const percentage =
+        total > 0
+          ? Math.round((completed / total) * 100)
+          : 0;
+
+      document.getElementById('completedSets').textContent = completed;
+      document.getElementById('totalSets').textContent = total;
+      document.getElementById('progress').textContent = percentage + '%';
+
+      saveProgress();
+    }
+
+
+    function saveProgress() {
+
+      const checkboxes =
+        document.querySelectorAll('input[type="checkbox"]');
+
+      const progress = {};
+
+      checkboxes.forEach(cb => {
+        progress[cb.id] = cb.checked;
+      });
+
+      try {
+        localStorage.setItem(
+          'fullBodyWorkoutProgress',
+          JSON.stringify(progress)
+        );
+      } catch (e) {
+        console.log('No se pudo guardar el progreso.');
+      }
+    }
+
+
+    function loadProgress() {
+
+      try {
+
+        const saved =
+          localStorage.getItem('fullBodyWorkoutProgress');
+
+        if (saved) {
+
+          const progress = JSON.parse(saved);
+
+          Object.keys(progress).forEach(id => {
+
+            const checkbox =
+              document.getElementById(id);
+
+            if (checkbox) {
+              checkbox.checked = progress[id];
+            }
+
+          });
+
+        }
+
+      } catch (e) {
+
+        console.log('No se pudo cargar el progreso.');
+
+      }
+
+      updateStats();
+    }
+
+
+    function resetProgress() {
+
+      if (
+        confirm(
+          '¿Estás seguro de que quieres reiniciar el progreso de esta sesión?'
+        )
+      ) {
+
+        const checkboxes =
+          document.querySelectorAll('input[type="checkbox"]');
+
+        checkboxes.forEach(cb => {
+          cb.checked = false;
+        });
+
+        localStorage.removeItem('fullBodyWorkoutProgress');
+
+        updateStats();
+      }
+    }
+
+
+    window.addEventListener('load', loadProgress);
+
+  </script>
+
+</body>
+</html>
