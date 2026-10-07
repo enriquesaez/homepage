@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="color-scheme" content="dark" />
+    <title>Enrique Sáez | CV y documentación</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --bg: #0c0e10;
+            --surface: #16191c;
+            --surface-hover: #1e2226;
+            --border: #2c3136;
+            --border-hover: #474d53;
+            --text: #e8eaed;
+            --text-muted: #a9b0b6;
+            --text-subtle: #7c848b;
+            --accent: #a5b4fc;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.5;
+        }
+
+        main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 72px 16px 96px;
+        }
+
+        h1,
+        h2 {
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin: 0 0 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        h2 {
+            font-size: 1.375rem;
+            margin-top: 56px;
+        }
+
+        .file-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 8px;
+        }
+
+        .file-list a {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 16px;
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            text-decoration: none;
+            transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .file-list a:hover {
+            background-color: var(--surface-hover);
+            border-color: var(--border-hover);
+            transform: translateY(-1px);
+        }
+
+        .file-list a:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        .file-badge {
+            flex-shrink: 0;
+            padding: 4px 8px;
+            border-radius: 6px;
+            background-color: rgba(165, 180, 252, 0.12);
+            color: var(--accent);
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+        }
+
+        .file-name {
+            flex: 1;
+            min-width: 0;
+            font-weight: 500;
+            overflow-wrap: anywhere;
+        }
+
+        .file-size {
+            flex-shrink: 0;
+            color: var(--text-subtle);
+            font-size: 0.8125rem;
+        }
+
+        .file-icon {
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
+            color: var(--text-muted);
+            transition: color 0.2s ease;
+        }
+
+        .file-list a:hover .file-icon {
+            color: var(--accent);
+        }
+
+        @media (max-width: 480px) {
+            main {
+                padding-top: 48px;
+            }
+
+            .file-size {
+                display: none;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .file-list a {
+                transition: none;
+            }
+
+            .file-list a:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <svg aria-hidden="true" style="display: none;">
+        <symbol id="icon-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v12" />
+            <path d="m7 10 5 5 5-5" />
+            <path d="M5 21h14" />
+        </symbol>
+    </svg>
+
+    <main>
+        <h1>CV disponibles</h1>
+        <ul class="file-list">
+            <li><a href="cv/EnriqueSaez_CV_2026.pdf" download><span class="file-badge">PDF</span><span class="file-name">EnriqueSaez_CV_2026.pdf</span><span class="file-size">1,8 MB</span><svg class="file-icon"><use href="#icon-download" /></svg></a></li>
+            <li><a href="cv/EnriqueSaez_CV-M_2026.pdf" download><span class="file-badge">PDF</span><span class="file-name">EnriqueSaez_CV-M_2026.pdf</span><span class="file-size">1,8 MB</span><svg class="file-icon"><use href="#icon-download" /></svg></a></li>
+            <li><a href="cv/EnriqueSaez_CV_UI.pdf" download><span class="file-badge">PDF</span><span class="file-name">EnriqueSaez_CV_UI.pdf</span><span class="file-size">1,1 MB</span><svg class="file-icon"><use href="#icon-download" /></svg></a></li>
+            <li><a href="cv/EnriqueSaez_CV_UI_eng.pdf" download><span class="file-badge">PDF</span><span class="file-name">EnriqueSaez_CV_UI_eng.pdf</span><span class="file-size">1,0 MB</span><svg class="file-icon"><use href="#icon-download" /></svg></a></li>
+            <li><a href="cv/cv_enrique_eng.pdf" download><span class="file-badge">PDF</span><span class="file-name">cv_enrique_eng.pdf</span><span class="file-size">1,5 MB</span><svg class="file-icon"><use href="#icon-download" /></svg></a></li>
+            <li><a href="cv/cv_enrique_esp.pdf" download><span class="file-badge">PDF</span><span class="file-name">cv_enrique_esp.pdf</span><span class="file-size">1,7 MB</span><svg class="file-icon"><use href="#icon-download" /></svg></a></li>
+            <li><a href="cv/cv_enrique_ui_esp.pdf" download><span class="file-badge">PDF</span><span class="file-name">cv_enrique_ui_esp.pdf</span><span class="file-size">1,7 MB</span><svg class="file-icon"><use href="#icon-download" /></svg></a></li>
+            <li><a href="cv/cv_enrique_saez_disenador_grafico.pdf" download><span class="file-badge">PDF</span><span class="file-name">cv_enrique_saez_disenador_grafico.pdf</span><span class="file-size">39 KB</span><svg class="file-icon"><use href="#icon-download" /></svg></a></li>
+            <li><a href="cv/cv_enrique_saez_maquetador.pdf" download><span class="file-badge">PDF</span><span class="file-name">cv_enrique_saez_maquetador.pdf</span><span class="file-size">35 KB</span><svg class="file-icon"><use href="#icon-download" /></svg></a></li>
+        </ul>
+
+        <h2>Documentación</h2>
+        <ul class="file-list">
+            <li><a href="cv/docs/certificate-claude-code-in-action.pdf" download><span class="file-badge">PDF</span><span class="file-name">certificate-claude-code-in-action.pdf</span><span class="file-size">108 KB</span><svg class="file-icon"><use href="#icon-download" /></svg></a></li>
+            <li><a href="cv/docs/certificate-google-desarrollo-apps-m%C3%B3viles.pdf" download><span class="file-badge">PDF</span><span class="file-name">certificate-google-desarrollo-apps-móviles.pdf</span><span class="file-size">872 KB</span><svg class="file-icon"><use href="#icon-download" /></svg></a></li>
+            <li><a href="cv/docs/recomendaciones.pdf" download><span class="file-badge">PDF</span><span class="file-name">recomendaciones.pdf</span><span class="file-size">313 KB</span><svg class="file-icon"><use href="#icon-download" /></svg></a></li>
+            <li><a href="cv/docs/url_portfolio.pdf" download><span class="file-badge">PDF</span><span class="file-name">url_portfolio.pdf</span><span class="file-size">50 KB</span><svg class="file-icon"><use href="#icon-download" /></svg></a></li>
+        </ul>
+    </main>
+</body>
+
+</html>
