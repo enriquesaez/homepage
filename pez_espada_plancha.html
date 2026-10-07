@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pez Espada a la Plancha - Preparación Paso a Paso</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Custom Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                        },
+                        amber: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        },
+                        charcoal: {
+                            800: '#18181b',
+                            900: '#0f0f11',
+                            950: '#09090b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #09090b;
+            color: #f4f4f5;
+        }
+
+        /* Glassmorphism subtle effect */
+        .glass-panel {
+            background: rgba(24, 24, 27, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: rgba(39, 39, 42, 0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #09090b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3f3f46;
+        }
+
+        /* Pulse glow for active cooking timer */
+        @keyframes pulse-gold {
+            0%, 100% { box-shadow: 0 0 15px rgba(234, 179, 8, 0.2); }
+            50% { box-shadow: 0 0 30px rgba(234, 179, 8, 0.5); }
+        }
+        .timer-active {
+            animation: pulse-gold 2s infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-16 antialiased selection:bg-amber-500 selection:text-black">
+
+    <!-- HERO HEADER -->
+    <header class="relative overflow-hidden border-b border-zinc-800 bg-gradient-to-b from-zinc-900 via-charcoal-900 to-charcoal-950 pt-10 pb-12">
+        <div class="absolute inset-0 z-0 opacity-20 bg-[radial-gradient(#eab308_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="text-center md:text-left space-y-3">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold uppercase tracking-wider">
+                        <i data-lucide="flame" class="w-3.5 h-3.5"></i> Guía Gastronómica
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white">
+                        Pez espada a la plancha
+                    </h1>
+                    <p class="text-zinc-400 text-base sm:text-lg max-w-xl font-light">
+                        Preparación paso a paso para lograr un filete jugoso, dorado por fuera y perfectamente sazonado.
+                    </p>
+                </div>
+
+                <!-- Navigation Tabs / View Switcher -->
+                <div class="flex items-center gap-2 bg-zinc-900/90 p-1.5 rounded-xl border border-zinc-800 shadow-xl">
+                    <button id="btn-view-list" onclick="setViewMode('list')" class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-amber-500 text-zinc-950 shadow-md">
+                        <i data-lucide="list-checks" class="w-4 h-4"></i>
+                        <span>Vista Lista</span>
+                    </button>
+                    <button id="btn-view-focus" onclick="setViewMode('focus')" class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-white hover:bg-zinc-800 transition-all duration-200">
+                        <i data-lucide="chef-hat" class="w-4 h-4"></i>
+                        <span>Modo Cocina</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Global Progress Bar -->
+            <div class="mt-8 glass-panel p-4 rounded-2xl">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-xs sm:text-sm font-medium text-zinc-300 flex items-center gap-2">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-500"></i> Progreso de la Receta
+                    </span>
+                    <span id="progress-text" class="text-xs sm:text-sm font-bold text-amber-400">0% Completado</span>
+                </div>
+                <div class="w-full bg-zinc-800 rounded-full h-2.5 overflow-hidden">
+                    <div id="progress-bar" class="bg-gradient-to-r from-amber-500 to-amber-400 h-2.5 rounded-full transition-all duration-500 w-0"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 mt-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- SIDEBAR: Servings, Ingredients, Timer (4 cols on lg) -->
+            <aside class="lg:col-span-4 space-y-6">
+                
+                <!-- Servings & Calculator Widget -->
+                <div class="glass-panel p-5 rounded-2xl border border-zinc-800 shadow-xl">
+                    <div class="flex items-center justify-between pb-4 border-b border-zinc-800 mb-4">
+                        <h3 class="text-base font-semibold text-white flex items-center gap-2">
+                            <i data-lucide="users" class="w-4 h-4 text-amber-400"></i>
+                            Porciones & Ajuste
+                        </h3>
+                        <!-- Servings counter -->
+                        <div class="flex items-center gap-2 bg-zinc-900 border border-zinc-700/60 rounded-lg p-1">
+                            <button onclick="updateServings(-1)" class="w-7 h-7 flex items-center justify-center rounded-md bg-zinc-800 hover:bg-zinc-700 text-white font-bold transition-colors">
+                                -
+                            </button>
+                            <span id="servings-count" class="w-6 text-center text-sm font-semibold text-amber-400">2</span>
+                            <button onclick="updateServings(1)" class="w-7 h-7 flex items-center justify-center rounded-md bg-zinc-800 hover:bg-zinc-700 text-white font-bold transition-colors">
+                                +
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Ingredients List -->
+                    <h4 class="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-3">Ingredientes</h4>
+                    <ul class="space-y-2 text-sm text-zinc-300">
+                        <li class="flex justify-between items-center py-1.5 border-b border-zinc-800/50">
+                            <span class="flex items-center gap-2"><i data-lucide="fish" class="w-4 h-4 text-zinc-500"></i> Filetes de pez espada</span>
+                            <span class="font-medium text-amber-300" id="ing-fish">2 unidades</span>
+                        </li>
+                        <li class="flex justify-between items-center py-1.5 border-b border-zinc-800/50">
+                            <span class="flex items-center gap-2"><i data-lucide="sparkles" class="w-4 h-4 text-zinc-500"></i> Dientes de ajo</span>
+                            <span class="font-medium text-amber-300" id="ing-garlic">2 dientes</span>
+                        </li>
+                        <li class="flex justify-between items-center py-1.5 border-b border-zinc-800/50">
+                            <span class="flex items-center gap-2"><i data-lucide="leaf" class="w-4 h-4 text-zinc-500"></i> Perejil fresco</span>
+                            <span class="font-medium text-amber-300" id="ing-parsley">1 manojo pequeño</span>
+                        </li>
+                        <li class="flex justify-between items-center py-1.5 border-b border-zinc-800/50">
+                            <span class="flex items-center gap-2"><i data-lucide="droplet" class="w-4 h-4 text-zinc-500"></i> Aceite de oliva EV</span>
+                            <span class="font-medium text-amber-300" id="ing-oil">2 cdas</span>
+                        </li>
+                        <li class="flex justify-between items-center py-1.5 border-b border-zinc-800/50">
+                            <span class="flex items-center gap-2"><i data-lucide="citrus" class="w-4 h-4 text-zinc-500"></i> Limón fresco</span>
+                            <span class="font-medium text-amber-300" id="ing-lemon">1/2 unidad</span>
+                        </li>
+                        <li class="flex justify-between items-center py-1.5">
+                            <span class="flex items-center gap-2"><i data-lucide="align-justify" class="w-4 h-4 text-zinc-500"></i> Sal fina y pimienta</span>
+                            <span class="font-medium text-amber-300">Al gusto</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Kitchen Timer Widget -->
+                <div id="timer-card" class="glass-panel p-5 rounded-2xl border border-zinc-800 shadow-xl transition-all duration-300">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-base font-semibold text-white flex items-center gap-2">
+                            <i data-lucide="timer" class="w-4 h-4 text-amber-400"></i>
+                            Temporizador de Marcado
+                        </h3>
+                        <span id="timer-status" class="text-xs px-2 py-0.5 rounded bg-zinc-800 text-zinc-400">Listo</span>
+                    </div>
+
+                    <!-- Display Timer -->
+                    <div class="text-center py-3 bg-zinc-950/80 rounded-xl border border-zinc-800 mb-4">
+                        <span id="timer-display" class="text-4xl font-mono font-bold text-amber-400 tracking-wider">01:30</span>
+                        <p class="text-xs text-zinc-500 mt-1">Tiempo recomendado por lado (1 - 2 min)</p>
+                    </div>
+
+                    <!-- Quick Preset Buttons -->
+                    <div class="grid grid-cols-3 gap-2 mb-4">
+                        <button onclick="setTimerPreset(60)" class="px-2 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 text-xs font-medium transition-colors">1 Min</button>
+                        <button onclick="setTimerPreset(90)" class="px-2 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 text-xs font-medium transition-colors">1.5 Min</button>
+                        <button onclick="setTimerPreset(120)" class="px-2 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 text-xs font-medium transition-colors">2 Min</button>
+                    </div>
+
+                    <!-- Timer Controls -->
+                    <div class="flex gap-2">
+                        <button id="btn-timer-start" onclick="toggleTimer()" class="flex-1 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-zinc-950 font-semibold text-sm flex items-center justify-center gap-2 shadow-lg transition-colors">
+                            <i data-lucide="play" class="w-4 h-4"></i> Iniciar
+                        </button>
+                        <button onclick="resetTimer()" class="px-3 py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-semibold text-sm transition-colors">
+                            <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quick Utensils Card -->
+                <div class="glass-card p-4 rounded-2xl border border-zinc-800/80">
+                    <h4 class="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <i data-lucide="utensils" class="w-3.5 h-3.5 text-amber-400"></i> Utensilios Recomendados
+                    </h4>
+                    <div class="flex flex-wrap gap-2 text-xs text-zinc-300">
+                        <span class="px-2.5 py-1 rounded-md bg-zinc-800/80 border border-zinc-700/50">Plancha o Sartén antiadherente</span>
+                        <span class="px-2.5 py-1 rounded-md bg-zinc-800/80 border border-zinc-700/50">Mortero</span>
+                        <span class="px-2.5 py-1 rounded-md bg-zinc-800/80 border border-zinc-700/50">Papel absorbente</span>
+                        <span class="px-2.5 py-1 rounded-md bg-zinc-800/80 border border-zinc-700/50">Pincel de cocina</span>
+                        <span class="px-2.5 py-1 rounded-md bg-zinc-800/80 border border-zinc-700/50">Pincel o Espátula</span>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- MAIN CONTENT AREA (8 cols on lg) -->
+            <section class="lg:col-span-8">
+                
+                <!-- VISTA 1: LISTA COMPLETA DE PASOS -->
+                <div id="view-list" class="space-y-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <h2 class="text-xl font-bold text-white tracking-tight flex items-center gap-2">
+                            <i data-lucide="list-ordered" class="w-5 h-5 text-amber-400"></i> Pasos de la Preparación
+                        </h2>
+                        <button onclick="resetAllSteps()" class="text-xs text-zinc-400 hover:text-amber-400 transition-colors flex items-center gap-1">
+                            <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Reiniciar check
+                        </button>
+                    </div>
+
+                    <!-- STEP CARD 1 -->
+                    <div id="step-card-1" class="glass-panel p-5 rounded-2xl border border-zinc-800 transition-all duration-300 hover:border-zinc-700 group">
+                        <div class="flex items-start gap-4">
+                            <button onclick="toggleStep(1)" class="mt-1 w-6 h-6 rounded-lg border-2 border-zinc-600 flex items-center justify-center transition-colors group-hover:border-amber-400 focus:outline-none" id="checkbox-1">
+                                <i data-lucide="check" class="w-4 h-4 text-zinc-950 opacity-0 transition-opacity" id="check-icon-1"></i>
+                            </button>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-3 mb-1">
+                                    <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">Paso 1</span>
+                                    <h3 class="text-lg font-bold text-white group-hover:text-amber-300 transition-colors">Atemperar y secar</h3>
+                                </div>
+                                <p class="text-zinc-300 text-sm leading-relaxed mb-4">
+                                    Saca los filetes de la nevera y déjalos fuera unos minutos. Sécalos muy bien con papel de cocina por ambas caras (<strong class="text-amber-300 font-medium">esto es clave para que doren y no "cuezan" en su propio jugo</strong>).
+                                </p>
+                                <div class="relative overflow-hidden rounded-xl border border-zinc-800 h-44 sm:h-52 w-full">
+                                    <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=1000&q=80" 
+                                         alt="Preparación del pescado y secado" 
+                                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                         onerror="this.src='https://placehold.co/800x400/18181b/eab308?text=Pez+Espada+Fresco'">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent"></div>
+                                    <span class="absolute bottom-3 left-3 text-xs bg-zinc-900/90 text-zinc-300 px-2.5 py-1 rounded-md border border-zinc-700/60">
+                                        💡 Tip: El exceso de humedad evita la reacción de Maillard (el dorado)
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP CARD 2 -->
+                    <div id="step-card-2" class="glass-panel p-5 rounded-2xl border border-zinc-800 transition-all duration-300 hover:border-zinc-700 group">
+                        <div class="flex items-start gap-4">
+                            <button onclick="toggleStep(2)" class="mt-1 w-6 h-6 rounded-lg border-2 border-zinc-600 flex items-center justify-center transition-colors group-hover:border-amber-400 focus:outline-none" id="checkbox-2">
+                                <i data-lucide="check" class="w-4 h-4 text-zinc-950 opacity-0 transition-opacity" id="check-icon-2"></i>
+                            </button>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-3 mb-1">
+                                    <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">Paso 2</span>
+                                    <h3 class="text-lg font-bold text-white group-hover:text-amber-300 transition-colors">Preparar el majado</h3>
+                                </div>
+                                <p class="text-zinc-300 text-sm leading-relaxed mb-4">
+                                    Pica fino los 2 dientes de ajo y el perejil. Machácalos en un mortero con una pizca de sal hasta formar una pasta. Añade 1-2 cucharadas de aceite de oliva y mezcla.
+                                </p>
+                                <div class="relative overflow-hidden rounded-xl border border-zinc-800 h-44 sm:h-52 w-full">
+                                    <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=1000&q=80" 
+                                         alt="Ajo, perejil y mortero" 
+                                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                         onerror="this.src='https://placehold.co/800x400/18181b/eab308?text=Ajo+y+Perejil'">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP CARD 3 -->
+                    <div id="step-card-3" class="glass-panel p-5 rounded-2xl border border-zinc-800 transition-all duration-300 hover:border-zinc-700 group">
+                        <div class="flex items-start gap-4">
+                            <button onclick="toggleStep(3)" class="mt-1 w-6 h-6 rounded-lg border-2 border-zinc-600 flex items-center justify-center transition-colors group-hover:border-amber-400 focus:outline-none" id="checkbox-3">
+                                <i data-lucide="check" class="w-4 h-4 text-zinc-950 opacity-0 transition-opacity" id="check-icon-3"></i>
+                            </button>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-3 mb-1">
+                                    <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">Paso 3</span>
+                                    <h3 class="text-lg font-bold text-white group-hover:text-amber-300 transition-colors">Untar el pescado</h3>
+                                </div>
+                                <p class="text-zinc-300 text-sm leading-relaxed mb-3">
+                                    Pinta los filetes por las dos caras con el majado. Salpimienta al gusto. Si tienes tiempo, deja macerar 10-20 min; si no, puedes cocinar al momento.
+                                </p>
+                                <div class="bg-zinc-900/70 p-3 rounded-xl border border-zinc-800 flex items-center gap-3 text-xs text-amber-300">
+                                    <i data-lucide="clock" class="w-4 h-4 shrink-0"></i>
+                                    <span>Opcional: 10-20 minutos de maceración intensifican los aromas del ajo y perejil.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP CARD 4 -->
+                    <div id="step-card-4" class="glass-panel p-5 rounded-2xl border border-zinc-800 transition-all duration-300 hover:border-zinc-700 group">
+                        <div class="flex items-start gap-4">
+                            <button onclick="toggleStep(4)" class="mt-1 w-6 h-6 rounded-lg border-2 border-zinc-600 flex items-center justify-center transition-colors group-hover:border-amber-400 focus:outline-none" id="checkbox-4">
+                                <i data-lucide="check" class="w-4 h-4 text-zinc-950 opacity-0 transition-opacity" id="check-icon-4"></i>
+                            </button>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-3 mb-1">
+                                    <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">Paso 4</span>
+                                    <h3 class="text-lg font-bold text-white group-hover:text-amber-300 transition-colors">Calentar la plancha</h3>
+                                </div>
+                                <p class="text-zinc-300 text-sm leading-relaxed mb-4">
+                                    Pon una plancha o sartén amplia antiadherente a fuego fuerte con un chorrito de aceite de oliva. Debe estar bien caliente antes de poner el pescado.
+                                </p>
+                                <div class="relative overflow-hidden rounded-xl border border-zinc-800 h-44 sm:h-52 w-full">
+                                    <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1000&q=80" 
+                                         alt="Sartén y plancha muy caliente" 
+                                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                         onerror="this.src='https://placehold.co/800x400/18181b/eab308?text=Plancha+Caliente'">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP CARD 5 -->
+                    <div id="step-card-5" class="glass-panel p-5 rounded-2xl border border-zinc-800 transition-all duration-300 hover:border-zinc-700 group">
+                        <div class="flex items-start gap-4">
+                            <button onclick="toggleStep(5)" class="mt-1 w-6 h-6 rounded-lg border-2 border-zinc-600 flex items-center justify-center transition-colors group-hover:border-amber-400 focus:outline-none" id="checkbox-5">
+                                <i data-lucide="check" class="w-4 h-4 text-zinc-950 opacity-0 transition-opacity" id="check-icon-5"></i>
+                            </button>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-3 mb-1">
+                                    <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">Paso 5</span>
+                                    <h3 class="text-lg font-bold text-white group-hover:text-amber-300 transition-colors">Cocinar el primer lado</h3>
+                                </div>
+                                <p class="text-zinc-300 text-sm leading-relaxed mb-3">
+                                    Coloca los filetes y no los toques durante 1-2 minutos (según grosor). Deben quedar dorados por fuera.
+                                </p>
+                                <button onclick="quickStartTimer(90)" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-medium hover:bg-amber-500/20 transition-colors">
+                                    <i data-lucide="timer" class="w-3.5 h-3.5"></i> Usar temporizador (1.5 min)
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP CARD 6 -->
+                    <div id="step-card-6" class="glass-panel p-5 rounded-2xl border border-zinc-800 transition-all duration-300 hover:border-zinc-700 group">
+                        <div class="flex items-start gap-4">
+                            <button onclick="toggleStep(6)" class="mt-1 w-6 h-6 rounded-lg border-2 border-zinc-600 flex items-center justify-center transition-colors group-hover:border-amber-400 focus:outline-none" id="checkbox-6">
+                                <i data-lucide="check" class="w-4 h-4 text-zinc-950 opacity-0 transition-opacity" id="check-icon-6"></i>
+                            </button>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-3 mb-1">
+                                    <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">Paso 6</span>
+                                    <h3 class="text-lg font-bold text-white group-hover:text-amber-300 transition-colors">Dar la vuelta</h3>
+                                </div>
+                                <p class="text-zinc-300 text-sm leading-relaxed mb-3">
+                                    Gira los filetes solo una vez. Cocina otros 1-2 minutos por el otro lado. Añade unas gotas de zumo de limón al final.
+                                </p>
+                                <div class="flex items-center gap-3">
+                                    <button onclick="quickStartTimer(90)" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-medium hover:bg-amber-500/20 transition-colors">
+                                        <i data-lucide="timer" class="w-3.5 h-3.5"></i> Temporizador para 2º lado
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP CARD 7 -->
+                    <div id="step-card-7" class="glass-panel p-5 rounded-2xl border border-zinc-800 transition-all duration-300 hover:border-zinc-700 group">
+                        <div class="flex items-start gap-4">
+                            <button onclick="toggleStep(7)" class="mt-1 w-6 h-6 rounded-lg border-2 border-zinc-600 flex items-center justify-center transition-colors group-hover:border-amber-400 focus:outline-none" id="checkbox-7">
+                                <i data-lucide="check" class="w-4 h-4 text-zinc-950 opacity-0 transition-opacity" id="check-icon-7"></i>
+                            </button>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-3 mb-1">
+                                    <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">Paso 7</span>
+                                    <h3 class="text-lg font-bold text-white group-hover:text-amber-300 transition-colors">Servir inmediatamente</h3>
+                                </div>
+                                <p class="text-zinc-300 text-sm leading-relaxed mb-4">
+                                    Emplata, riega con un hilo de buen aceite de oliva, una pizca de sal gruesa y un poco más de perejil si quieres. Acompaña con rodajas de limón, ensalada o verduras a la plancha.
+                                </p>
+                                <div class="relative overflow-hidden rounded-xl border border-zinc-800 h-48 sm:h-60 w-full">
+                                    <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=1000&q=80" 
+                                         alt="Pez espada servido y emplatado con limón" 
+                                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                         onerror="this.src='https://placehold.co/800x400/18181b/eab308?text=Plato+Finalizado'">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent"></div>
+                                    <span class="absolute bottom-3 left-3 text-xs bg-amber-500 text-zinc-950 font-bold px-3 py-1 rounded-md shadow">
+                                        ¡Buen provecho! 🍽️
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- VISTA 2: MODO COCINA (FOCUS STEP-BY-STEP) -->
+                <div id="view-focus" class="hidden">
+                    <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-zinc-800 shadow-2xl relative">
+                        <!-- Navigation Focus Bar -->
+                        <div class="flex items-center justify-between mb-6 pb-4 border-b border-zinc-800">
+                            <span class="text-xs font-bold text-amber-400 uppercase tracking-widest flex items-center gap-1.5">
+                                <i data-lucide="chef-hat" class="w-4 h-4"></i>
+                                Paso <span id="focus-step-num">1</span> de 7
+                            </span>
+                            <div class="flex items-center gap-2">
+                                <button onclick="focusPrevStep()" id="btn-focus-prev" class="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 text-xs font-medium disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
+                                    <i data-lucide="chevron-left" class="w-4 h-4 inline"></i> Anter.
+                                </button>
+                                <button onclick="focusNextStep()" id="btn-focus-next" class="px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-zinc-950 text-xs font-semibold shadow transition-colors">
+                                    Siguiente <i data-lucide="chevron-right" class="w-4 h-4 inline"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Focus Step Content Display -->
+                        <div class="min-h-[280px] flex flex-col justify-between">
+                            <div>
+                                <h3 id="focus-step-title" class="text-2xl sm:text-3xl font-extrabold text-white mb-4">
+                                    Atemperar y secar
+                                </h3>
+                                <p id="focus-step-desc" class="text-zinc-200 text-base sm:text-lg leading-relaxed font-light mb-6">
+                                    Saca los filetes de la nevera y déjalos fuera unos minutos. Sécalos muy bien con papel de cocina por ambas caras.
+                                </p>
+                            </div>
+
+                            <!-- Image Preview for Focus Step -->
+                            <div id="focus-image-container" class="relative overflow-hidden rounded-2xl border border-zinc-800 h-52 sm:h-64 w-full mb-6">
+                                <img id="focus-step-img" src="" alt="Paso modo cocina" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/70 via-transparent to-transparent"></div>
+                            </div>
+
+                            <!-- Focus Step Actions -->
+                            <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-zinc-800">
+                                <button id="btn-focus-toggle-complete" onclick="toggleFocusStepComplete()" class="flex items-center gap-2 px-5 py-3 rounded-xl bg-zinc-800 border border-zinc-700 text-white font-medium hover:bg-zinc-700 transition-all">
+                                    <i data-lucide="circle" id="focus-check-icon" class="w-5 h-5 text-zinc-400"></i>
+                                    <span id="focus-check-text">Marcar como completado</span>
+                                </button>
+
+                                <button onclick="quickStartTimer(90)" class="flex items-center gap-2 px-4 py-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 hover:bg-amber-500/20 text-sm font-medium transition-colors">
+                                    <i data-lucide="timer" class="w-4 h-4"></i> Timer 1.5 min
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <script>
+        /* Application State */
+        let currentServings = 2;
+        const baseIngredients = {
+            fish: 2,
+            garlic: 2,
+            oil: 2,
+            lemon: 0.5
+        };
+
+        const stepsData = [
+            {
+                id: 1,
+                title: "Atemperar y secar",
+                desc: "Saca los filetes de la nevera y déjalos fuera unos minutos. Sécalos muy bien con papel de cocina por ambas caras (esto es clave para que doren y no 'cuezan' en su propio jugo).",
+                img: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=1000&q=80"
+            },
+            {
+                id: 2,
+                title: "Preparar el majado",
+                desc: "Pica fino los 2 dientes de ajo y el perejil. Machácalos en un mortero con una pizca de sal hasta formar una pasta. Añade 1-2 cucharadas de aceite de oliva y mezcla.",
+                img: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=1000&q=80"
+            },
+            {
+                id: 3,
+                title: "Untar el pescado",
+                desc: "Pinta los filetes por las dos caras con el majado. Salpimienta al gusto. Si tienes tiempo, deja macerar 10-20 min; si no, puedes cocinar al momento.",
+                img: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=1000&q=80"
+            },
+            {
+                id: 4,
+                title: "Calentar la plancha",
+                desc: "Pon una plancha o sartén amplia antiadherente a fuego fuerte con un chorrito de aceite de oliva. Debe estar bien caliente antes de poner el pescado.",
+                img: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1000&q=80"
+            },
+            {
+                id: 5,
+                title: "Cocinar el primer lado",
+                desc: "Coloca los filetes y no los toques durante 1-2 minutos (según grosor). Deben quedar dorados por fuera.",
+                img: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=1000&q=80"
+            },
+            {
+                id: 6,
+                title: "Dar la vuelta",
+                desc: "Gira los filetes solo una vez. Cocina otros 1-2 minutos por el otro lado. Añade unas gotas de zumo de limón al final.",
+                img: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=1000&q=80"
+            },
+            {
+                id: 7,
+                title: "Servir inmediatamente",
+                desc: "Emplata, riega con un hilo de buen aceite de oliva, una pizca de sal gruesa y un poco más de perejil si quieres. Acompaña con rodajas de limón, ensalada o verduras a la plancha.",
+                img: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=1000&q=80"
+            }
+        ];
+
+        let completedSteps = new Set();
+        let currentFocusStepIndex = 0;
+        
+        // Timer state
+        let timerSeconds = 90;
+        let timerMaxSeconds = 90;
+        let timerInterval = null;
+        let isTimerRunning = false;
+
+        /* Init function */
+        window.onload = function() {
+            lucide.createIcons();
+            updateServings(0);
+            updateProgress();
+            renderFocusStep();
+        };
+
+        /* View Mode Handler */
+        function setViewMode(mode) {
+            const listBtn = document.getElementById('btn-view-list');
+            const focusBtn = document.getElementById('btn-view-focus');
+            const listView = document.getElementById('view-list');
+            const focusView = document.getElementById('view-focus');
+
+            if (mode === 'list') {
+                listView.classList.remove('hidden');
+                focusView.classList.add('hidden');
+
+                listBtn.className = "flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-amber-500 text-zinc-950 shadow-md";
+                focusBtn.className = "flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-white hover:bg-zinc-800 transition-all duration-200";
+            } else {
+                listView.classList.add('hidden');
+                focusView.classList.remove('hidden');
+
+                focusBtn.className = "flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-amber-500 text-zinc-950 shadow-md";
+                listBtn.className = "flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-white hover:bg-zinc-800 transition-all duration-200";
+                renderFocusStep();
+            }
+        }
+
+        /* Servings Calculator */
+        function updateServings(delta) {
+            currentServings = Math.max(1, Math.min(10, currentServings + delta));
+            document.getElementById('servings-count').innerText = currentServings;
+
+            const ratio = currentServings / 2;
+            document.getElementById('ing-fish').innerText = `${Math.round(baseIngredients.fish * ratio * 10) / 10} unidades`;
+            document.getElementById('ing-garlic').innerText = `${Math.round(baseIngredients.garlic * ratio * 10) / 10} dientes`;
+            document.getElementById('ing-oil').innerText = `${Math.round(baseIngredients.oil * ratio * 10) / 10} cdas`;
+            
+            const lemonVal = baseIngredients.lemon * ratio;
+            document.getElementById('ing-lemon').innerText = lemonVal === 0.5 ? "1/2 unidad" : `${lemonVal} unidades`;
+        }
+
+        /* Interactive Step Progress logic */
+        function toggleStep(stepId) {
+            if (completedSteps.has(stepId)) {
+                completedSteps.delete(stepId);
+            } else {
+                completedSteps.add(stepId);
+            }
+            updateStepUI(stepId);
+            updateProgress();
+            if (document.getElementById('view-focus').classList.contains('hidden') === false) {
+                renderFocusStep();
+            }
+        }
+
+        function updateStepUI(stepId) {
+            const card = document.getElementById(`step-card-${stepId}`);
+            const checkbox = document.getElementById(`checkbox-${stepId}`);
+            const checkIcon = document.getElementById(`check-icon-${stepId}`);
+
+            if (completedSteps.has(stepId)) {
+                card.classList.add('border-amber-500/40', 'bg-zinc-900/90');
+                checkbox.classList.add('bg-amber-500', 'border-amber-500');
+                checkbox.classList.remove('border-zinc-600');
+                checkIcon.classList.remove('opacity-0');
+            } else {
+                card.classList.remove('border-amber-500/40', 'bg-zinc-900/90');
+                checkbox.classList.remove('bg-amber-500', 'border-amber-500');
+                checkbox.classList.add('border-zinc-600');
+                checkIcon.classList.add('opacity-0');
+            }
+        }
+
+        function resetAllSteps() {
+            completedSteps.clear();
+            for (let i = 1; i <= 7; i++) {
+                updateStepUI(i);
+            }
+            updateProgress();
+            renderFocusStep();
+        }
+
+        function updateProgress() {
+            const total = stepsData.length;
+            const current = completedSteps.size;
+            const percentage = Math.round((current / total) * 100);
+
+            const progressBar = document.getElementById('progress-bar');
+            const progressText = document.getElementById('progress-text');
+
+            progressBar.style.width = `${percentage}%`;
+            progressText.innerText = `${percentage}% Completado`;
+
+            // Confetti Trigger on completion
+            if (percentage === 100) {
+                triggerConfetti();
+            }
+        }
+
+        function triggerConfetti() {
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 80,
+                    spread: 70,
+                    origin: { y: 0.6 },
+                    colors: ['#facc15', '#eab308', '#ffffff']
+                });
+            }
+        }
+
+        /* Focus View Logic */
+        function renderFocusStep() {
+            const step = stepsData[currentFocusStepIndex];
+            document.getElementById('focus-step-num').innerText = step.id;
+            document.getElementById('focus-step-title').innerText = step.title;
+            document.getElementById('focus-step-desc').innerText = step.desc;
+            document.getElementById('focus-step-img').src = step.img;
+
+            const isDone = completedSteps.has(step.id);
+            const btnToggle = document.getElementById('btn-focus-toggle-complete');
+            const checkIcon = document.getElementById('focus-check-icon');
+            const checkText = document.getElementById('focus-check-text');
+
+            if (isDone) {
+                btnToggle.className = "flex items-center gap-2 px-5 py-3 rounded-xl bg-amber-500 text-zinc-950 font-semibold transition-all shadow-lg";
+                checkIcon.setAttribute('data-lucide', 'check-circle-2');
+                checkText.innerText = "Paso Completado";
+            } else {
+                btnToggle.className = "flex items-center gap-2 px-5 py-3 rounded-xl bg-zinc-800 border border-zinc-700 text-white font-medium hover:bg-zinc-700 transition-all";
+                checkIcon.setAttribute('data-lucide', 'circle');
+                checkText.innerText = "Marcar como completado";
+            }
+
+            document.getElementById('btn-focus-prev').disabled = currentFocusStepIndex === 0;
+            document.getElementById('btn-focus-next').disabled = currentFocusStepIndex === stepsData.length - 1;
+
+            lucide.createIcons();
+        }
+
+        function focusNextStep() {
+            if (currentFocusStepIndex < stepsData.length - 1) {
+                currentFocusStepIndex++;
+                renderFocusStep();
+            }
+        }
+
+        function focusPrevStep() {
+            if (currentFocusStepIndex > 0) {
+                currentFocusStepIndex--;
+                renderFocusStep();
+            }
+        }
+
+        function toggleFocusStepComplete() {
+            const currentStepId = stepsData[currentFocusStepIndex].id;
+            toggleStep(currentStepId);
+        }
+
+        /* Kitchen Timer Functionality */
+        function formatTime(seconds) {
+            const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+            const s = (seconds % 60).toString().padStart(2, '0');
+            return `${m}:${s}`;
+        }
+
+        function updateTimerDisplay() {
+            document.getElementById('timer-display').innerText = formatTime(timerSeconds);
+        }
+
+        function setTimerPreset(seconds) {
+            pauseTimer();
+            timerSeconds = seconds;
+            timerMaxSeconds = seconds;
+            updateTimerDisplay();
+            document.getElementById('timer-status').innerText = "Listo";
+            document.getElementById('timer-status').className = "text-xs px-2 py-0.5 rounded bg-zinc-800 text-zinc-400";
+        }
+
+        function quickStartTimer(seconds) {
+            setTimerPreset(seconds);
+            startTimer();
+            // Scroll to timer on mobile view if needed
+            document.getElementById('timer-card').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function toggleTimer() {
+            if (isTimerRunning) {
+                pauseTimer();
+            } else {
+                startTimer();
+            }
+        }
+
+        function startTimer() {
+            if (timerSeconds <= 0) return;
+            isTimerRunning = true;
+
+            const btnStart = document.getElementById('btn-timer-start');
+            btnStart.innerHTML = `<i data-lucide="pause" class="w-4 h-4"></i> Pausar`;
+            btnStart.className = "flex-1 py-2.5 rounded-xl bg-zinc-700 hover:bg-zinc-600 text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-lg transition-colors";
+
+            document.getElementById('timer-card').classList.add('timer-active');
+            document.getElementById('timer-status').innerText = "En marcha";
+            document.getElementById('timer-status').className = "text-xs px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 font-semibold";
+
+            lucide.createIcons();
+
+            timerInterval = setInterval(() => {
+                timerSeconds--;
+                updateTimerDisplay();
+
+                if (timerSeconds <= 0) {
+                    clearInterval(timerInterval);
+                    timerFinished();
+                }
+            }, 1000);
+        }
+
+        function pauseTimer() {
+            isTimerRunning = false;
+            clearInterval(timerInterval);
+
+            const btnStart = document.getElementById('btn-timer-start');
+            btnStart.innerHTML = `<i data-lucide="play" class="w-4 h-4"></i> Reanudar`;
+            btnStart.className = "flex-1 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-zinc-950 font-semibold text-sm flex items-center justify-center gap-2 shadow-lg transition-colors";
+
+            document.getElementById('timer-card').classList.remove('timer-active');
+            document.getElementById('timer-status').innerText = "Pausado";
+            document.getElementById('timer-status').className = "text-xs px-2 py-0.5 rounded bg-zinc-800 text-zinc-400";
+
+            lucide.createIcons();
+        }
+
+        function resetTimer() {
+            pauseTimer();
+            timerSeconds = timerMaxSeconds;
+            updateTimerDisplay();
+
+            const btnStart = document.getElementById('btn-timer-start');
+            btnStart.innerHTML = `<i data-lucide="play" class="w-4 h-4"></i> Iniciar`;
+            btnStart.className = "flex-1 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-zinc-950 font-semibold text-sm flex items-center justify-center gap-2 shadow-lg transition-colors";
+
+            document.getElementById('timer-status').innerText = "Listo";
+            lucide.createIcons();
+        }
+
+        function timerFinished() {
+            isTimerRunning = false;
+            document.getElementById('timer-card').classList.remove('timer-active');
+            document.getElementById('timer-status').innerText = "¡Listo!";
+            document.getElementById('timer-status').className = "text-xs px-2 py-0.5 rounded bg-green-500/20 text-green-400 font-bold";
+
+            const btnStart = document.getElementById('btn-timer-start');
+            btnStart.innerHTML = `<i data-lucide="play" class="w-4 h-4"></i> Iniciar`;
+
+            // Synthetic Beep Sound via Web Audio API
+            playAlarmSound();
+            lucide.createIcons();
+        }
+
+        function playAlarmSound() {
+            try {
+                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(587.33, audioCtx.currentTime); // D5 note
+                osc.frequency.setValueAtTime(880, audioCtx.currentTime + 0.2); // A5 note
+
+                gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.8);
+
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.8);
+            } catch (e) {
+                console.log('Audio Context error or not allowed:', e);
+            }
+        }
+    </script>
+</body>
+</html>
