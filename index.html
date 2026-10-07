@@ -9,60 +9,36 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <script>
+        // Apply theme before first paint: saved choice wins, otherwise follow the OS setting.
+        (function () {
+            let saved = null;
+            try { saved = localStorage.getItem('theme'); } catch (e) {}
+            const dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.classList.toggle('dark', dark);
+            document.documentElement.classList.toggle('light', !dark);
+        })();
+    </script>
     <script id="tailwind-config">
+        // Every palette token resolves to a CSS variable (defined per theme in <style>), so opacity modifiers keep working.
+        const themeColors = Object.fromEntries([
+            "on-surface", "surface-container-highest", "on-background", "inverse-primary", "surface-tint",
+            "on-tertiary-fixed", "surface-variant", "outline-variant", "inverse-surface", "tertiary-fixed",
+            "tertiary", "primary-fixed", "on-tertiary-container", "on-surface-variant", "on-tertiary-fixed-variant",
+            "on-primary", "surface-container-lowest", "surface-dim", "error-container", "on-secondary",
+            "surface-bright", "on-primary-fixed-variant", "on-error", "primary-dim", "background",
+            "on-primary-fixed", "secondary", "surface-container", "inverse-on-surface", "surface-container-low",
+            "on-secondary-fixed-variant", "secondary-container", "outline", "secondary-dim", "tertiary-dim",
+            "secondary-fixed-dim", "on-error-container", "error", "primary", "primary-fixed-dim",
+            "on-secondary-container", "tertiary-fixed-dim", "secondary-fixed", "error-dim", "primary-container",
+            "surface", "tertiary-container", "surface-container-high", "on-primary-container"
+        ].map(name => [name, `rgb(var(--c-${name}) / <alpha-value>)`]));
+
         tailwind.config = {
             darkMode: "class",
             theme: {
               extend: {
-                "colors": {
-                        "on-surface": "#2d3338",
-                        "surface-container-highest": "#dde3e9",
-                        "on-background": "#2d3338",
-                        "inverse-primary": "#ffffff",
-                        "surface-tint": "#5f5e60",
-                        "on-tertiary-fixed": "#3a344e",
-                        "surface-variant": "#dde3e9",
-                        "outline-variant": "#acb3b8",
-                        "inverse-surface": "#0c0e10",
-                        "tertiary-fixed": "#dcd2f4",
-                        "tertiary": "#625b77",
-                        "primary-fixed": "#e4e2e4",
-                        "on-tertiary-container": "#4d4762",
-                        "on-surface-variant": "#596065",
-                        "on-tertiary-fixed-variant": "#57506c",
-                        "on-primary": "#faf7f9",
-                        "surface-container-lowest": "#ffffff",
-                        "surface-dim": "#d3dbe2",
-                        "error-container": "#fe8983",
-                        "on-secondary": "#faf8fe",
-                        "surface-bright": "#f9f9fb",
-                        "on-primary-fixed-variant": "#5c5b5d",
-                        "on-error": "#fff7f6",
-                        "primary-dim": "#535254",
-                        "background": "#f9f9fb",
-                        "on-primary-fixed": "#3f3f41",
-                        "secondary": "#5e5f63",
-                        "surface-container": "#ebeef2",
-                        "inverse-on-surface": "#9c9d9f",
-                        "surface-container-low": "#f2f4f6",
-                        "on-secondary-fixed-variant": "#5b5b60",
-                        "secondary-container": "#e3e2e7",
-                        "outline": "#757c81",
-                        "secondary-dim": "#525357",
-                        "tertiary-dim": "#564f6b",
-                        "secondary-fixed-dim": "#d5d4d9",
-                        "on-error-container": "#752121",
-                        "error": "#9f403d",
-                        "primary": "#5f5e60",
-                        "primary-fixed-dim": "#d6d3d6",
-                        "on-secondary-container": "#515156",
-                        "tertiary-fixed-dim": "#cec5e5",
-                        "secondary-fixed": "#e3e2e7",
-                        "error-dim": "#4e0309",
-                        "primary-container": "#e4e2e4",
-                        "surface": "#f9f9fb",
-                        "tertiary-container": "#dcd2f4"
-                },
+                "colors": themeColors,
                 "borderRadius": {
                         "DEFAULT": "1rem",
                         "lg": "2rem",
@@ -96,12 +72,173 @@
             });
     </script>
     <style>
+        :root {
+            color-scheme: light;
+            --page-bg: 255 255 255;
+            --page-fg: 29 29 31;
+            --card-border: 229 229 231;
+            --card-shadow: rgba(45, 51, 56, 0.08);
+            --c-on-surface: 45 51 56;
+            --c-surface-container-highest: 221 227 233;
+            --c-on-background: 45 51 56;
+            --c-inverse-primary: 255 255 255;
+            --c-surface-tint: 95 94 96;
+            --c-on-tertiary-fixed: 58 52 78;
+            --c-surface-variant: 221 227 233;
+            --c-outline-variant: 172 179 184;
+            --c-inverse-surface: 12 14 16;
+            --c-tertiary-fixed: 220 210 244;
+            --c-tertiary: 98 91 119;
+            --c-primary-fixed: 228 226 228;
+            --c-on-tertiary-container: 77 71 98;
+            --c-on-surface-variant: 89 96 101;
+            --c-on-tertiary-fixed-variant: 87 80 108;
+            --c-on-primary: 250 247 249;
+            --c-surface-container-lowest: 255 255 255;
+            --c-surface-dim: 211 219 226;
+            --c-error-container: 254 137 131;
+            --c-on-secondary: 250 248 254;
+            --c-surface-bright: 249 249 251;
+            --c-on-primary-fixed-variant: 92 91 93;
+            --c-on-error: 255 247 246;
+            --c-primary-dim: 83 82 84;
+            --c-background: 249 249 251;
+            --c-on-primary-fixed: 63 63 65;
+            --c-secondary: 94 95 99;
+            --c-surface-container: 235 238 242;
+            --c-inverse-on-surface: 156 157 159;
+            --c-surface-container-low: 242 244 246;
+            --c-on-secondary-fixed-variant: 91 91 96;
+            --c-secondary-container: 227 226 231;
+            --c-outline: 117 124 129;
+            --c-secondary-dim: 82 83 87;
+            --c-tertiary-dim: 86 79 107;
+            --c-secondary-fixed-dim: 213 212 217;
+            --c-on-error-container: 117 33 33;
+            --c-error: 159 64 61;
+            --c-primary: 95 94 96;
+            --c-primary-fixed-dim: 214 211 214;
+            --c-on-secondary-container: 81 81 86;
+            --c-tertiary-fixed-dim: 206 197 229;
+            --c-secondary-fixed: 227 226 231;
+            --c-error-dim: 78 3 9;
+            --c-primary-container: 228 226 228;
+            --c-surface: 249 249 251;
+            --c-tertiary-container: 220 210 244;
+            --c-surface-container-high: 228 233 238;
+            --c-on-primary-container: 82 81 83;
+        }
+        /* Dark palette. "*-fixed" tokens stay the same in both themes by definition. */
+        html.dark {
+            color-scheme: dark;
+            --page-bg: 12 14 16;
+            --page-fg: 232 234 237;
+            --card-border: 44 49 54;
+            --card-shadow: rgba(0, 0, 0, 0.45);
+            --c-on-surface: 227 230 234;
+            --c-on-background: 227 230 234;
+            --c-on-surface-variant: 169 176 182;
+            --c-background: 18 20 23;
+            --c-surface: 18 20 23;
+            --c-surface-dim: 18 20 23;
+            --c-surface-bright: 50 55 60;
+            --c-surface-container-lowest: 22 25 28;
+            --c-surface-container-low: 26 29 33;
+            --c-surface-container: 33 37 41;
+            --c-surface-container-high: 42 46 51;
+            --c-surface-container-highest: 51 56 61;
+            --c-surface-variant: 51 56 61;
+            --c-surface-tint: 200 198 201;
+            --c-outline: 138 145 151;
+            --c-outline-variant: 71 77 83;
+            --c-inverse-surface: 240 241 243;
+            --c-inverse-on-surface: 45 51 56;
+            --c-inverse-primary: 95 94 96;
+            --c-primary: 228 226 228;
+            --c-primary-dim: 200 198 201;
+            --c-on-primary: 28 27 29;
+            --c-primary-container: 58 57 60;
+            --c-on-primary-container: 228 226 228;
+            --c-secondary: 198 198 203;
+            --c-secondary-dim: 174 174 179;
+            --c-on-secondary: 29 29 33;
+            --c-secondary-container: 58 59 63;
+            --c-on-secondary-container: 227 226 231;
+            --c-tertiary: 206 197 229;
+            --c-tertiary-dim: 180 171 204;
+            --c-tertiary-container: 77 71 98;
+            --c-on-tertiary-container: 233 225 255;
+            --c-error: 255 180 171;
+            --c-error-dim: 255 138 128;
+            --c-on-error: 105 0 5;
+            --c-error-container: 147 0 10;
+            --c-on-error-container: 255 218 214;
+        }
         body {
             font-family: 'Inter', sans-serif;
             -webkit-font-smoothing: antialiased;
-            background-color: #ffffff;
-            color: #1D1D1F;
+            background-color: rgb(var(--page-bg));
+            color: rgb(var(--page-fg));
             scroll-behavior: smooth;
+        }
+        /* Smooth cross-fade only while the user toggles, so the initial load never animates. */
+        html.theme-transition,
+        html.theme-transition *,
+        html.theme-transition *::before,
+        html.theme-transition *::after {
+            transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease !important;
+        }
+        .project-card {
+            background-color: rgb(var(--c-surface-container-lowest));
+            border-color: rgb(var(--card-border));
+        }
+        /* Theme switch */
+        .theme-switch {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            padding: 3px;
+            border-radius: 9999px;
+            background: rgb(var(--c-surface-container));
+            border: 1px solid rgb(var(--c-outline-variant) / 0.25);
+        }
+        .theme-switch__thumb {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 32px;
+            height: 32px;
+            border-radius: 9999px;
+            background: rgb(var(--c-surface-container-lowest));
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        html.dark .theme-switch__thumb {
+            transform: translateX(32px);
+            background: rgb(var(--c-surface-bright));
+        }
+        .theme-switch__btn {
+            position: relative;
+            z-index: 1;
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            color: rgb(var(--c-outline));
+            transition: color 0.3s ease, transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .theme-switch__btn:hover { color: rgb(var(--c-on-surface)); }
+        .theme-switch__btn:focus-visible { outline: 2px solid rgb(var(--c-primary)); outline-offset: 2px; }
+        .theme-switch__btn[aria-pressed="true"] { color: rgb(var(--c-on-surface)); }
+        .theme-switch__btn[aria-pressed="true"] .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 20; }
+        .theme-switch__btn[data-theme-value="light"][aria-pressed="true"] { color: #f59e0b; }
+        .theme-switch__btn[data-theme-value="dark"][aria-pressed="true"] { color: #a5b4fc; }
+        .theme-switch__btn[aria-pressed="true"] { transform: rotate(0deg) scale(1); }
+        .theme-switch__btn[aria-pressed="false"] { transform: rotate(-30deg) scale(0.85); }
+        @media (prefers-reduced-motion: reduce) {
+            .theme-switch__thumb, .theme-switch__btn { transition: none; }
         }
         .glass-nav {
             background: rgba(255, 255, 255, 0.7);
@@ -113,7 +250,7 @@
         }
         .project-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(45, 51, 56, 0.08);
+            box-shadow: 0 20px 40px var(--card-shadow);
         }
         .lightbox-backdrop {
             opacity: 0;
@@ -161,11 +298,20 @@
     </div>
     <!-- Top Navigation Bar -->
     <header class="fixed top-0 left-0 right-0 z-50 flex justify-center w-full px-4">
-        <nav class="bg-white/70 backdrop-blur-xl rounded-full mt-6 mx-auto w-fit px-8 py-2.5 shadow-[0_20px_40px_rgba(45,51,56,0.06)] flex items-center gap-10 border border-outline-variant/10">
-            <a class="text-xl font-semibold tracking-tighter text-zinc-900" href="#">Enrique Sáez</a>
-            <div class="flex items-center gap-8">
-                <a class="text-zinc-900 font-medium font-['Inter'] tracking-tight transition-colors duration-300" href="#selected-work">Selected Work</a>
-                <a class="text-zinc-500 hover:text-zinc-900 font-['Inter'] tracking-tight transition-colors duration-300" href="#toolkit-expertise">Toolkit &amp; Expertise</a>
+        <nav class="bg-white/70 dark:bg-zinc-900/70 backdrop-blur-xl rounded-full mt-6 mx-auto w-fit px-5 md:px-8 py-2 md:py-2.5 shadow-[0_20px_40px_rgba(45,51,56,0.06)] flex items-center gap-4 md:gap-10 border border-outline-variant/10">
+            <a class="text-xl font-semibold tracking-tighter text-zinc-900 dark:text-zinc-100" href="#">Enrique Sáez</a>
+            <div class="flex items-center gap-4 md:gap-8">
+                <a class="text-zinc-900 dark:text-zinc-100 font-medium font-['Inter'] tracking-tight transition-colors duration-300" href="#selected-work">Selected Work</a>
+                <a class="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 font-['Inter'] tracking-tight transition-colors duration-300" href="#toolkit-expertise">Toolkit &amp; Expertise</a>
+            </div>
+            <div aria-label="Color theme" class="theme-switch" role="group">
+                <span aria-hidden="true" class="theme-switch__thumb"></span>
+                <button aria-label="Light theme" aria-pressed="true" class="theme-switch__btn" data-theme-value="light" title="Light theme" type="button">
+                    <span class="material-symbols-outlined text-[20px]">light_mode</span>
+                </button>
+                <button aria-label="Dark theme" aria-pressed="false" class="theme-switch__btn" data-theme-value="dark" title="Dark theme" type="button">
+                    <span class="material-symbols-outlined text-[20px]">dark_mode</span>
+                </button>
             </div>
         </nav>
     </header>
@@ -177,7 +323,7 @@
                 <h1 class="text-6xl md:text-[5rem] font-semibold leading-[1.05] tracking-tight text-on-surface mb-8">Hi, I'm a UI Developer from Spain, Europe</h1>
                 <p class="text-xl md:text-2xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed mb-12 font-light"><span style='color: rgb(162, 162, 162); font-family: "Source Sans Pro", Helvetica, sans-serif; font-size: 21.3333px; text-align: start;'>with a holistic approach towards brand identity and digital design. I'm passionate about designs, web development and user interfaces.</span></p>
                 <div class="flex flex-wrap justify-center gap-4">
-                    <a class="px-8 py-4 bg-primary text-white rounded-full font-medium hover:bg-primary-dim transition-all duration-300 shadow-lg shadow-primary/10" href="#selected-work">View Projects</a>
+                    <a class="px-8 py-4 bg-primary text-on-primary rounded-full font-medium hover:bg-primary-dim transition-all duration-300 shadow-lg shadow-primary/10" href="#selected-work">View Projects</a>
                     <a class="px-8 py-4 bg-surface-container text-on-surface rounded-full font-medium hover:bg-surface-container-high transition-all duration-300" href="https://enriquesaez.github.io/homepage/cv/cv_enrique_eng.pdf" target="_blank">Download Resume [pdf]</a>
                 </div>
             </div>
@@ -240,7 +386,7 @@
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-container">
                     <!-- Project 1: Inercya Design System - Components -->
-                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="0">
+                    <div class="project-card group border rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="0">
                         <div class="aspect-[4/3] overflow-hidden bg-white">
                             <img alt="Inercya Design System Components" class="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-700" data-category="Design System • Figma" src="assets/css/images/figma-components.png" />
                         </div>
@@ -252,7 +398,7 @@
                         </div>
                     </div>
                     <!-- Project 2: Inercya Design System - Base Components -->
-                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="1">
+                    <div class="project-card group border rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="1">
                         <div class="aspect-[4/3] overflow-hidden bg-white">
                             <img alt="Inercya Design System Base Components" class="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-700" data-category="Design System • Figma" src="assets/css/images/figma-base-components.png" />
                         </div>
@@ -264,7 +410,7 @@
                         </div>
                     </div>
                     <!-- Project 3: CoreTalent -->
-                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="2">
+                    <div class="project-card group border rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="2">
                         <div class="aspect-[4/3] overflow-hidden bg-surface-container">
                             <img alt="CoreTalent UI Design" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="UI/UX Design • Figma" src="assets/css/images/coretalent.png" />
                         </div>
@@ -277,7 +423,7 @@
                         </div>
                     </div>
                     <!-- Project 4: InsudPharma -->
-                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="3">
+                    <div class="project-card group border rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="3">
                         <div class="aspect-[4/3] overflow-hidden bg-surface-container">
                             <img alt="InsudPharma Angular Development" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Web Development • Angular" src="assets/css/images/InsudPharma.png" />
                         </div>
@@ -289,7 +435,7 @@
                         </div>
                     </div>
                     <!-- Project 5: RTVE -->
-                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="4">
+                    <div class="project-card group border rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="4">
                         <div class="aspect-[4/3] overflow-hidden bg-surface-container">
                             <img alt="RTVE VerificarTVE" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Media • UX Design" src="images/verificartve.jpg" />
                         </div>
@@ -301,7 +447,7 @@
                         </div>
                     </div>
                     <!-- Project 6: Chameleon -->
-                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="5">
+                    <div class="project-card group border rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="5">
                         <div class="aspect-[4/3] overflow-hidden bg-surface-container">
                             <img alt="Web Development HTML5 SASS" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Frontend • HTML5 &amp; SASS" src="https://imgproxy.domestika.org/unsafe/w:820/dpr:1/plain/src://content-items/009/432/989/image_processing20210914-8202-5br4r7-original.png"
                             />
@@ -314,7 +460,7 @@
                         </div>
                     </div>
                     <!-- Project 7: BBVA Global Net Cash -->
-                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="6">
+                    <div class="project-card group border rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="6">
                         <div class="aspect-[4/3] overflow-hidden bg-surface-container">
                             <img alt="BBVA Global Net Cash" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Enterprise • Development" src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/004/902/095/home-original.jpg"
                             />
@@ -327,7 +473,7 @@
                         </div>
                     </div>
                     <!-- Project 8: Future Kids -->
-                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="7">
+                    <div class="project-card group border rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="7">
                         <div class="aspect-[4/3] overflow-hidden bg-surface-container">
                             <img alt="Future Kids Website" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Education • Design &amp; Code" src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/002/128/418/capture_futurekids-original.png"
                             />
@@ -340,7 +486,7 @@
                         </div>
                     </div>
                     <!-- Project 9: Inditex UX Visual Design -->
-                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="8">
+                    <div class="project-card group border rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="8">
                         <div class="aspect-[4/3] overflow-hidden bg-surface-container">
                             <img alt="Inditex UX Visual Design" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="UX Design • Figma" src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/009/516/500/triptico_v3-original.png"
                             />
@@ -353,7 +499,7 @@
                         </div>
                     </div>
                     <!-- Project 10: BBVA ESG Dashboard -->
-                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="9">
+                    <div class="project-card group border rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="9">
                         <div class="aspect-[4/3] overflow-hidden bg-surface-container">
                             <img alt="BBVA ESG Dashboard" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Fintech • Dashboard Design" src="assets/css/images/esg-ui-ux.png" />
                         </div>
@@ -365,7 +511,7 @@
                         </div>
                     </div>
                     <!-- Project 11: Badge Corporate Design -->
-                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="10">
+                    <div class="project-card group border rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="10">
                         <div class="aspect-[4/3] overflow-hidden bg-surface-container">
                             <img alt="Badge Corporate Design" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Visual Design • Figma" src="images/badge_bground-white.png" />
                         </div>
@@ -377,7 +523,7 @@
                         </div>
                     </div>
                     <!-- Project 12: API Village Email -->
-                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="11">
+                    <div class="project-card group border rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="11">
                         <div class="aspect-[4/3] overflow-hidden bg-surface-container">
                             <img alt="API Village Visual UX/UI Design" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="UI/UX Design • Figma" src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/009/432/865/email_template_api-village_V4-original.png"
                             />
@@ -390,7 +536,7 @@
                         </div>
                     </div>
                     <!-- Project 13: Figma Recipe -->
-                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="12">
+                    <div class="project-card group border rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="12">
                         <div class="aspect-[4/3] overflow-hidden bg-surface-container">
                             <img alt="Visual Design Recipe" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Visual Design • Figma" src="images/figma-recipe.jpg" />
                         </div>
@@ -402,7 +548,7 @@
                         </div>
                     </div>
                     <!-- Project 14: Bankia Dashboard -->
-                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="13">
+                    <div class="project-card group border rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="13">
                         <div class="aspect-[4/3] overflow-hidden bg-surface-container">
                             <img alt="Bankia Dashboard Fintech" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Fintech • Product Design" src="images/bankia-dashboard.png" />
                         </div>
@@ -414,7 +560,7 @@
                         </div>
                     </div>
                     <!-- Project 15: Spanish in Nature -->
-                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="14">
+                    <div class="project-card group border rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="14">
                         <div class="aspect-[4/3] overflow-hidden bg-surface-container">
                             <img alt="Spanish in Nature" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="WordPress • Full Design" src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/000/517/897/Untitled-1-original.jpg"
                             />
@@ -427,7 +573,7 @@
                         </div>
                     </div>
                     <!-- Project 16: Bootstrap Template -->
-                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="15">
+                    <div class="project-card group border rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="15">
                         <div class="aspect-[4/3] overflow-hidden bg-surface-container">
                             <img alt="Bootstrap Template Tourist Guide" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Frontend • Bootstrap" src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/002/177/705/guiat-original.png"
                             />
@@ -440,7 +586,7 @@
                         </div>
                     </div>
                     <!-- Project 17: Canal+ UX Design -->
-                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="16">
+                    <div class="project-card group border rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="16">
                         <div class="aspect-[4/3] overflow-hidden bg-surface-container">
                             <img alt="Canal+ UX Design" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="UX Design • Canal+" src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/001/263/938/cc-original.png"
                             />
@@ -453,7 +599,7 @@
                         </div>
                     </div>
                     <!-- Project 18: Tourist Guide Córdoba -->
-                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="17">
+                    <div class="project-card group border rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="17">
                         <div class="aspect-[4/3] overflow-hidden bg-surface-container">
                             <img alt="Tourist Guide Córdoba" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="WordPress • Web Design" src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/000/409/223/responsive_design-original.jpg"
                             />
@@ -466,7 +612,7 @@
                         </div>
                     </div>
                     <!-- Project 19: Cursogram -->
-                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="18">
+                    <div class="project-card group border rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="18">
                         <div class="aspect-[4/3] overflow-hidden bg-surface-container">
                             <img alt="Cursogram LifeRay" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Web Design • LifeRay" src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/001/155/969/Cursogram-original.png"
                             />
@@ -479,7 +625,7 @@
                         </div>
                     </div>
                     <!-- Project 20: BBVA Web Dev -->
-                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="19">
+                    <div class="project-card group border rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="19">
                         <div class="aspect-[4/3] overflow-hidden bg-surface-container">
                             <img alt="BBVA Web Development" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Web Development • HTML5" src="images/bbva-dashboard.png" />
                         </div>
@@ -491,7 +637,7 @@
                         </div>
                     </div>
                     <!-- Project 21: Canal+ Advertising -->
-                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="20">
+                    <div class="project-card group border rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="20">
                         <div class="aspect-[4/3] overflow-hidden bg-surface-container">
                             <img alt="Canal+ Advertising Campaigns" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Advertising • Design" src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/001/273/495/dentro-original.jpg"
                             />
@@ -504,7 +650,7 @@
                         </div>
                     </div>
                     <!-- Project 22: Garrigues Intranet -->
-                    <div class="project-card group bg-white border border-[#E5E5E7] rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="21">
+                    <div class="project-card group border rounded-[20px] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer" data-index="21">
                         <div class="aspect-[4/3] overflow-hidden bg-surface-container">
                             <img alt="Centro de Estudios Garrigues" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-category="Corporate • Intranet Design" src="https://imgproxy.domestika.org/unsafe/rs:fill/plain/src://content-items/001/263/929/03-Layout_Garrigues_Quien-es-Quien-original.png"
                             />
@@ -542,16 +688,52 @@
         <!-- Footer -->
         <footer class="py-20 px-8 w-full flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto rounded-t-xl">
             <div class="mb-8 md:mb-0">
-                <span class="font-bold text-zinc-900 block mb-2">Enrique Sáez</span>
-                <p class="font-['Inter'] text-sm leading-relaxed text-zinc-600">© 2026 Enrique Sáez. UI / UX &amp; Markup HTML Developer.</p>
+                <span class="font-bold text-zinc-900 dark:text-zinc-100 block mb-2">Enrique Sáez</span>
+                <p class="font-['Inter'] text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">© 2026 Enrique Sáez. UI / UX &amp; Markup HTML Developer.</p>
             </div>
-            <div class="flex gap-8"><a class="text-zinc-500 hover:text-zinc-900 underline-offset-4 hover:underline transition-opacity text-sm" href="https://www.linkedin.com/in/enriquesaez/">LinkedIn</a>
-                <a class="text-zinc-500 hover:text-zinc-900 underline-offset-4 hover:underline transition-opacity text-sm" href="https://dribbble.com/saez240">Dribbble</a>
-                <a class="text-zinc-500 hover:text-zinc-900 underline-offset-4 hover:underline transition-opacity text-sm" href="https://www.domestika.org/es/enrique_saez/portfolio">Domestika</a>
-                <a class="text-zinc-500 hover:text-zinc-900 underline-offset-4 hover:underline transition-opacity text-sm" href="https://x.com/esaez">X (Twitter)</a></div>
+            <div class="flex gap-8"><a class="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 underline-offset-4 hover:underline transition-opacity text-sm" href="https://www.linkedin.com/in/enriquesaez/">LinkedIn</a>
+                <a class="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 underline-offset-4 hover:underline transition-opacity text-sm" href="https://dribbble.com/saez240">Dribbble</a>
+                <a class="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 underline-offset-4 hover:underline transition-opacity text-sm" href="https://www.domestika.org/es/enrique_saez/portfolio">Domestika</a>
+                <a class="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 underline-offset-4 hover:underline transition-opacity text-sm" href="https://x.com/esaez">X (Twitter)</a></div>
         </footer>
     </main>
     <script>
+        // Theme switch: an explicit choice is remembered; until then the page follows the OS setting live.
+        (function () {
+            const root = document.documentElement;
+            const buttons = document.querySelectorAll('.theme-switch__btn');
+            const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+            function syncButtons() {
+                const current = root.classList.contains('dark') ? 'dark' : 'light';
+                buttons.forEach(btn => btn.setAttribute('aria-pressed', String(btn.dataset.themeValue === current)));
+            }
+
+            function applyTheme(theme, animate) {
+                if (animate) {
+                    root.classList.add('theme-transition');
+                    setTimeout(() => root.classList.remove('theme-transition'), 400);
+                }
+                root.classList.toggle('dark', theme === 'dark');
+                root.classList.toggle('light', theme !== 'dark');
+                syncButtons();
+            }
+
+            buttons.forEach(btn => btn.addEventListener('click', () => {
+                const theme = btn.dataset.themeValue;
+                try { localStorage.setItem('theme', theme); } catch (e) {}
+                applyTheme(theme, true);
+            }));
+
+            systemDark.addEventListener('change', e => {
+                let saved = null;
+                try { saved = localStorage.getItem('theme'); } catch (err) {}
+                if (!saved) applyTheme(e.matches ? 'dark' : 'light', true);
+            });
+
+            syncButtons();
+        })();
+
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const lightboxTitle = document.getElementById('lightbox-title');
