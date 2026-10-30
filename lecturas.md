@@ -11,8 +11,6 @@
 07\. **En defensa propia** — Mary Higgins Clark ⭐  
 08\. **La citación** — John Grisham ⭐
 
-## 
-
 ## **2015**
 
 01\. **22.11.63** — Stephen King ⭐⭐⭐⭐  
